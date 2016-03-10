@@ -15,6 +15,7 @@
 		00F60E5E1C91F90500D9D55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */; };
 		00F60E691C91F90600D9D55F /* iTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E681C91F90600D9D55F /* iTravelTests.m */; };
 		00F60E741C91F90600D9D55F /* iTravelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E731C91F90600D9D55F /* iTravelUITests.m */; };
+		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,9 @@
 		00F60E6F1C91F90600D9D55F /* iTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F60E731C91F90600D9D55F /* iTravelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTravelUITests.m; sourceTree = "<group>"; };
 		00F60E751C91F90600D9D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F77B39BAB42654D67305421 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +90,8 @@
 				00F60E671C91F90600D9D55F /* iTravelTests */,
 				00F60E721C91F90600D9D55F /* iTravelUITests */,
 				00F60E4C1C91F90500D9D55F /* Products */,
+				8E1F24A9E9845879264FE778 /* Pods */,
+				802EDF3ACBAFB91C403F8873 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +147,23 @@
 			path = iTravelUITests;
 			sourceTree = "<group>";
 		};
+		802EDF3ACBAFB91C403F8873 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07AC426721CB7EDC4CE9CE9D /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8E1F24A9E9845879264FE778 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */,
+				05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,9 +171,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00F60E781C91F90600D9D55F /* Build configuration list for PBXNativeTarget "iTravel" */;
 			buildPhases = (
+				C5DFFD4461A7A7990A4E2AF2 /* Check Pods Manifest.lock */,
 				00F60E471C91F90500D9D55F /* Sources */,
 				00F60E481C91F90500D9D55F /* Frameworks */,
 				00F60E491C91F90500D9D55F /* Resources */,
+				E251F9AEA66106B248BD540A /* Embed Pods Frameworks */,
+				B0F57650F9845B7490C94C2B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -264,6 +291,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B0F57650F9845B7490C94C2B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5DFFD4461A7A7990A4E2AF2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E251F9AEA66106B248BD540A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00F60E471C91F90500D9D55F /* Sources */ = {
@@ -411,9 +486,11 @@
 		};
 		00F60E791C91F90600D9D55F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lefthand.iTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -422,9 +499,11 @@
 		};
 		00F60E7A1C91F90600D9D55F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = iTravel/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lefthand.iTravel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +577,7 @@
 				00F60E7A1C91F90600D9D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F60E7B1C91F90600D9D55F /* Build configuration list for PBXNativeTarget "iTravelTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +586,7 @@
 				00F60E7D1C91F90600D9D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00F60E7E1C91F90600D9D55F /* Build configuration list for PBXNativeTarget "iTravelUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +595,7 @@
 				00F60E801C91F90600D9D55F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
