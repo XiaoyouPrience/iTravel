@@ -217,6 +217,7 @@
 		00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C061C95BE6000FAB38B /* AppDelegate.m */; };
 		00D09C0B1C95BE6000FAB38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C071C95BE6000FAB38B /* main.m */; };
 		00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C091C95BE6000FAB38B /* ViewController.m */; };
+		00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C111C95CF1000FAB38B /* UIImage+XY.m */; };
 		00F60E591C91F90500D9D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E571C91F90500D9D55F /* Main.storyboard */; };
 		00F60E5B1C91F90500D9D55F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5A1C91F90500D9D55F /* Assets.xcassets */; };
 		00F60E5E1C91F90500D9D55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */; };
@@ -460,6 +461,10 @@
 		00D09C071C95BE6000FAB38B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		00D09C081C95BE6000FAB38B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		00D09C091C95BE6000FAB38B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		00D09C0D1C95C2BF00FAB38B /* iTravel.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iTravel.pch; sourceTree = "<group>"; };
+		00D09C0E1C95CBD400FAB38B /* ACMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMacros.h; sourceTree = "<group>"; };
+		00D09C101C95CF1000FAB38B /* UIImage+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XY.h"; sourceTree = "<group>"; };
+		00D09C111C95CF1000FAB38B /* UIImage+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XY.m"; sourceTree = "<group>"; };
 		00F60E4B1C91F90500D9D55F /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F60E581C91F90500D9D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00F60E5A1C91F90500D9D55F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -972,13 +977,25 @@
 		00D09C041C95BE6000FAB38B /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				00D09C0F1C95CEFB00FAB38B /* Categarys */,
 				00D09C051C95BE6000FAB38B /* AppDelegate.h */,
 				00D09C061C95BE6000FAB38B /* AppDelegate.m */,
 				00D09C071C95BE6000FAB38B /* main.m */,
 				00D09C081C95BE6000FAB38B /* ViewController.h */,
 				00D09C091C95BE6000FAB38B /* ViewController.m */,
+				00D09C0D1C95C2BF00FAB38B /* iTravel.pch */,
+				00D09C0E1C95CBD400FAB38B /* ACMacros.h */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		00D09C0F1C95CEFB00FAB38B /* Categarys */ = {
+			isa = PBXGroup;
+			children = (
+				00D09C101C95CF1000FAB38B /* UIImage+XY.h */,
+				00D09C111C95CF1000FAB38B /* UIImage+XY.m */,
+			);
+			path = Categarys;
 			sourceTree = "<group>";
 		};
 		00F60E421C91F90500D9D55F = {
@@ -1448,6 +1465,7 @@
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
+				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
 				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
 				00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
@@ -1596,6 +1614,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iTravel/Other/iTravel.pch";
 				INFOPLIST_FILE = iTravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1612,6 +1633,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/iTravel/Other/iTravel.pch";
 				INFOPLIST_FILE = iTravel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -11,6 +11,7 @@
 #import "XYNavigationViewController.h"
 #import "XYDiscoverViewController.h"
 #import "XYMeViewController.h"
+#import "UIImage+XY.h"
 
 @interface XYTabBarViewController ()
 
@@ -64,10 +65,22 @@
  */
 - (void)setupChildViewControllers:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName seletedImageName:(NSString *)seletedImageName
 {
-    
+    // 0.设置标题
     childVC.title = title;
-    childVC.tabBarItem.image = [[UIImage imageNamed:imageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    childVC.tabBarItem.selectedImage = [[UIImage imageNamed:seletedImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    // 1.设置图标
+    childVC.tabBarItem.image = [UIImage imageWithName:imageName];
+    
+    // 2.设置选中图标
+    if (iOS7) {
+        // 如果是ios7 就设置图片不要被渲染
+        childVC.tabBarItem.selectedImage = [[UIImage imageWithName:seletedImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    }else
+    {   // ios7 以下就直接使用图标
+        childVC.tabBarItem.selectedImage = [UIImage imageWithName:seletedImageName];
+    }
+    
+    // 3.设置导航栏
     UINavigationController *childNav = [[UINavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:childNav];
 }
