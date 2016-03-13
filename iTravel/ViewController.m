@@ -18,16 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    
-    NSArray *array = @[@1,@2,@3,@4,@5];
-    
-    
-    // 遍历数组
-    [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-        NSLog(@" obj == %@ . idx == %ld . stop == %@",obj,idx,stop?@"yes":@"no");
-        
-    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
