@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00D09A2E1C94BDD800FAB38B /* XYMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09A2D1C94BDD800FAB38B /* XYMapViewController.m */; };
-		00D09A311C94BE7A00FAB38B /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09A301C94BE7A00FAB38B /* XYNavigationViewController.m */; };
-		00D09A341C94BE9900FAB38B /* XYDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09A331C94BE9900FAB38B /* XYDiscoverViewController.m */; };
-		00D09A371C94BEC700FAB38B /* XYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09A361C94BEC700FAB38B /* XYTabBarViewController.m */; };
-		00D09A3A1C94BF2D00FAB38B /* XYMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09A391C94BF2D00FAB38B /* XYMeViewController.m */; };
 		00D09B161C95B1A500FAB38B /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A431C95B1A400FAB38B /* icon.png */; };
 		00D09B171C95B1A500FAB38B /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A441C95B1A400FAB38B /* icon@2x.png */; };
 		00D09B181C95B1A500FAB38B /* icon_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A451C95B1A400FAB38B /* icon_os7@2x.png */; };
@@ -214,9 +209,14 @@
 		00D09BDD1C95B1A500FAB38B /* tabbar_profile_selected_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09B131C95B1A500FAB38B /* tabbar_profile_selected_os7@2x.png */; };
 		00D09BDE1C95B1A500FAB38B /* tabbar_slider.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09B141C95B1A500FAB38B /* tabbar_slider.png */; };
 		00D09BDF1C95B1A500FAB38B /* tabbar_slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09B151C95B1A500FAB38B /* tabbar_slider@2x.png */; };
-		00F60E501C91F90500D9D55F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E4F1C91F90500D9D55F /* main.m */; };
-		00F60E531C91F90500D9D55F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E521C91F90500D9D55F /* AppDelegate.m */; };
-		00F60E561C91F90500D9D55F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E551C91F90500D9D55F /* ViewController.m */; };
+		00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BE41C95BE4D00FAB38B /* XYDiscoverViewController.m */; };
+		00D09C001C95BE4D00FAB38B /* XYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */; };
+		00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BF01C95BE4D00FAB38B /* XYMapViewController.m */; };
+		00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */; };
+		00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */; };
+		00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C061C95BE6000FAB38B /* AppDelegate.m */; };
+		00D09C0B1C95BE6000FAB38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C071C95BE6000FAB38B /* main.m */; };
+		00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C091C95BE6000FAB38B /* ViewController.m */; };
 		00F60E591C91F90500D9D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E571C91F90500D9D55F /* Main.storyboard */; };
 		00F60E5B1C91F90500D9D55F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5A1C91F90500D9D55F /* Assets.xcassets */; };
 		00F60E5E1C91F90500D9D55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */; };
@@ -243,16 +243,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00D09A2C1C94BDD800FAB38B /* XYMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMapViewController.h; sourceTree = "<group>"; };
-		00D09A2D1C94BDD800FAB38B /* XYMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMapViewController.m; sourceTree = "<group>"; };
-		00D09A2F1C94BE7A00FAB38B /* XYNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNavigationViewController.h; sourceTree = "<group>"; };
-		00D09A301C94BE7A00FAB38B /* XYNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNavigationViewController.m; sourceTree = "<group>"; };
-		00D09A321C94BE9900FAB38B /* XYDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDiscoverViewController.h; sourceTree = "<group>"; };
-		00D09A331C94BE9900FAB38B /* XYDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDiscoverViewController.m; sourceTree = "<group>"; };
-		00D09A351C94BEC700FAB38B /* XYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTabBarViewController.h; sourceTree = "<group>"; };
-		00D09A361C94BEC700FAB38B /* XYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTabBarViewController.m; sourceTree = "<group>"; };
-		00D09A381C94BF2D00FAB38B /* XYMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMeViewController.h; sourceTree = "<group>"; };
-		00D09A391C94BF2D00FAB38B /* XYMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMeViewController.m; sourceTree = "<group>"; };
 		00D09A431C95B1A400FAB38B /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		00D09A441C95B1A400FAB38B /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		00D09A451C95B1A400FAB38B /* icon_os7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_os7@2x.png"; sourceTree = "<group>"; };
@@ -455,12 +445,22 @@
 		00D09B131C95B1A500FAB38B /* tabbar_profile_selected_os7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_profile_selected_os7@2x.png"; sourceTree = "<group>"; };
 		00D09B141C95B1A500FAB38B /* tabbar_slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar_slider.png; sourceTree = "<group>"; };
 		00D09B151C95B1A500FAB38B /* tabbar_slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_slider@2x.png"; sourceTree = "<group>"; };
+		00D09BE31C95BE4D00FAB38B /* XYDiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYDiscoverViewController.h; sourceTree = "<group>"; };
+		00D09BE41C95BE4D00FAB38B /* XYDiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYDiscoverViewController.m; sourceTree = "<group>"; };
+		00D09BE91C95BE4D00FAB38B /* XYTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTabBarViewController.h; sourceTree = "<group>"; };
+		00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTabBarViewController.m; sourceTree = "<group>"; };
+		00D09BEF1C95BE4D00FAB38B /* XYMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMapViewController.h; sourceTree = "<group>"; };
+		00D09BF01C95BE4D00FAB38B /* XYMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMapViewController.m; sourceTree = "<group>"; };
+		00D09BF51C95BE4D00FAB38B /* XYMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMeViewController.h; sourceTree = "<group>"; };
+		00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMeViewController.m; sourceTree = "<group>"; };
+		00D09BFB1C95BE4D00FAB38B /* XYNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNavigationViewController.h; sourceTree = "<group>"; };
+		00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNavigationViewController.m; sourceTree = "<group>"; };
+		00D09C051C95BE6000FAB38B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		00D09C061C95BE6000FAB38B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		00D09C071C95BE6000FAB38B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		00D09C081C95BE6000FAB38B /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		00D09C091C95BE6000FAB38B /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		00F60E4B1C91F90500D9D55F /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		00F60E4F1C91F90500D9D55F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		00F60E511C91F90500D9D55F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		00F60E521C91F90500D9D55F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		00F60E541C91F90500D9D55F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		00F60E551C91F90500D9D55F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		00F60E581C91F90500D9D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00F60E5A1C91F90500D9D55F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00F60E5D1C91F90500D9D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -792,6 +792,195 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		00D09BE01C95BE4D00FAB38B /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BE71C95BE4D00FAB38B /* Main */,
+				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
+				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
+				00D09BF91C95BE4D00FAB38B /* NavIgation(导航) */,
+				00D09BF31C95BE4D00FAB38B /* Me(我) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		00D09BE11C95BE4D00FAB38B /* Discover(发现) */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BE21C95BE4D00FAB38B /* Controller */,
+				00D09BE51C95BE4D00FAB38B /* Model */,
+				00D09BE61C95BE4D00FAB38B /* View */,
+			);
+			path = "Discover(发现)";
+			sourceTree = "<group>";
+		};
+		00D09BE21C95BE4D00FAB38B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BE31C95BE4D00FAB38B /* XYDiscoverViewController.h */,
+				00D09BE41C95BE4D00FAB38B /* XYDiscoverViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00D09BE51C95BE4D00FAB38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00D09BE61C95BE4D00FAB38B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00D09BE71C95BE4D00FAB38B /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BE81C95BE4D00FAB38B /* Controller */,
+				00D09BEB1C95BE4D00FAB38B /* Model */,
+				00D09BEC1C95BE4D00FAB38B /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		00D09BE81C95BE4D00FAB38B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BE91C95BE4D00FAB38B /* XYTabBarViewController.h */,
+				00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00D09BEB1C95BE4D00FAB38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00D09BEC1C95BE4D00FAB38B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00D09BED1C95BE4D00FAB38B /* Map(地图) */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BEE1C95BE4D00FAB38B /* Controller */,
+				00D09BF11C95BE4D00FAB38B /* Model */,
+				00D09BF21C95BE4D00FAB38B /* View */,
+			);
+			path = "Map(地图)";
+			sourceTree = "<group>";
+		};
+		00D09BEE1C95BE4D00FAB38B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BEF1C95BE4D00FAB38B /* XYMapViewController.h */,
+				00D09BF01C95BE4D00FAB38B /* XYMapViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00D09BF11C95BE4D00FAB38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00D09BF21C95BE4D00FAB38B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00D09BF31C95BE4D00FAB38B /* Me(我) */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BF41C95BE4D00FAB38B /* Controller */,
+				00D09BF71C95BE4D00FAB38B /* Model */,
+				00D09BF81C95BE4D00FAB38B /* View */,
+			);
+			path = "Me(我)";
+			sourceTree = "<group>";
+		};
+		00D09BF41C95BE4D00FAB38B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BF51C95BE4D00FAB38B /* XYMeViewController.h */,
+				00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00D09BF71C95BE4D00FAB38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00D09BF81C95BE4D00FAB38B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00D09BF91C95BE4D00FAB38B /* NavIgation(导航) */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BFA1C95BE4D00FAB38B /* Controller */,
+				00D09BFD1C95BE4D00FAB38B /* Model */,
+				00D09BFE1C95BE4D00FAB38B /* View */,
+			);
+			path = "NavIgation(导航)";
+			sourceTree = "<group>";
+		};
+		00D09BFA1C95BE4D00FAB38B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00D09BFB1C95BE4D00FAB38B /* XYNavigationViewController.h */,
+				00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00D09BFD1C95BE4D00FAB38B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00D09BFE1C95BE4D00FAB38B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		00D09C041C95BE6000FAB38B /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				00D09C051C95BE6000FAB38B /* AppDelegate.h */,
+				00D09C061C95BE6000FAB38B /* AppDelegate.m */,
+				00D09C071C95BE6000FAB38B /* main.m */,
+				00D09C081C95BE6000FAB38B /* ViewController.h */,
+				00D09C091C95BE6000FAB38B /* ViewController.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		00F60E421C91F90500D9D55F = {
 			isa = PBXGroup;
 			children = (
@@ -817,20 +1006,8 @@
 		00F60E4D1C91F90500D9D55F /* iTravel */ = {
 			isa = PBXGroup;
 			children = (
-				00F60E511C91F90500D9D55F /* AppDelegate.h */,
-				00F60E521C91F90500D9D55F /* AppDelegate.m */,
-				00D09A351C94BEC700FAB38B /* XYTabBarViewController.h */,
-				00D09A361C94BEC700FAB38B /* XYTabBarViewController.m */,
-				00D09A2C1C94BDD800FAB38B /* XYMapViewController.h */,
-				00D09A2D1C94BDD800FAB38B /* XYMapViewController.m */,
-				00D09A2F1C94BE7A00FAB38B /* XYNavigationViewController.h */,
-				00D09A301C94BE7A00FAB38B /* XYNavigationViewController.m */,
-				00D09A321C94BE9900FAB38B /* XYDiscoverViewController.h */,
-				00D09A331C94BE9900FAB38B /* XYDiscoverViewController.m */,
-				00D09A381C94BF2D00FAB38B /* XYMeViewController.h */,
-				00D09A391C94BF2D00FAB38B /* XYMeViewController.m */,
-				00F60E541C91F90500D9D55F /* ViewController.h */,
-				00F60E551C91F90500D9D55F /* ViewController.m */,
+				00D09BE01C95BE4D00FAB38B /* Classes */,
+				00D09C041C95BE6000FAB38B /* Other */,
 				00F60E4E1C91F90500D9D55F /* Supporting Files */,
 			);
 			path = iTravel;
@@ -844,7 +1021,6 @@
 				00F60E5A1C91F90500D9D55F /* Assets.xcassets */,
 				00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */,
 				00F60E5F1C91F90500D9D55F /* Info.plist */,
-				00F60E4F1C91F90500D9D55F /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -1269,14 +1445,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00F60E561C91F90500D9D55F /* ViewController.m in Sources */,
-				00D09A3A1C94BF2D00FAB38B /* XYMeViewController.m in Sources */,
-				00F60E531C91F90500D9D55F /* AppDelegate.m in Sources */,
-				00D09A371C94BEC700FAB38B /* XYTabBarViewController.m in Sources */,
-				00D09A311C94BE7A00FAB38B /* XYNavigationViewController.m in Sources */,
-				00D09A2E1C94BDD800FAB38B /* XYMapViewController.m in Sources */,
-				00D09A341C94BE9900FAB38B /* XYDiscoverViewController.m in Sources */,
-				00F60E501C91F90500D9D55F /* main.m in Sources */,
+				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
+				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
+				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
+				00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */,
+				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
+				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
+				00D09C001C95BE4D00FAB38B /* XYTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
