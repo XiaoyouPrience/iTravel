@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class XYTabbar;
+@protocol XYTabbarDelegate <NSObject>
+
+@optional
+- (void)tabBar:(XYTabbar *)tabBar didSelectedButtonFrom:(int)from to:(int)to;
+
+@end
+
 @interface XYTabbar : UIView
 
 - (void)addTabBarButtonWithItem:(UITabBarItem *)item;
+
+@property (nonatomic,weak) id<XYTabbarDelegate> delegate;
 
 @end

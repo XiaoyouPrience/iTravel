@@ -224,6 +224,7 @@
 		00F60E5E1C91F90500D9D55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */; };
 		00F60E691C91F90600D9D55F /* iTravelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E681C91F90600D9D55F /* iTravelTests.m */; };
 		00F60E741C91F90600D9D55F /* iTravelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F60E731C91F90600D9D55F /* iTravelUITests.m */; };
+		00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F744841C95EC9C0063504A /* XYTabbarButton.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -479,6 +480,8 @@
 		00F60E6F1C91F90600D9D55F /* iTravelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iTravelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F60E731C91F90600D9D55F /* iTravelUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iTravelUITests.m; sourceTree = "<group>"; };
 		00F60E751C91F90600D9D55F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		00F744831C95EC9C0063504A /* XYTabbarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTabbarButton.h; sourceTree = "<group>"; };
+		00F744841C95EC9C0063504A /* XYTabbarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTabbarButton.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -876,6 +879,8 @@
 			children = (
 				00D09C161C95DF1D00FAB38B /* XYTabbar.h */,
 				00D09C171C95DF1D00FAB38B /* XYTabbar.m */,
+				00F744831C95EC9C0063504A /* XYTabbarButton.h */,
+				00F744841C95EC9C0063504A /* XYTabbarButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1468,6 +1473,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,

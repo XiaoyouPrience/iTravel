@@ -14,7 +14,7 @@
 #import "UIImage+XY.h"
 #import "XYTabbar.h"
 
-@interface XYTabBarViewController ()
+@interface XYTabBarViewController ()<XYTabbarDelegate>
 
 @property (nonatomic,weak) XYTabbar *costomTabbar;
 @end
@@ -55,12 +55,24 @@
  */
 -(void)setupTabbar
 {
+    // 创建并添加到系统Tabbar上面
     XYTabbar *costomTabBar = [[XYTabbar alloc] init];
-    costomTabBar.backgroundColor = [UIColor redColor];
     costomTabBar.frame = self.tabBar.bounds; // 设置位置必须用bounds，因为这样才能显示到tabbar 上
     [self.tabBar addSubview:costomTabBar];
+    costomTabBar.delegate = self;
     
+    // 赋值给成员变量
     self.costomTabbar = costomTabBar;
+}
+/**
+ *  tabBar代理方法
+ */
+- (void)tabBar:(XYTabbar *)tabBar didSelectedButtonFrom:(int)from to:(int)to
+{
+    NSLog(@"%d ---- > %d",from,to);
+    
+    // 抓取到要去的控制器，跳转
+    self.selectedIndex = to;
 }
 
 
