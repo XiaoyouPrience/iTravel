@@ -14,12 +14,7 @@
 {
     [super viewDidLoad];
     
-    if (iOS7) {
-        NSLog(@"你好");
-    }else
-    {
-        NSLog(@"我不好");
-    }
+
 }
 
 

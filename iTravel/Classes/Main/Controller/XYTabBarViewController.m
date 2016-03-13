@@ -12,10 +12,11 @@
 #import "XYDiscoverViewController.h"
 #import "XYMeViewController.h"
 #import "UIImage+XY.h"
+#import "XYTabbar.h"
 
 @interface XYTabBarViewController ()
 
-
+@property (nonatomic,weak) XYTabbar *costomTabbar;
 @end
 
 @implementation XYTabBarViewController
@@ -27,12 +28,43 @@
 {
     [super viewDidLoad];
     
+    // 初始化自定制 Tabbar
+    [self setupTabbar];
     
     // 初始化子控制器
     [self setupChildViewControllers];
     
-
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    // 只有在将要显示的时才会有Tabbar上面的button --> 删除上面自带的button
+    for (UIView *child in self.tabBar.subviews) {
+        if ([child isKindOfClass:[UIControl class]]) {
+            [child removeFromSuperview];
+        }
+    }
+    
+}
+
+
+/**
+ *  初始化Tabbar
+ */
+-(void)setupTabbar
+{
+    XYTabbar *costomTabBar = [[XYTabbar alloc] init];
+    costomTabBar.backgroundColor = [UIColor redColor];
+    costomTabBar.frame = self.tabBar.bounds; // 设置位置必须用bounds，因为这样才能显示到tabbar 上
+    [self.tabBar addSubview:costomTabBar];
+    
+    self.costomTabbar = costomTabBar;
+}
+
+
+
 /**
  *  初始化子控制器
  */
@@ -83,6 +115,9 @@
     // 3.设置导航栏
     UINavigationController *childNav = [[UINavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:childNav];
+    
+    // 4.加载Tabbar按钮
+    [self.costomTabbar addTabBarButtonWithItem:childVC.tabBarItem];
 }
 
 

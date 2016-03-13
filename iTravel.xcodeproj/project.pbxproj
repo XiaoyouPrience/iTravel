@@ -218,6 +218,7 @@
 		00D09C0B1C95BE6000FAB38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C071C95BE6000FAB38B /* main.m */; };
 		00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C091C95BE6000FAB38B /* ViewController.m */; };
 		00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C111C95CF1000FAB38B /* UIImage+XY.m */; };
+		00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C171C95DF1D00FAB38B /* XYTabbar.m */; };
 		00F60E591C91F90500D9D55F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E571C91F90500D9D55F /* Main.storyboard */; };
 		00F60E5B1C91F90500D9D55F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5A1C91F90500D9D55F /* Assets.xcassets */; };
 		00F60E5E1C91F90500D9D55F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00F60E5C1C91F90500D9D55F /* LaunchScreen.storyboard */; };
@@ -465,6 +466,8 @@
 		00D09C0E1C95CBD400FAB38B /* ACMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMacros.h; sourceTree = "<group>"; };
 		00D09C101C95CF1000FAB38B /* UIImage+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+XY.h"; sourceTree = "<group>"; };
 		00D09C111C95CF1000FAB38B /* UIImage+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+XY.m"; sourceTree = "<group>"; };
+		00D09C161C95DF1D00FAB38B /* XYTabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTabbar.h; sourceTree = "<group>"; };
+		00D09C171C95DF1D00FAB38B /* XYTabbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTabbar.m; sourceTree = "<group>"; };
 		00F60E4B1C91F90500D9D55F /* iTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00F60E581C91F90500D9D55F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		00F60E5A1C91F90500D9D55F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -871,6 +874,8 @@
 		00D09BEC1C95BE4D00FAB38B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00D09C161C95DF1D00FAB38B /* XYTabbar.h */,
+				00D09C171C95DF1D00FAB38B /* XYTabbar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1466,6 +1471,7 @@
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
+				00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */,
 				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
 				00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
