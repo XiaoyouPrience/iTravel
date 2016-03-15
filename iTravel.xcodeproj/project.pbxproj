@@ -226,6 +226,7 @@
 		00F7448C1C9669A00063504A /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F744881C9669A00063504A /* icon@2x.png */; };
 		00F7448D1C9669A00063504A /* icon_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F744891C9669A00063504A /* icon_iPad.png */; };
 		00F7448E1C9669A00063504A /* icon_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F7448A1C9669A00063504A /* icon_iPad@2x.png */; };
+		00F744911C98898C0063504A /* XYBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F744901C98898C0063504A /* XYBadgeButton.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -484,6 +485,8 @@
 		00F744881C9669A00063504A /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		00F744891C9669A00063504A /* icon_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_iPad.png; sourceTree = "<group>"; };
 		00F7448A1C9669A00063504A /* icon_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_iPad@2x.png"; sourceTree = "<group>"; };
+		00F7448F1C98898C0063504A /* XYBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYBadgeButton.h; sourceTree = "<group>"; };
+		00F744901C98898C0063504A /* XYBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYBadgeButton.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -807,9 +810,9 @@
 			isa = PBXGroup;
 			children = (
 				00D09BE71C95BE4D00FAB38B /* Main */,
-				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
 				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
 				00D09BF91C95BE4D00FAB38B /* NavIgation(导航) */,
+				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
 				00D09BF31C95BE4D00FAB38B /* Me(我) */,
 			);
 			path = Classes;
@@ -881,6 +884,8 @@
 				00D09C171C95DF1D00FAB38B /* XYTabbar.m */,
 				00F744831C95EC9C0063504A /* XYTabbarButton.h */,
 				00F744841C95EC9C0063504A /* XYTabbarButton.m */,
+				00F7448F1C98898C0063504A /* XYBadgeButton.h */,
+				00F744901C98898C0063504A /* XYBadgeButton.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1494,6 +1499,7 @@
 				00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
+				00F744911C98898C0063504A /* XYBadgeButton.m in Sources */,
 				00D09C001C95BE4D00FAB38B /* XYTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

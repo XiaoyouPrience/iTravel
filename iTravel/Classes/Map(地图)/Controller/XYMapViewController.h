@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYMapViewController : UITabBarController
+@interface XYMapViewController : UIViewController
 
 @end

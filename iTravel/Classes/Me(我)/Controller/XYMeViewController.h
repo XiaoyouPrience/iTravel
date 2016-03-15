@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYMeViewController : UITabBarController
+@interface XYMeViewController : UIViewController
 
 @end

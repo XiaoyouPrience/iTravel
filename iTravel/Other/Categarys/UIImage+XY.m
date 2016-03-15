@@ -29,4 +29,11 @@
     return [UIImage imageNamed:name];
 }
 
++ (UIImage *)resiedImageWithName:(NSString *)name
+{
+    UIImage *image = [self imageWithName:name];
+    
+    return [image stretchableImageWithLeftCapWidth:image.size.width * 0.5 topCapHeight:image.size.height * 0.5];
+}
+
 @end

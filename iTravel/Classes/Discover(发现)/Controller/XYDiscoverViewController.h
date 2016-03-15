@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYDiscoverViewController : UITabBarController
+@interface XYDiscoverViewController : UIViewController
 
 @end

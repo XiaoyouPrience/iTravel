@@ -44,11 +44,6 @@
     
     // 设置数据
     button.item = item;
-    /**
-     [button setTitle:item.title forState:UIControlStateNormal];
-     [button setImage:item.image forState:UIControlStateNormal];
-     [button setImage:item.selectedImage forState:UIControlStateSelected];
-     */
     
     // 监听按钮点击
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchDown];

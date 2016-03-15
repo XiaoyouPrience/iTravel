@@ -14,10 +14,11 @@
 #define  XYTabBarButtonTitleSelectedColor (iOS7 ? XYColor(234, 103, 7) : XYColor(248, 139, 0))
 
 #import "XYTabbarButton.h"
+#import "XYBadgeButton.h"
 
 @interface XYTabbarButton()
 
-
+@property (nonatomic,weak) XYBadgeButton *badgeButton;
 
 @end
 
@@ -38,6 +39,12 @@
         if (!iOS7) {
             [self setBackgroundImage:[UIImage imageWithName:@"tabbar_slider"] forState:UIControlStateSelected];
         }
+        
+        // 内部badgeButton
+        XYBadgeButton *badgeButton = [[XYBadgeButton alloc] init];
+        badgeButton.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
+        [self addSubview:badgeButton];
+        self.badgeButton = badgeButton;
         
     }
     return self;
@@ -75,9 +82,42 @@
 {
     _item = item;
     
-    [self setTitle:item.title forState:UIControlStateNormal];
-    [self setImage:item.image forState:UIControlStateNormal];
-    [self setImage:item.selectedImage forState:UIControlStateSelected];
+    
+    // KVO 监听属性改变
+    [item addObserver:self forKeyPath:@"badgeValue" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"title" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"image" options:0 context:nil];
+    [item addObserver:self forKeyPath:@"selectedImage" options:0 context:nil];
+    
+    // 第一次主动调用一下
+    [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
+    
+}
+
+/* 移除观察者*/
+- (void)dealloc
+{
+    [self.item removeObserver:self forKeyPath:@"badgeValue"];
+    [self.item removeObserver:self forKeyPath:@"title"];
+    [self.item removeObserver:self forKeyPath:@"image"];
+    [self.item removeObserver:self forKeyPath:@"selectedImage"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    [self setTitle:self.item.title forState:UIControlStateNormal];
+    [self setImage:self.item.image forState:UIControlStateNormal];
+    [self setImage:self.item.selectedImage forState:UIControlStateSelected];
+    
+    // 赋值，显示自己的 badgeValue
+    self.badgeButton.badgeValue = self.item.badgeValue;
+    // 设置badgeButton 的位置
+    CGFloat badgeX = self.frame.size.width - self.badgeButton.frame.size.width - 5;
+    CGFloat badgeY = 5;
+    CGRect badgeF =  self.badgeButton.frame;
+    badgeF.origin.x = badgeX;
+    badgeF.origin.y = badgeY;
+    self.badgeButton.frame = badgeF;
 }
 
 @end

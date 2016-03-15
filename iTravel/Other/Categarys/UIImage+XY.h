@@ -13,5 +13,9 @@
  *  返回一张适配后的图片
  */
 + (UIImage *)imageWithName:(NSString *)name;
+/**
+ *  返回一张自由拉伸的图片
+ */
++ (UIImage *)resiedImageWithName:(NSString *)name;
 
 @end

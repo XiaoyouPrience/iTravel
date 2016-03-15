@@ -84,14 +84,21 @@
 {
     // 初始化子控制器
     XYMapViewController *mapVC = [[XYMapViewController alloc] init];
+    
+    // TabbarItem模型的数据必须先赋值，在后面调用的时候才会有值
+    mapVC.tabBarItem.badgeValue = @"weee";
+    mapVC.view.backgroundColor = [UIColor blackColor];
     [self setupChildViewControllers:mapVC title:@"地图" imageName:@"tabbar_home" seletedImageName:@"tabbar_home_selected"];
     
     
+    
     XYNavigationViewController *navVc = [[XYNavigationViewController alloc] init];
+    navVc.tabBarItem.badgeValue = @"weee";
     [self setupChildViewControllers:navVc title:@"导航" imageName:@"tabbar_message_center" seletedImageName:@"tabbar_message_center_selected"];
     
     
     XYDiscoverViewController *disVC = [[XYDiscoverViewController alloc] init];
+    disVC.tabBarItem.badgeValue = @"1";
     [self setupChildViewControllers:disVC title:@"发现" imageName:@"tabbar_discover" seletedImageName:@"tabbar_discover_selected"];
     
     
