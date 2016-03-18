@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XYNavigationViewController : UITableViewController
+@interface XYWeiBoViewController : UITableViewController
 
 @end

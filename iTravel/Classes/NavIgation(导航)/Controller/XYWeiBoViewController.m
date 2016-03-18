@@ -6,8 +6,9 @@
 //  Copyright © 2016年 XY. All rights reserved.
 //
 
-#import "XYNavigationViewController.h"
+#import "XYWeiBoViewController.h"
 
-@implementation XYNavigationViewController
+@implementation XYWeiBoViewController
+
 
 @end

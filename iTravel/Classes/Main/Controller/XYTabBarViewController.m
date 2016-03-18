@@ -8,11 +8,12 @@
 
 #import "XYTabBarViewController.h"
 #import "XYMapViewController.h"
-#import "XYNavigationViewController.h"
+#import "XYWeiBoViewController.h"
 #import "XYDiscoverViewController.h"
 #import "XYMeViewController.h"
 #import "UIImage+XY.h"
 #import "XYTabbar.h"
+#import "XYNavigationController.h"
 
 @interface XYTabBarViewController ()<XYTabbarDelegate>
 
@@ -92,9 +93,9 @@
     
     
     
-    XYNavigationViewController *navVc = [[XYNavigationViewController alloc] init];
+    XYWeiBoViewController *navVc = [[XYWeiBoViewController alloc] init];
     navVc.tabBarItem.badgeValue = @"weee";
-    [self setupChildViewControllers:navVc title:@"导航" imageName:@"tabbar_message_center" seletedImageName:@"tabbar_message_center_selected"];
+    [self setupChildViewControllers:navVc title:@"微博" imageName:@"tabbar_message_center" seletedImageName:@"tabbar_message_center_selected"];
     
     
     XYDiscoverViewController *disVC = [[XYDiscoverViewController alloc] init];
@@ -132,11 +133,12 @@
     }
     
     // 3.设置导航栏
-    UINavigationController *childNav = [[UINavigationController alloc] initWithRootViewController:childVC];
+    XYNavigationController *childNav = [[XYNavigationController alloc] initWithRootViewController:childVC];
     [self addChildViewController:childNav];
     
     // 4.加载Tabbar按钮
     [self.costomTabbar addTabBarButtonWithItem:childVC.tabBarItem];
+    
 }
 
 

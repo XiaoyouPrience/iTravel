@@ -210,7 +210,7 @@
 		00D09C001C95BE4D00FAB38B /* XYTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */; };
 		00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BF01C95BE4D00FAB38B /* XYMapViewController.m */; };
 		00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */; };
-		00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */; };
+		00D09C031C95BE4D00FAB38B /* XYWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09BFC1C95BE4D00FAB38B /* XYWeiBoViewController.m */; };
 		00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C061C95BE6000FAB38B /* AppDelegate.m */; };
 		00D09C0B1C95BE6000FAB38B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C071C95BE6000FAB38B /* main.m */; };
 		00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D09C091C95BE6000FAB38B /* ViewController.m */; };
@@ -227,6 +227,7 @@
 		00F7448D1C9669A00063504A /* icon_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F744891C9669A00063504A /* icon_iPad.png */; };
 		00F7448E1C9669A00063504A /* icon_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00F7448A1C9669A00063504A /* icon_iPad@2x.png */; };
 		00F744911C98898C0063504A /* XYBadgeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F744901C98898C0063504A /* XYBadgeButton.m */; };
+		00F744941C98E8130063504A /* XYNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F744931C98E8130063504A /* XYNavigationController.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -455,8 +456,8 @@
 		00D09BF01C95BE4D00FAB38B /* XYMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMapViewController.m; sourceTree = "<group>"; };
 		00D09BF51C95BE4D00FAB38B /* XYMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYMeViewController.h; sourceTree = "<group>"; };
 		00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYMeViewController.m; sourceTree = "<group>"; };
-		00D09BFB1C95BE4D00FAB38B /* XYNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNavigationViewController.h; sourceTree = "<group>"; };
-		00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNavigationViewController.m; sourceTree = "<group>"; };
+		00D09BFB1C95BE4D00FAB38B /* XYWeiBoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYWeiBoViewController.h; sourceTree = "<group>"; };
+		00D09BFC1C95BE4D00FAB38B /* XYWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWeiBoViewController.m; sourceTree = "<group>"; };
 		00D09C051C95BE6000FAB38B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		00D09C061C95BE6000FAB38B /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		00D09C071C95BE6000FAB38B /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -487,6 +488,8 @@
 		00F7448A1C9669A00063504A /* icon_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_iPad@2x.png"; sourceTree = "<group>"; };
 		00F7448F1C98898C0063504A /* XYBadgeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYBadgeButton.h; sourceTree = "<group>"; };
 		00F744901C98898C0063504A /* XYBadgeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYBadgeButton.m; sourceTree = "<group>"; };
+		00F744921C98E8130063504A /* XYNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNavigationController.h; sourceTree = "<group>"; };
+		00F744931C98E8130063504A /* XYNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNavigationController.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -811,7 +814,7 @@
 			children = (
 				00D09BE71C95BE4D00FAB38B /* Main */,
 				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
-				00D09BF91C95BE4D00FAB38B /* NavIgation(导航) */,
+				00D09BF91C95BE4D00FAB38B /* WeiBo(微博) */,
 				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
 				00D09BF31C95BE4D00FAB38B /* Me(我) */,
 			);
@@ -866,6 +869,8 @@
 			children = (
 				00D09BE91C95BE4D00FAB38B /* XYTabBarViewController.h */,
 				00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */,
+				00F744921C98E8130063504A /* XYNavigationController.h */,
+				00F744931C98E8130063504A /* XYNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -956,21 +961,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		00D09BF91C95BE4D00FAB38B /* NavIgation(导航) */ = {
+		00D09BF91C95BE4D00FAB38B /* WeiBo(微博) */ = {
 			isa = PBXGroup;
 			children = (
 				00D09BFA1C95BE4D00FAB38B /* Controller */,
 				00D09BFD1C95BE4D00FAB38B /* Model */,
 				00D09BFE1C95BE4D00FAB38B /* View */,
 			);
+			name = "WeiBo(微博)";
 			path = "NavIgation(导航)";
 			sourceTree = "<group>";
 		};
 		00D09BFA1C95BE4D00FAB38B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				00D09BFB1C95BE4D00FAB38B /* XYNavigationViewController.h */,
-				00D09BFC1C95BE4D00FAB38B /* XYNavigationViewController.m */,
+				00D09BFB1C95BE4D00FAB38B /* XYWeiBoViewController.h */,
+				00D09BFC1C95BE4D00FAB38B /* XYWeiBoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1490,13 +1496,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
 				00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */,
 				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
-				00D09C031C95BE4D00FAB38B /* XYNavigationViewController.m in Sources */,
+				00D09C031C95BE4D00FAB38B /* XYWeiBoViewController.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
 				00F744911C98898C0063504A /* XYBadgeButton.m in Sources */,
