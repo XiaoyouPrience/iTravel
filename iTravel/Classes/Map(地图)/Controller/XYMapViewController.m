@@ -8,6 +8,7 @@
 
 #import "XYMapViewController.h"
 #import "XYBadgeButton.h"
+#import "XYSearchBar.h"
 
 @implementation XYMapViewController
 
@@ -15,11 +16,13 @@
 {
     [super viewDidLoad];
     
-    UIButton *add = [UIButton buttonWithType:UIButtonTypeContactAdd];
-    add.frame = CGRectMake(100, 100, 100, 100);
-    [add addTarget:self action:@selector(addClick) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:add];
-
+    // 1.导航栏上面的搜索框
+    XYSearchBar *searchBar = [XYSearchBar searchBar];
+    
+//    searchBar.frame = CGRectMake(0, 0, 300, 30);
+    
+    self.navigationItem.titleView = searchBar;
+    
 }
 
 
@@ -37,11 +40,6 @@
     
 }
 
-- (void)addClick
-{
-    self.tabBarItem.badgeValue = @"2900";
-    
-    DLog(@"%@",self.tabBarItem.badgeValue);
-}
+
 
 @end

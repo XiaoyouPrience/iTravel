@@ -7,6 +7,8 @@
 //
 
 #import "XYWeiBoViewController.h"
+#import "UIBarButtonItem+XY.h"
+#import "XYSearchBar.h"
 
 @interface XYWeiBoViewController()
 
@@ -18,14 +20,29 @@
 {
     [super viewDidLoad];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"dianwo" style:UIBarButtonItemStyleBordered target:self action:@selector(itemClicked)];
-//    self.navigationItem.rightBarButtonItem.enabled = NO;
+    // 1. 导航栏左按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highlightIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+    
+    // 2. 导航栏右边按钮
+    // 这个是整个项目中可能都会用到的东西--所以应该封装到分类中去
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_pop" highlightIcon:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    
+    // 3.ti
+    XYSearchBar *searchBar = [XYSearchBar searchBar];
+    [self.view addSubview:searchBar];
     
 }
-- (void)itemClicked
+
+- (void)findFriend
 {
-    DLog(@"点击了我");
+    DLog(@"findFriendfindFriendfindFriend");
 }
+
+- (void)pop
+{
+    DLog(@"poppoppoppoppop");
+}
+
 
 #pragma  --- mark TableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -53,6 +70,7 @@
     
     // 3.返回cell
     return cell;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
