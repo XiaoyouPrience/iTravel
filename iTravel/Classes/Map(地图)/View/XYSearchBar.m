@@ -24,7 +24,7 @@
     if (self) {
         
         CGFloat margin = 20;
-        // 搜索栏frame -- 默认
+        // 搜索栏frame -- 默认值
         self.frame = CGRectMake(0, 0, ScreenW - 2*margin , 30);
         
         // 搜索栏背景颜色
@@ -48,6 +48,10 @@
         NSMutableDictionary *attrs = [NSMutableDictionary dictionary];
         attrs[NSForegroundColorAttributeName] = [UIColor grayColor];
         self.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"索索" attributes:attrs];
+        
+        // 设置键盘右下角按钮为search
+        self.keyboardType = UIKeyboardTypeWebSearch;
+        self.enablesReturnKeyAutomatically = YES;
         
     }
     return self;
