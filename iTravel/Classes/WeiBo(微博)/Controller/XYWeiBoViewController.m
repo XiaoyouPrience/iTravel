@@ -15,6 +15,10 @@
 
 @interface XYWeiBoViewController()
 
+@property(nonatomic, assign) BOOL itemClicked;
+
+@property (nonatomic,weak) UIButton *popBtn;
+
 @end
 
 @implementation XYWeiBoViewController
@@ -28,7 +32,7 @@
     
     // 2. 导航栏右边按钮
     // 这个是整个项目中可能都会用到的东西--所以应该封装到分类中去
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_pop" highlightIcon:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_more" highlightIcon:@"navigationbar_more_highlighted" target:self action:@selector(pop)];
     
     // 3. 中间按钮
     XYTitleButton *button = [[XYTitleButton alloc] init];
@@ -40,25 +44,22 @@
 
 - (void)titleButtonClick:(XYTitleButton *)titleButton
 {
+    DLog(@" ------titleButtonClick------ ");
+    
     //点击切换image ---
     if (titleButton.tag == titleButtonTagDown) {
         [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
         titleButton.tag = titleButtonTagUP;
+        
+        // 出现一个选择框
+        
     }else if(titleButton.tag == titleButtonTagUP)
     {
         [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
         titleButton.tag = titleButtonTagDown;
     }
-//    或者通过iamgeNamed方法有缓存也可以，判断是不是那个图片(这个是基于图片有缓存，所以可以用这个！)
-//    if (titleButton.currentImage == [UIImage imageWithName:@"navigationbar_arrow_up"])
-//    {
-//        [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
-//    }else if (titleButton.currentImage == [UIImage imageWithName:@"navigationbar_arrow_down"])
-//    {
-//        [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
-//    }
-    
-    DLog(@" ------titleButtonClick------ ");
+
+
 }
 - (void)findFriend
 {
@@ -68,6 +69,57 @@
 - (void)pop
 {
     DLog(@"poppoppoppoppop");
+   
+    // 弹出的背景按钮
+    UIView *popView = [[UIView alloc] init];
+    UIButton *popSearchBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    popView.frame = CGRectMake(100, 0, 200, 50);
+    self.popBtn = popSearchBtn;
+
+    if (self.itemClicked == NO) {
+        
+        // 修改itemClick标记
+        _itemClicked = !_itemClicked;
+        
+        [self.view addSubview:popView];
+        
+        // 弹出pop按钮
+        [popSearchBtn setImage:[UIImage imageWithName:@"navigationbar_pop"] forState:UIControlStateNormal];
+        [popSearchBtn setImage:[UIImage imageWithName:@"navigationbar_pop_highlighted"] forState:UIControlStateHighlighted];
+        [popSearchBtn setTitle:@"扫一扫" forState:UIControlStateNormal];
+        popSearchBtn.frame = CGRectMake(0, 5, 200, 40);
+        [popSearchBtn addTarget:self action:@selector(popBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+        [popView addSubview:self.popBtn];
+        
+
+    }else
+    {
+        // 修改itemClick标记
+        _itemClicked = !_itemClicked;
+        
+//        [popSearchBtn removeFromSuperview];
+        [self.popBtn removeFromSuperview];
+        [self.popBtn setFrame:CGRectMake(0, 0, 1, 1)];
+        [popView removeFromSuperview];
+        popSearchBtn = nil;
+        popView = nil;
+        [popSearchBtn delete:popSearchBtn];
+    }
+}
+
+- (void)popBtnClick:(UIButton *)popBtn
+{
+    DLog(@"---你好，点击了pop按钮！");
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+    
+    // 取消导航栏上的item的选中状态
+    if (_itemClicked) {
+        _itemClicked = !_itemClicked;
+    }
 }
 
 

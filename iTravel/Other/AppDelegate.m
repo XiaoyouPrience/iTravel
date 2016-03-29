@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "XYTabBarViewController.h"
+#import "XYNewFeatureViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -24,7 +26,29 @@
     
     XYTabBarViewController *mainTabBar = [[XYTabBarViewController alloc] init];
     
-    _window.rootViewController = mainTabBar;
+    XYNewFeatureViewController *newFeature = [[XYNewFeatureViewController alloc] init];
+    
+    // 1.取出当前版本号
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSString *key = @"CFBundleVersion";
+
+    NSString *lastVersion = [userDefault objectForKey:key];
+    
+    // 2.取出软件本身版本号
+    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+    
+    if ([lastVersion isEqualToString:currentVersion]) {
+        _window.rootViewController = mainTabBar;
+    }else
+    {
+        _window.rootViewController = newFeature;
+        
+        // 存储最后版本号并同步
+        [userDefault setValue:currentVersion forKey:key];
+        [userDefault synchronize];
+    }
+    
+    
     
     
     return YES;

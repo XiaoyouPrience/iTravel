@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */; };
 		00716D371C9C85CF0083131E /* UIBarButtonItem+XY.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D361C9C85CF0083131E /* UIBarButtonItem+XY.m */; };
 		00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D391C9C90B40083131E /* XYSearchBar.m */; };
 		00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D411C9D2E040083131E /* XYWeiBoViewController.m */; };
@@ -252,6 +253,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNewFeatureViewController.h; sourceTree = "<group>"; };
+		003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNewFeatureViewController.m; sourceTree = "<group>"; };
 		00716D351C9C85CF0083131E /* UIBarButtonItem+XY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+XY.h"; sourceTree = "<group>"; };
 		00716D361C9C85CF0083131E /* UIBarButtonItem+XY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+XY.m"; sourceTree = "<group>"; };
 		00716D381C9C90B40083131E /* XYSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSearchBar.h; sourceTree = "<group>"; };
@@ -530,6 +533,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		003A4B481CAAF852007DC4EC /* NewFeature(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				003A4B491CAAF852007DC4EC /* Controller */,
+				003A4B4A1CAAF852007DC4EC /* Model */,
+				003A4B4B1CAAF852007DC4EC /* View */,
+			);
+			name = "NewFeature(新特性)";
+			path = "Main/NewFeature(新特性)";
+			sourceTree = "<group>";
+		};
+		003A4B491CAAF852007DC4EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */,
+				003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		003A4B4A1CAAF852007DC4EC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		003A4B4B1CAAF852007DC4EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		00716D3E1C9D2E040083131E /* WeiBo(微博) */ = {
 			isa = PBXGroup;
 			children = (
@@ -857,6 +894,7 @@
 			isa = PBXGroup;
 			children = (
 				00D09BE71C95BE4D00FAB38B /* Main */,
+				003A4B481CAAF852007DC4EC /* NewFeature(新特性) */,
 				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
 				00716D3E1C9D2E040083131E /* WeiBo(微博) */,
 				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
@@ -1518,6 +1556,7 @@
 				00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */,
 				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
 				00716D371C9C85CF0083131E /* UIBarButtonItem+XY.m in Sources */,
+				003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */,
 				00716D471C9D2E040083131E /* XYTitleButton.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
