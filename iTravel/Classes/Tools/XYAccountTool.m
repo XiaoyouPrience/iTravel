@@ -35,7 +35,7 @@
     
     // 判断是否过期
     // NSOrderedAscending = -1L, NSOrderedSame, NSOrderedDescending
-    if ([account.expires_time compare:[NSDate date]] == NSOrderedAscending) {
+    if ([account.expires_time compare:[NSDate date]] == NSOrderedDescending) {
         // 没有过期
         return account;
     }else

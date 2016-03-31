@@ -11,6 +11,7 @@
 #import "XYAccount.h"
 #import "XYTool.h"
 #import "XYAccountTool.h"
+#import "MBProgressHUD+MJ.h"
 
 @interface XYOAuthViewController ()<UIWebViewDelegate>
 
@@ -39,6 +40,24 @@
 
 
 #pragma mark - webView Delegate
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [MBProgressHUD showMessage:@"正在加载，请稍后..."];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideHUD];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{
+    // 隐藏提示
+    [MBProgressHUD hideHUD];
+}
+
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     // 0.取得request.url
@@ -80,6 +99,9 @@
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        // 隐藏提示
+        [MBProgressHUD hideHUD];
+        
         /**
          *  {
          "access_token" = "2.00H8BeCGAMu8vC592b5c80ea5OnQWC";
@@ -101,6 +123,8 @@
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         DLog(@"%@",error);
+        // 隐藏提示
+        [MBProgressHUD hideHUD];
     }];
 }
 
