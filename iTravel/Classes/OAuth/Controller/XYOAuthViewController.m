@@ -9,9 +9,8 @@
 #import "XYOAuthViewController.h"
 #import "AFNetworking.h"
 #import "XYAccount.h"
-#import "XYTabBarViewController.h"
-#import "XYNewFeatureViewController.h"
-
+#import "XYTool.h"
+#import "XYAccountTool.h"
 
 @interface XYOAuthViewController ()<UIWebViewDelegate>
 
@@ -71,7 +70,7 @@
 - (void)requestForAccessToken:(NSString *)code
 {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    // 封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
     parame[@"client_id"] = @"2681167680";
     parame[@"client_secret"] = @"5072b1af9da41b457202eb8b7ebfa30f";
@@ -92,34 +91,13 @@
         DLog(@"%@--%@",[responseObject class],responseObject);
         
         // 存储accessToken信息
-        // 字典转模型
+        // 2.字典转模型
         XYAccount *account = [XYAccount modelWithDict:responseObject];
         
-        // 存储对象
-        NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
-        [NSKeyedArchiver archiveRootObject:account toFile:file];
-        
-        // 6.新特性\去首页
-        NSString *key = @"CFBundleVersion";
-        
-        // 取出沙盒中存储的上次使用软件的版本号
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *lastVersion = [defaults stringForKey:key];
-        
-        // 获得当前软件的版本号
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-        
-        if ([currentVersion isEqualToString:lastVersion]) {
-            // 显示状态栏
-            [UIApplication sharedApplication].statusBarHidden = NO;
-            self.view.window.rootViewController = [[XYTabBarViewController alloc] init];
-        } else { // 新版本
-            self.view.window.rootViewController = [[XYNewFeatureViewController alloc] init];
-            // 存储新版本
-            [defaults setObject:currentVersion forKey:key];
-            [defaults synchronize];
-        }
+        // 存储账号对象
+        [XYAccountTool saveAccount:account];
+        // 3.选择控制器新特性\去首页
+        [XYTool chooseRootController];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         DLog(@"%@",error);

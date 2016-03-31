@@ -11,9 +11,13 @@
 @interface XYAccount : NSObject <NSCoding>
 
 @property (nonatomic, copy)NSString *access_token;
+// access_token 的过期时间
+@property (nonatomic, strong)NSDate *expires_time;
+// 比较大的数字用 long long 比较好
 @property(nonatomic, assign) long long expires_in;
 @property(nonatomic, assign) long long remind_in;
 @property(nonatomic, assign) long long uid;
+
 
 + (instancetype)modelWithDict:(NSDictionary *)dict;
 

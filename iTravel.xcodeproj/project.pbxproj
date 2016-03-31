@@ -14,6 +14,8 @@
 		00716D471C9D2E040083131E /* XYTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D451C9D2E040083131E /* XYTitleButton.m */; };
 		00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FAC1CAD7471009405F9 /* XYOAuthViewController.m */; };
 		00955FB01CAD9246009405F9 /* XYAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FAF1CAD9246009405F9 /* XYAccount.m */; };
+		00955FB51CADA70E009405F9 /* XYTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FB41CADA70E009405F9 /* XYTool.m */; };
+		00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FB71CADA99E009405F9 /* XYAccountTool.m */; };
 		00D09B191C95B1A500FAB38B /* common_button_big_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A471C95B1A400FAB38B /* common_button_big_red.png */; };
 		00D09B1A1C95B1A500FAB38B /* common_button_big_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */; };
 		00D09B1B1C95B1A500FAB38B /* common_button_big_red_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */; };
@@ -269,6 +271,10 @@
 		00955FAC1CAD7471009405F9 /* XYOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYOAuthViewController.m; sourceTree = "<group>"; };
 		00955FAE1CAD9246009405F9 /* XYAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAccount.h; sourceTree = "<group>"; };
 		00955FAF1CAD9246009405F9 /* XYAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAccount.m; sourceTree = "<group>"; };
+		00955FB31CADA70E009405F9 /* XYTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTool.h; sourceTree = "<group>"; };
+		00955FB41CADA70E009405F9 /* XYTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTool.m; sourceTree = "<group>"; };
+		00955FB61CADA99E009405F9 /* XYAccountTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAccountTool.h; sourceTree = "<group>"; };
+		00955FB71CADA99E009405F9 /* XYAccountTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAccountTool.m; sourceTree = "<group>"; };
 		00D09A471C95B1A400FAB38B /* common_button_big_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red.png; sourceTree = "<group>"; };
 		00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_button_big_red@2x.png"; sourceTree = "<group>"; };
 		00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red_disable.png; sourceTree = "<group>"; };
@@ -643,6 +649,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		00955FB11CADA63B009405F9 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libs;
+			path = Main/Libs;
+			sourceTree = "<group>";
+		};
+		00955FB21CADA659009405F9 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				00955FB31CADA70E009405F9 /* XYTool.h */,
+				00955FB41CADA70E009405F9 /* XYTool.m */,
+				00955FB61CADA99E009405F9 /* XYAccountTool.h */,
+				00955FB71CADA99E009405F9 /* XYAccountTool.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
 		00D09A411C95B1A400FAB38B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -934,6 +959,8 @@
 		00D09BE01C95BE4D00FAB38B /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				00955FB11CADA63B009405F9 /* Libs */,
+				00955FB21CADA659009405F9 /* Tools */,
 				00D09BE71C95BE4D00FAB38B /* Main */,
 				00955FA71CAD744E009405F9 /* OAuth */,
 				003A4B481CAAF852007DC4EC /* NewFeature(新特性) */,
@@ -1595,6 +1622,7 @@
 				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
+				00955FB51CADA70E009405F9 /* XYTool.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
 				00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */,
@@ -1605,6 +1633,7 @@
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
+				00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */,
 				00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */,
 				00F744911C98898C0063504A /* XYBadgeButton.m in Sources */,
 				00D09C001C95BE4D00FAB38B /* XYTabBarViewController.m in Sources */,

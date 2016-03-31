@@ -35,6 +35,7 @@
 {
     if (self = [super init]) {
         self.access_token = [decoder decodeObjectForKey:@"access_token"];
+        self.expires_time = [decoder decodeObjectForKey:@"expires_time"];
         self.remind_in = [decoder decodeInt64ForKey:@"remind_in"];
         self.expires_in = [decoder decodeInt64ForKey:@"expires_in"];
         self.uid = [decoder decodeInt64ForKey:@"uid"];
@@ -48,6 +49,7 @@
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.access_token forKey:@"access_token"];
+    [encoder encodeObject:self.expires_time forKey:@"expires_time"];
     [encoder encodeInt64:self.remind_in forKey:@"remind_in"];
     [encoder encodeInt64:self.expires_in forKey:@"expires_in"];
     [encoder encodeInt64:self.uid forKey:@"uid"];

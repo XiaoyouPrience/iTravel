@@ -11,6 +11,8 @@
 #import "XYNewFeatureViewController.h"
 #import "XYOAuthViewController.h"
 #import "XYAccount.h"
+#import "XYTool.h"
+#import "XYAccountTool.h"
 
 
 @interface AppDelegate ()
@@ -27,34 +29,11 @@
     [_window makeKeyAndVisible];
     
     // 先判断有无存储账号信息
-    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
-    XYAccount * account = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
+    XYAccount * account = [XYAccountTool account];
     
     if (account) { // 之前登录成功
-        // 1.取出当前版本号
-        NSString *key = @"CFBundleVersion";
-        
-        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-        NSString *lastVersion = [userDefault objectForKey:key];
-        
-        // 2.取出软件本身版本号
-        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-        
-        // 3.判断版本号显示相应页面
-        if ([lastVersion isEqualToString:currentVersion]) {
-            
-            XYTabBarViewController *mainTabBar = [[XYTabBarViewController alloc] init];
-            _window.rootViewController = mainTabBar;
-        }else
-        {
-            XYNewFeatureViewController *newFeature = [[XYNewFeatureViewController alloc] init];
-            _window.rootViewController = newFeature;
-            
-            // 存储最后版本号并同步
-            [userDefault setValue:currentVersion forKey:key];
-            [userDefault synchronize];
-        }
+        // 跳转控制器 首页/新特性
+        [XYTool chooseRootController];
     } else { // 之前没有登录成功
         self.window.rootViewController = [[XYOAuthViewController alloc] init];
     }
