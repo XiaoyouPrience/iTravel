@@ -12,6 +12,8 @@
 		00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D391C9C90B40083131E /* XYSearchBar.m */; };
 		00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D411C9D2E040083131E /* XYWeiBoViewController.m */; };
 		00716D471C9D2E040083131E /* XYTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00716D451C9D2E040083131E /* XYTitleButton.m */; };
+		00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FAC1CAD7471009405F9 /* XYOAuthViewController.m */; };
+		00955FB01CAD9246009405F9 /* XYAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FAF1CAD9246009405F9 /* XYAccount.m */; };
 		00D09B191C95B1A500FAB38B /* common_button_big_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A471C95B1A400FAB38B /* common_button_big_red.png */; };
 		00D09B1A1C95B1A500FAB38B /* common_button_big_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */; };
 		00D09B1B1C95B1A500FAB38B /* common_button_big_red_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */; };
@@ -263,6 +265,10 @@
 		00716D411C9D2E040083131E /* XYWeiBoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYWeiBoViewController.m; sourceTree = "<group>"; };
 		00716D441C9D2E040083131E /* XYTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTitleButton.h; sourceTree = "<group>"; };
 		00716D451C9D2E040083131E /* XYTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTitleButton.m; sourceTree = "<group>"; };
+		00955FAB1CAD7471009405F9 /* XYOAuthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYOAuthViewController.h; sourceTree = "<group>"; };
+		00955FAC1CAD7471009405F9 /* XYOAuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYOAuthViewController.m; sourceTree = "<group>"; };
+		00955FAE1CAD9246009405F9 /* XYAccount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYAccount.h; sourceTree = "<group>"; };
+		00955FAF1CAD9246009405F9 /* XYAccount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYAccount.m; sourceTree = "<group>"; };
 		00D09A471C95B1A400FAB38B /* common_button_big_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red.png; sourceTree = "<group>"; };
 		00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_button_big_red@2x.png"; sourceTree = "<group>"; };
 		00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red_disable.png; sourceTree = "<group>"; };
@@ -602,6 +608,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		00955FA71CAD744E009405F9 /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				00955FA81CAD744E009405F9 /* Controller */,
+				00955FA91CAD744E009405F9 /* Model */,
+				00955FAA1CAD744E009405F9 /* View */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		00955FA81CAD744E009405F9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				00955FAB1CAD7471009405F9 /* XYOAuthViewController.h */,
+				00955FAC1CAD7471009405F9 /* XYOAuthViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		00955FA91CAD744E009405F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				00955FAE1CAD9246009405F9 /* XYAccount.h */,
+				00955FAF1CAD9246009405F9 /* XYAccount.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		00955FAA1CAD744E009405F9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		00D09A411C95B1A400FAB38B /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -894,6 +935,7 @@
 			isa = PBXGroup;
 			children = (
 				00D09BE71C95BE4D00FAB38B /* Main */,
+				00955FA71CAD744E009405F9 /* OAuth */,
 				003A4B481CAAF852007DC4EC /* NewFeature(新特性) */,
 				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
 				00716D3E1C9D2E040083131E /* WeiBo(微博) */,
@@ -1548,6 +1590,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */,
+				00955FB01CAD9246009405F9 /* XYAccount.m in Sources */,
 				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,

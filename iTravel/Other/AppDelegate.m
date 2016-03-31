@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "XYTabBarViewController.h"
 #import "XYNewFeatureViewController.h"
+#import "XYOAuthViewController.h"
+#import "XYAccount.h"
 
 
 @interface AppDelegate ()
@@ -24,32 +26,38 @@
     _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [_window makeKeyAndVisible];
     
-    XYTabBarViewController *mainTabBar = [[XYTabBarViewController alloc] init];
+    // 先判断有无存储账号信息
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *file = [doc stringByAppendingPathComponent:@"account.data"];
+    XYAccount * account = [NSKeyedUnarchiver unarchiveObjectWithFile:file];
     
-    XYNewFeatureViewController *newFeature = [[XYNewFeatureViewController alloc] init];
-    
-    // 1.取出当前版本号
-    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
-    NSString *key = @"CFBundleVersion";
-
-    NSString *lastVersion = [userDefault objectForKey:key];
-    
-    // 2.取出软件本身版本号
-    NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
-    
-    if ([lastVersion isEqualToString:currentVersion]) {
-        _window.rootViewController = mainTabBar;
-    }else
-    {
-        _window.rootViewController = newFeature;
+    if (account) { // 之前登录成功
+        // 1.取出当前版本号
+        NSString *key = @"CFBundleVersion";
         
-        // 存储最后版本号并同步
-        [userDefault setValue:currentVersion forKey:key];
-        [userDefault synchronize];
+        NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+        NSString *lastVersion = [userDefault objectForKey:key];
+        
+        // 2.取出软件本身版本号
+        NSString *currentVersion = [NSBundle mainBundle].infoDictionary[key];
+        
+        // 3.判断版本号显示相应页面
+        if ([lastVersion isEqualToString:currentVersion]) {
+            
+            XYTabBarViewController *mainTabBar = [[XYTabBarViewController alloc] init];
+            _window.rootViewController = mainTabBar;
+        }else
+        {
+            XYNewFeatureViewController *newFeature = [[XYNewFeatureViewController alloc] init];
+            _window.rootViewController = newFeature;
+            
+            // 存储最后版本号并同步
+            [userDefault setValue:currentVersion forKey:key];
+            [userDefault synchronize];
+        }
+    } else { // 之前没有登录成功
+        self.window.rootViewController = [[XYOAuthViewController alloc] init];
     }
-    
-    
-    
     
     return YES;
 }
