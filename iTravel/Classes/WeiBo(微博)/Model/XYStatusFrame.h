@@ -10,12 +10,18 @@
 
 /** 昵称的字体 */
 #define XYStatusNameFont [UIFont systemFontOfSize:15]
+/** 被转发微博作者昵称的字体 */
+#define XYRetweetStatusNameFont XYStatusNameFont
+
 /** 时间的字体 */
 #define XYStatusTimeFont [UIFont systemFontOfSize:12]
 /** 来源的字体 */
 #define XYStatusSourceFont XYStatusTimeFont
-/** 中文的字体 */
+
+/** 正文的字体 */
 #define XYStatusContentFont [UIFont systemFontOfSize:13]
+/** 被转发微博正文的字体 */
+#define XYRetweetStatusContentFont XYStatusContentFont
 
 @class XYStatus;
 @interface XYStatusFrame : NSObject
@@ -51,4 +57,6 @@
 @property (nonatomic, assign, readonly) CGRect statusToolbarF;
 
 /** cell的高度 */
-@property (nonatomic, assign, readonly) CGFloat cellHeight;@end
+@property (nonatomic, assign, readonly) CGFloat cellHeight;
+
+@end
