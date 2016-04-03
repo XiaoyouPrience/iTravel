@@ -109,6 +109,8 @@
     [button addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = button;
     
+    self.tableView.backgroundColor = XYColor(226, 226, 226);
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, XYStatusTableBorder, 0);
 }
 // 标题按钮点击
 - (void)titleButtonClick:(XYTitleButton *)titleButton

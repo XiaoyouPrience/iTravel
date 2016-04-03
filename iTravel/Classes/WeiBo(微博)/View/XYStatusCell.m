@@ -78,6 +78,7 @@
 {
     /** 1.顶部的view */
     UIImageView *topView = [[UIImageView alloc] init];
+    topView.image = [UIImage resiedImageWithName:@"timeline_card_top_background"];
     [self.contentView addSubview:topView];
     self.topView = topView;
     
@@ -99,18 +100,24 @@
     /** 5.昵称 */
     UILabel *nameLabel = [[UILabel alloc] init];
     nameLabel.font = XYStatusNameFont;
+//    nameLabel.textColor = XYColor(240, 140, 19);
+    nameLabel.backgroundColor = [UIColor clearColor];
     [self.topView addSubview:nameLabel];
     self.nameLabel = nameLabel;
     
     /** 6.时间 */
     UILabel *timeLabel = [[UILabel alloc] init];
     timeLabel.font = XYStatusTimeFont;
+    timeLabel.textColor = XYColor(240, 140, 19);
+    timeLabel.backgroundColor = [UIColor clearColor];
     [self.topView addSubview:timeLabel];
     self.timeLabel = timeLabel;
     
     /** 7.来源 */
     UILabel *sourceLabel = [[UILabel alloc] init];
     sourceLabel.font = XYStatusSourceFont;
+    sourceLabel.textColor = XYColor(135, 135, 135);
+    sourceLabel.backgroundColor = [UIColor clearColor];
     [self.topView addSubview:sourceLabel];
     self.sourceLabel = sourceLabel;
     
@@ -118,6 +125,8 @@
     UILabel *contentLabel = [[UILabel alloc] init];
     contentLabel.numberOfLines = 0;
     contentLabel.font = XYStatusContentFont;
+    contentLabel.textColor = XYColor(39, 39, 39);
+    contentLabel.backgroundColor = [UIColor clearColor];
     [self.topView addSubview:contentLabel];
     self.contentLabel = contentLabel;
 }
@@ -129,17 +138,22 @@
 {
     /** 1.被转发微博的view(父控件) */
     UIImageView *retweetView = [[UIImageView alloc] init];
+    retweetView.image = [UIImage resiedImageWithName:@"timeline_retweet_background" left:0.9 top:0.5];
     [self.topView addSubview:retweetView];
     self.retweetView = retweetView;
     
     /** 2.被转发微博作者的昵称 */
     UILabel *retweetNameLabel = [[UILabel alloc] init];
+    retweetNameLabel.textColor = XYColor(67, 107, 163);
+    retweetNameLabel.backgroundColor =[UIColor clearColor];
     retweetNameLabel.font = XYRetweetStatusNameFont;
     [self.retweetView addSubview:retweetNameLabel];
     self.retweetNameLabel = retweetNameLabel;
     
     /** 3.被转发微博的正文\内容 */
     UILabel *retweetContentLabel = [[UILabel alloc] init];
+    retweetContentLabel.textColor = XYColor(90, 90, 90);
+    retweetContentLabel.backgroundColor = [UIColor clearColor];
     retweetContentLabel.font = XYRetweetStatusContentFont;
     retweetContentLabel.numberOfLines = 0;
     [self.retweetView addSubview:retweetContentLabel];
@@ -158,8 +172,23 @@
 {
     /** 1.微博的工具条 */
     UIImageView *statusToolbar = [[UIImageView alloc] init];
+    statusToolbar.image = [UIImage imageWithName:@"timeline_card_bottom_background"];
     [self.contentView addSubview:statusToolbar];
     self.statusToolbar = statusToolbar;
+}
+
+/**
+ *  拦截tableView设置cell的frame
+ */
+- (void)setFrame:(CGRect)frame
+{
+    // 拦截cell重新设置frame
+    frame.origin.x = XYStatusTableBorder;
+    frame.origin.y += XYStatusTableBorder;
+    frame.size.width -= 2 * XYStatusTableBorder;
+    frame.size.height -= XYStatusTableBorder;
+    
+    [super setFrame:frame];
 }
 
 /**
@@ -174,6 +203,15 @@
     
     // 2.被转发微博
     [self setupRetweetData];
+    
+    // 3.设置工具条
+    [self setupStatusToolBarFrame];
+}
+
+
+- (void)setupStatusToolBarFrame
+{
+    self.statusToolbar.frame = self.statusFrame.statusToolbarF;
 }
 
 /**

@@ -18,4 +18,6 @@
  */
 + (UIImage *)resiedImageWithName:(NSString *)name;
 
++ (UIImage *)resiedImageWithName:(NSString *)name left:(CGFloat )left top:(CGFloat)top;
+
 @end

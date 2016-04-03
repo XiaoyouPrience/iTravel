@@ -23,6 +23,12 @@
 /** 被转发微博正文的字体 */
 #define XYRetweetStatusContentFont XYStatusContentFont
 
+/** 表格的边框宽度 */
+#define XYStatusTableBorder 5
+
+/** cell的边框宽度 */
+#define XYStatusCellBorder 10
+
 @class XYStatus;
 @interface XYStatusFrame : NSObject
 @property (nonatomic, strong) XYStatus *status;
