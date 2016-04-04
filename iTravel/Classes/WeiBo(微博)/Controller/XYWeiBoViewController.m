@@ -25,7 +25,7 @@
 
 @interface XYWeiBoViewController()
 
-@property (nonatomic,weak) UIButton *popBtn;
+//@property (nonatomic,weak) UIButton *popBtn;
 @property (nonatomic, strong)NSMutableArray *statusFrames;
 
 @end
@@ -179,7 +179,7 @@
 }
 
 
-#pragma  --- mark TableViewDelegate TableViewDataSource
+#pragma  --- mark TableViewDelegate && TableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // 默认为1

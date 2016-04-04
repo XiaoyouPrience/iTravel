@@ -262,8 +262,6 @@
     CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + XYStatusCellBorder * 0.5;
     CGSize timeLabelSize = [status.created_at sizeWithFont:XYStatusTimeFont];
     self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};
-    self.timeLabel.frame = CGRectMake(timeLabelX, timeLabelY, timeLabelSize.width,timeLabelSize.height);
-    self.timeLabel.backgroundColor = [UIColor redColor];
     
     // 6.来源 -- 这个由于是固定只写一次就好，直接用set方法写好，现在直接用就行
     self.sourceLabel.text = status.source;
