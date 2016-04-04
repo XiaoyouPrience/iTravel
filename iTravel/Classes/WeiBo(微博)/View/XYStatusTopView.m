@@ -11,6 +11,7 @@
 #import "XYStatus.h"
 #import "XYUser.h"
 #import "UIImageView+WebCache.h"
+#import "XYReweetStatusView.h"
 
 @interface XYStatusTopView()
 
@@ -28,6 +29,9 @@
 @property (nonatomic, weak) UILabel *sourceLabel;
 /** 正文\内容 */
 @property (nonatomic, weak) UILabel *contentLabel;
+
+/** 正文\内容 */
+@property (nonatomic, strong)XYReweetStatusView *retweetView;
 
 @end
 @implementation XYStatusTopView
@@ -92,10 +96,16 @@
         [self addSubview:contentLabel];
         self.contentLabel = contentLabel;
 
+        // 9.添加被转发微博内部的子控件
+        [self setupRetweetSubviews];
+
     }
     return self;
 }
 
+/**
+ *  重写set方法。赋值数据
+ */
 - (void)setStatusFrame:(XYStatusFrame *)statusFrame
 {
     _statusFrame = statusFrame;
@@ -154,8 +164,28 @@
     } else {
         self.photoView.hidden = YES;
     }
-
     
+    // 9.设置被转发微博的frame
+    [self setupRetweetStatusFrame];
+}
+
+/**
+ *  添加被转发微博内部的子控件
+ */
+- (void)setupRetweetSubviews
+{
+    /** 1.被转发微博的view(父控件) */
+    XYReweetStatusView *retweetView = [[XYReweetStatusView alloc] init];
+    [self addSubview:retweetView];
+    self.retweetView = retweetView;
+}
+
+/**
+ *  设置被转发微博的frame
+ */
+- (void)setupRetweetStatusFrame
+{
+    self.retweetView.statusFrame = self.statusFrame;
 }
 
 

@@ -337,6 +337,7 @@
 		00FD8C301CB2435800313C9F /* timeline_retweet_background_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FD8BEE1CB2435800313C9F /* timeline_retweet_background_os7@2x.png */; };
 		00FD8C721CB29F7E00313C9F /* XYStatuaToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */; };
 		00FD8C751CB2ACBB00313C9F /* XYStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C741CB2ACBB00313C9F /* XYStatusTopView.m */; };
+		00FD8C781CB2B22400313C9F /* XYReweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C771CB2B22400313C9F /* XYReweetStatusView.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -752,6 +753,8 @@
 		00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatuaToolBar.m; sourceTree = "<group>"; };
 		00FD8C731CB2ACBB00313C9F /* XYStatusTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYStatusTopView.h; sourceTree = "<group>"; };
 		00FD8C741CB2ACBB00313C9F /* XYStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatusTopView.m; sourceTree = "<group>"; };
+		00FD8C761CB2B22400313C9F /* XYReweetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYReweetStatusView.h; sourceTree = "<group>"; };
+		00FD8C771CB2B22400313C9F /* XYReweetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYReweetStatusView.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -926,6 +929,8 @@
 				00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */,
 				00FD8C731CB2ACBB00313C9F /* XYStatusTopView.h */,
 				00FD8C741CB2ACBB00313C9F /* XYStatusTopView.m */,
+				00FD8C761CB2B22400313C9F /* XYReweetStatusView.h */,
+				00FD8C771CB2B22400313C9F /* XYReweetStatusView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2133,6 +2138,7 @@
 				006035371CB053CB000067F2 /* UIImageView+WebCache.m in Sources */,
 				00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */,
 				00FD8B461CB22D9100313C9F /* NSDate+XY.m in Sources */,
+				00FD8C781CB2B22400313C9F /* XYReweetStatusView.m in Sources */,
 				006035381CB053CB000067F2 /* UIView+WebCacheOperation.m in Sources */,
 				006034D11CB04B79000067F2 /* MJArgument.m in Sources */,
 				006035311CB053CB000067F2 /* SDWebImagePrefetcher.m in Sources */,
