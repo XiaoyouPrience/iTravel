@@ -12,6 +12,7 @@
 #import "XYUser.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+XY.h"
+#import "XYStatuaToolBar.h"
 
 @interface XYStatusCell()
 /** 顶部的view */
@@ -41,7 +42,7 @@
 @property (nonatomic, weak) UIImageView *retweetPhotoView;
 
 /** 微博的工具条 */
-@property (nonatomic, weak) UIImageView *statusToolbar;
+@property (nonatomic, weak) XYStatuaToolBar *statusToolBar;
 @end
 
 @implementation XYStatusCell
@@ -179,11 +180,9 @@
 - (void)setupStatusToolBar
 {
     /** 1.微博的工具条 */
-    UIImageView *statusToolbar = [[UIImageView alloc] init];
-    statusToolbar.image = [UIImage imageWithName:@"timeline_card_bottom_background"];
-    statusToolbar.highlightedImage = [UIImage resiedImageWithName:@"timeline_card_bottom_background_highlighted"];
+    XYStatuaToolBar *statusToolbar = [[XYStatuaToolBar alloc] init];
     [self.contentView addSubview:statusToolbar];
-    self.statusToolbar = statusToolbar;
+    self.statusToolBar = statusToolbar;
 }
 
 /**
@@ -220,7 +219,9 @@
 
 - (void)setupStatusToolBarFrame
 {
-    self.statusToolbar.frame = self.statusFrame.statusToolbarF;
+    self.statusToolBar.frame = self.statusFrame.statusToolbarF;
+    self.statusToolBar.status = self.statusFrame.status;
+
 }
 
 /**

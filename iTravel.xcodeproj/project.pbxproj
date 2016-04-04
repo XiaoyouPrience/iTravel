@@ -335,6 +335,7 @@
 		00FD8C2E1CB2435800313C9F /* timeline_retweet_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FD8BEC1CB2435800313C9F /* timeline_retweet_background.png */; };
 		00FD8C2F1CB2435800313C9F /* timeline_retweet_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FD8BED1CB2435800313C9F /* timeline_retweet_background@2x.png */; };
 		00FD8C301CB2435800313C9F /* timeline_retweet_background_os7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00FD8BEE1CB2435800313C9F /* timeline_retweet_background_os7@2x.png */; };
+		00FD8C721CB29F7E00313C9F /* XYStatuaToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -746,6 +747,8 @@
 		00FD8BEC1CB2435800313C9F /* timeline_retweet_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_retweet_background.png; sourceTree = "<group>"; };
 		00FD8BED1CB2435800313C9F /* timeline_retweet_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_retweet_background@2x.png"; sourceTree = "<group>"; };
 		00FD8BEE1CB2435800313C9F /* timeline_retweet_background_os7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_retweet_background_os7@2x.png"; sourceTree = "<group>"; };
+		00FD8C701CB29F7E00313C9F /* XYStatuaToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYStatuaToolBar.h; sourceTree = "<group>"; };
+		00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatuaToolBar.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -916,6 +919,8 @@
 				00716D451C9D2E040083131E /* XYTitleButton.m */,
 				006034BA1CB04AE8000067F2 /* XYStatusCell.h */,
 				006034BB1CB04AE8000067F2 /* XYStatusCell.m */,
+				00FD8C701CB29F7E00313C9F /* XYStatuaToolBar.h */,
+				00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2080,6 +2085,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00FD8C721CB29F7E00313C9F /* XYStatuaToolBar.m in Sources */,
 				0060352D1CB053CB000067F2 /* SDWebImageDecoder.m in Sources */,
 				006035301CB053CB000067F2 /* SDWebImageManager.m in Sources */,
 				006034D71CB04B79000067F2 /* NSObject+MJCoding.m in Sources */,
