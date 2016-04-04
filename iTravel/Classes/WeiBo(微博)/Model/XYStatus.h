@@ -54,8 +54,8 @@
  */
 @property (nonatomic, strong) XYStatus *retweeted_status;
 
-+ (instancetype)modelWithDict:(NSDictionary *)dict;
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
+//+ (instancetype)modelWithDict:(NSDictionary *)dict;
+//
+//- (instancetype)initWithDict:(NSDictionary *)dict;
 
 @end

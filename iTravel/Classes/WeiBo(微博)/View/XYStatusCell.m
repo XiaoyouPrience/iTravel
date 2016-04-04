@@ -11,6 +11,7 @@
 #import "XYStatusFrame.h"
 #import "XYUser.h"
 #import "UIImageView+WebCache.h"
+#import "UIImage+XY.h"
 
 @interface XYStatusCell()
 /** 顶部的view */
@@ -76,9 +77,14 @@
  */
 - (void)setupOriginalSubviews
 {
+    /* cell 的选中背景，*/
+    UIView *bgView = [[UIView alloc] init];
+    self.selectedBackgroundView = bgView;
+    
     /** 1.顶部的view */
     UIImageView *topView = [[UIImageView alloc] init];
     topView.image = [UIImage resiedImageWithName:@"timeline_card_top_background"];
+    topView.highlightedImage = [UIImage resiedImageWithName:@"timeline_card_top_background_highlighted"];
     [self.contentView addSubview:topView];
     self.topView = topView;
     
@@ -89,6 +95,7 @@
     
     /** 3.会员图标 */
     UIImageView *vipView = [[UIImageView alloc] init];
+    vipView.contentMode = UIViewContentModeCenter;
     [self.topView addSubview:vipView];
     self.vipView = vipView;
     
@@ -112,6 +119,7 @@
     timeLabel.backgroundColor = [UIColor clearColor];
     [self.topView addSubview:timeLabel];
     self.timeLabel = timeLabel;
+    
     
     /** 7.来源 */
     UILabel *sourceLabel = [[UILabel alloc] init];
@@ -173,6 +181,7 @@
     /** 1.微博的工具条 */
     UIImageView *statusToolbar = [[UIImageView alloc] init];
     statusToolbar.image = [UIImage imageWithName:@"timeline_card_bottom_background"];
+    statusToolbar.highlightedImage = [UIImage resiedImageWithName:@"timeline_card_bottom_background_highlighted"];
     [self.contentView addSubview:statusToolbar];
     self.statusToolbar = statusToolbar;
 }
@@ -226,7 +235,8 @@
     self.topView.frame = self.statusFrame.topViewF;
     
     // 2.头像
-    [self.iconView setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithName:@"avatar_default_small"]];
+    [self.iconView sd_setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithName:@"avatar_default_small"]];
+//    [self.iconView setImageWithURL:[NSURL URLWithString:user.profile_image_url] placeholderImage:[UIImage imageWithName:@"avatar_default_small"]];
     self.iconView.frame = self.statusFrame.iconViewF;
     
     // 3.昵称
@@ -234,21 +244,34 @@
     self.nameLabel.frame = self.statusFrame.nameLabelF;
     
     // 4.vip
-    if (user.isVip) {
+    if (user.mbtype) {
         self.vipView.hidden = NO;
-        self.vipView.image = [UIImage imageWithName:@"common_icon_membership"];
+        self.vipView.image = [UIImage imageWithName:[NSString stringWithFormat:@"common_icon_membership_level%d",user.mbrank]];
         self.vipView.frame = self.statusFrame.vipViewF;
+        
+        self.nameLabel.textColor = [UIColor orangeColor];
     } else {
+        self.nameLabel.textColor = [UIColor blackColor];
         self.vipView.hidden = YES;
     }
     
-    // 5.时间
+    // 5.时间 -- 需要每次都计算frame
     self.timeLabel.text = status.created_at;
-    self.timeLabel.frame = self.statusFrame.timeLabelF;
+//    self.timeLabel.frame = self.statusFrame.timeLabelF;
+    CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
+    CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + XYStatusCellBorder * 0.5;
+    CGSize timeLabelSize = [status.created_at sizeWithFont:XYStatusTimeFont];
+    self.timeLabel.frame = (CGRect){{timeLabelX,timeLabelY},timeLabelSize};
+    self.timeLabel.frame = CGRectMake(timeLabelX, timeLabelY, timeLabelSize.width,timeLabelSize.height);
+    self.timeLabel.backgroundColor = [UIColor redColor];
     
-    // 6.来源
+    // 6.来源 -- 这个由于是固定只写一次就好，直接用set方法写好，现在直接用就行
     self.sourceLabel.text = status.source;
-    self.sourceLabel.frame = self.statusFrame.sourceLabelF;
+//    self.sourceLabel.frame = self.statusFrame.sourceLabelF;
+    CGFloat sourceLabelX = CGRectGetMaxX(self.statusFrame.timeLabelF) + XYStatusCellBorder;
+    CGFloat sourceLabelY = timeLabelY;
+    CGSize sourceLabelSize = [status.source sizeWithFont:XYStatusSourceFont];
+    self.sourceLabel.frame = (CGRect){{sourceLabelX,sourceLabelY},sourceLabelSize};
     
     // 7.正文
     self.contentLabel.text = status.text;
@@ -258,7 +281,7 @@
     if (status.thumbnail_pic) {
         self.photoView.hidden = NO;
         self.photoView.frame = self.statusFrame.photoViewF;
-        [self.photoView setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        [self.photoView sd_setImageWithURL:[NSURL URLWithString:status.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
     } else {
         self.photoView.hidden = YES;
     }
@@ -278,7 +301,8 @@
         self.retweetView.frame = self.statusFrame.retweetViewF;
         
         // 2.昵称
-        self.retweetNameLabel.text = user.name;
+//        self.retweetNameLabel.text = user.name;
+        self.retweetNameLabel.text = [NSString stringWithFormat:@"@%@",user.name];
         self.retweetNameLabel.frame = self.statusFrame.retweetNameLabelF;
         
         // 3.正文
@@ -289,7 +313,7 @@
         if (retweetStatus.thumbnail_pic) {
             self.retweetPhotoView.hidden = NO;
             self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
-            [self.retweetPhotoView setImageWithURL:[NSURL URLWithString:retweetStatus.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
         } else {
             self.retweetPhotoView.hidden = YES;
         }

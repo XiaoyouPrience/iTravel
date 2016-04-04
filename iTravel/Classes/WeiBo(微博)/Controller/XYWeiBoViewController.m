@@ -55,34 +55,34 @@
     [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         DLog(@"%@",responseObject);
-        // 1.字典转模型
-        NSArray *statusArr = responseObject[@"statuses"];
-        // 字典转模型并直接存入frame中
-        NSMutableArray *arrayM = [NSMutableArray array];
-        for (NSDictionary *dic in statusArr) {
-            XYStatus *status = [XYStatus objectWithKeyValues:dic];
-            
-            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
-            statusFrame.status = status;
-            
-            [arrayM addObject:statusFrame];
-        }
-        // 2.给自己的数组赋值
-        self.statusFrames = arrayM;
-        
-//        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
-//        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
-//        
-//        // 2.创建frame模型对象
-//        NSMutableArray *statusFrameArray = [NSMutableArray array];
-//        for (XYStatus *status in statusArray) {
+//        // 1.字典转模型
+//        NSArray *statusArr = responseObject[@"statuses"];
+//        // 字典转模型并直接存入frame中
+//        NSMutableArray *arrayM = [NSMutableArray array];
+//        for (NSDictionary *dic in statusArr) {
+//            XYStatus *status = [XYStatus objectWithKeyValues:dic];
+//            
 //            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
-//            // 传递微博模型数据
 //            statusFrame.status = status;
-//            [statusFrameArray addObject:statusFrame];
+//            
+//            [arrayM addObject:statusFrame];
 //        }
-//        // 赋值
-//        self.statusFrames = statusFrameArray;
+//        // 2.给自己的数组赋值
+//        self.statusFrames = arrayM;
+        
+        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 2.创建frame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (XYStatus *status in statusArray) {
+            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
+            // 传递微博模型数据
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        // 赋值
+        self.statusFrames = statusFrameArray;
         
         
         // 3.加载完数据必须先进行一次数据刷新
