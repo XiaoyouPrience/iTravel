@@ -110,8 +110,10 @@
     [button addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = button;
     
+    // 4. 自己tableView 的一些简单设置
     self.tableView.backgroundColor = XYColor(226, 226, 226);
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, XYStatusTableBorder, 0);
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone; // cell 分割线
 }
 // 标题按钮点击
 - (void)titleButtonClick:(XYTitleButton *)titleButton

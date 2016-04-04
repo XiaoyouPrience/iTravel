@@ -12,6 +12,7 @@
 #import "XYUser.h"
 #import "UIImageView+WebCache.h"
 #import "XYPhoto.h"
+#import "XYPhotosView.h"
 
 @interface XYReweetStatusView ()
 
@@ -20,7 +21,7 @@
 /** 被转发微博的正文\内容 */
 @property (nonatomic, weak) UILabel *retweetContentLabel;
 /** 被转发微博的配图 */
-@property (nonatomic, weak) UIImageView *retweetPhotoView;
+@property (nonatomic, weak) XYPhotosView *retweetPhotoView;
 
 
 @end
@@ -55,7 +56,7 @@
         self.retweetContentLabel = retweetContentLabel;
         
         /** 3.被转发微博的配图 */
-        UIImageView *retweetPhotoView = [[UIImageView alloc] init];
+        XYPhotosView *retweetPhotoView = [[XYPhotosView alloc] init];
         [self addSubview:retweetPhotoView];
         self.retweetPhotoView = retweetPhotoView;
 
@@ -92,9 +93,10 @@
             self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
             
             // 暂时显示第一张tu
-            XYPhoto *photo = retweetStatus.pic_urls[0];
-            NSString *url = photo.thumbnail_pic;
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+//            XYPhoto *photo = retweetStatus.pic_urls[0];
+//            NSString *url = photo.thumbnail_pic;
+//            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+            self.retweetPhotoView.photos = retweetStatus.pic_urls;
         } else {
             self.retweetPhotoView.hidden = YES;
         }

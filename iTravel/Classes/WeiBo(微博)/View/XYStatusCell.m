@@ -55,6 +55,7 @@
     /* cell 的选中背景，*/
     UIView *bgView = [[UIView alloc] init];
     self.selectedBackgroundView = bgView;
+    self.backgroundColor = [UIColor clearColor]; //设置cell自己的背景为透明
     
     /** 1.顶部的view */
     XYStatusTopView *topView = [[XYStatusTopView alloc] init];

@@ -51,7 +51,7 @@
         // 0. 设置自己可和用户交互
         self.userInteractionEnabled = YES;
         // 1.设置自己内部背景
-        self.image = [UIImage imageWithName:@"timeline_card_bottom_background"];
+        self.image = [UIImage resiedImageWithName:@"timeline_card_bottom_background"];
         self.highlightedImage = [UIImage resiedImageWithName:@"timeline_card_bottom_background_highlighted"];
         
         // 2.添加按钮

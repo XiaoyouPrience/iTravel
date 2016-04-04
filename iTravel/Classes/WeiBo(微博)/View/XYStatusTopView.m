@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "XYReweetStatusView.h"
 #import "XYPhoto.h"
+#import "XYPhotosView.h"
 
 @interface XYStatusTopView()
 
@@ -21,7 +22,7 @@
 /** 会员图标 */
 @property (nonatomic, weak) UIImageView *vipView;
 /** 配图 */
-@property (nonatomic, weak) UIImageView *photoView;
+@property (nonatomic, weak) XYPhotosView *photosView;
 /** 昵称 */
 @property (nonatomic, weak) UILabel *nameLabel;
 /** 时间 */
@@ -59,9 +60,9 @@
         self.vipView = vipView;
         
         /** 4.配图 */
-        UIImageView *photoView = [[UIImageView alloc] init];
+        XYPhotosView *photoView = [[XYPhotosView alloc] init];
         [self addSubview:photoView];
-        self.photoView = photoView;
+        self.photosView = photoView;
         
         /** 5.昵称 */
         UILabel *nameLabel = [[UILabel alloc] init];
@@ -159,13 +160,14 @@
     
     // 8.配图
     if (status.pic_urls.count) {
-        self.photoView.hidden = NO;
-        self.photoView.frame = self.statusFrame.photoViewF;
-        XYPhoto *photo = status.pic_urls[0];
-        NSString *url = photo.thumbnail_pic;
-        [self.photoView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        self.photosView.hidden = NO;
+        self.photosView.frame = self.statusFrame.photoViewF;
+//        XYPhoto *photo = status.pic_urls[0];
+//        NSString *url = photo.thumbnail_pic;
+//        [self.photoView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+        self.photosView.photos = status.pic_urls;
     } else {
-        self.photoView.hidden = YES;
+        self.photosView.hidden = YES;
     }
     
     // 9.设置被转发微博的frame
