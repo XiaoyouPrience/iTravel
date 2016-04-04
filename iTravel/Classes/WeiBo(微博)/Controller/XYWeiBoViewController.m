@@ -18,6 +18,7 @@
 #import "XYStatusFrame.h"
 #import "XYUser.h"
 #import "XYStatusCell.h"
+#import "XYPhoto.h"
 
 
 #define titleButtonTagUP -1

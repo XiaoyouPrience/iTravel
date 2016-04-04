@@ -338,6 +338,7 @@
 		00FD8C721CB29F7E00313C9F /* XYStatuaToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C711CB29F7E00313C9F /* XYStatuaToolBar.m */; };
 		00FD8C751CB2ACBB00313C9F /* XYStatusTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C741CB2ACBB00313C9F /* XYStatusTopView.m */; };
 		00FD8C781CB2B22400313C9F /* XYReweetStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C771CB2B22400313C9F /* XYReweetStatusView.m */; };
+		00FD8C7B1CB2BCF200313C9F /* XYPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FD8C7A1CB2BCF200313C9F /* XYPhoto.m */; };
 		7F77B39BAB42654D67305421 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 07AC426721CB7EDC4CE9CE9D /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -755,6 +756,8 @@
 		00FD8C741CB2ACBB00313C9F /* XYStatusTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatusTopView.m; sourceTree = "<group>"; };
 		00FD8C761CB2B22400313C9F /* XYReweetStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYReweetStatusView.h; sourceTree = "<group>"; };
 		00FD8C771CB2B22400313C9F /* XYReweetStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYReweetStatusView.m; sourceTree = "<group>"; };
+		00FD8C791CB2BCF200313C9F /* XYPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYPhoto.h; sourceTree = "<group>"; };
+		00FD8C7A1CB2BCF200313C9F /* XYPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYPhoto.m; sourceTree = "<group>"; };
 		05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		07AC426721CB7EDC4CE9CE9D /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -914,6 +917,8 @@
 				006034B51CB049A9000067F2 /* XYUser.m */,
 				006034B71CB04A15000067F2 /* XYStatusFrame.h */,
 				006034B81CB04A15000067F2 /* XYStatusFrame.m */,
+				00FD8C791CB2BCF200313C9F /* XYPhoto.h */,
+				00FD8C7A1CB2BCF200313C9F /* XYPhoto.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2132,6 +2137,7 @@
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
 				00955FBF1CADB693009405F9 /* MBProgressHUD+MJ.m in Sources */,
 				00FD8C751CB2ACBB00313C9F /* XYStatusTopView.m in Sources */,
+				00FD8C7B1CB2BCF200313C9F /* XYPhoto.m in Sources */,
 				006034B31CB048EA000067F2 /* XYStatus.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
 				00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */,

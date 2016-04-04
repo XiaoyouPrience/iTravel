@@ -11,6 +11,8 @@
 #import "XYStatus.h"
 #import "XYUser.h"
 #import "UIImageView+WebCache.h"
+#import "XYPhoto.h"
+
 @interface XYReweetStatusView ()
 
 /** 被转发微博作者的昵称 */
@@ -85,10 +87,14 @@
         self.retweetContentLabel.frame = self.statusFrame.retweetContentLabelF;
         
         // 4.配图
-        if (retweetStatus.thumbnail_pic) {
+        if (retweetStatus.pic_urls.count) {
             self.retweetPhotoView.hidden = NO;
             self.retweetPhotoView.frame = self.statusFrame.retweetPhotoViewF;
-            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:retweetStatus.thumbnail_pic] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
+            
+            // 暂时显示第一张tu
+            XYPhoto *photo = retweetStatus.pic_urls[0];
+            NSString *url = photo.thumbnail_pic;
+            [self.retweetPhotoView sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageWithName:@"timeline_image_placeholder"]];
         } else {
             self.retweetPhotoView.hidden = YES;
         }

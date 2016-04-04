@@ -8,8 +8,17 @@
 
 #import "XYStatus.h"
 #import "NSDate+XY.h"
+#import "MJExtension.h"
+#import "XYPhoto.h"
 
 @implementation XYStatus
+
+
+#pragma mark - 偷偷告诉框架pic_urls 内部要装什么模型
+- (NSDictionary *)objectClassInArray
+{
+    return @{@"pic_urls":[XYPhoto class]};
+}
 
 #pragma mark -   其实用MJExtation 这些方法就不用写了
 // 其实用MJExtation 这些方法就不用写了
