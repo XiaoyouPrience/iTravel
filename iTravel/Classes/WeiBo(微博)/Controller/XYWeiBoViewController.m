@@ -19,6 +19,7 @@
 #import "XYUser.h"
 #import "XYStatusCell.h"
 #import "XYPhoto.h"
+#import "XYTitleButton.h"
 
 
 #define titleButtonTagUP -1
@@ -28,6 +29,7 @@
 
 //@property (nonatomic,weak) UIButton *popBtn;
 @property (nonatomic, strong)NSMutableArray *statusFrames;
+@property (nonatomic,weak) XYTitleButton *titleButton;
 
 @end
 
@@ -92,8 +94,38 @@
     
     // 2.添加刷新控件
     [self setupRefreshView];
+    
+    // 3.获取用户信息
+    [self setupUserData];
 }
 
+/**.获取用户信息*/
+- (void)setupUserData
+{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [XYAccountTool account].access_token;
+    params[@"uid"] = @([XYAccountTool account].uid);
+    
+    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 1.字典转模型
+        XYUser *user = [XYUser objectWithKeyValues:responseObject];
+        
+        // 2.设置标题文字
+        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+        
+        // 3.保存用户名称
+        XYAccount *account = [XYAccountTool account];
+        account.name = user.name;
+        [XYAccountTool saveAccount:account];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+
+}
 /**
  *  添加刷新控件
  */
@@ -195,7 +227,7 @@
     [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     btn.titleLabel.font = [UIFont systemFontOfSize:14];
     if (count) {
-        NSString *title = [NSString stringWithFormat:@"共有%d条新的微博", count];
+        NSString *title = [NSString stringWithFormat:@"共有%ld条新的微博", count];
         [btn setTitle:title forState:UIControlStateNormal];
     } else {
         [btn setTitle:@"没有新的微博数据" forState:UIControlStateNormal];
@@ -239,8 +271,15 @@
     // 3. 中间按钮
     XYTitleButton *button = [[XYTitleButton alloc] init];
     button.frame = CGRectMake(0, 0, 120, 40);
+    if ([XYAccountTool account].name) {
+        [button setTitle:[XYAccountTool account].name forState:UIControlStateNormal];
+    }else
+    {
+        [button setTitle:@"我的微博" forState:UIControlStateNormal];
+    }
     [button addTarget:self action:@selector(titleButtonClick:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = button;
+    self.titleButton = button;
     
     // 4. 自己tableView 的一些简单设置
     self.tableView.backgroundColor = XYColor(226, 226, 226);

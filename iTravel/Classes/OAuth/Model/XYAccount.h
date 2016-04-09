@@ -18,6 +18,9 @@
 @property(nonatomic, assign) long long remind_in;
 @property(nonatomic, assign) long long uid;
 
+/**每次授权时候用户的昵称*/
+@property (nonatomic, copy)NSString *name;
+
 
 + (instancetype)modelWithDict:(NSDictionary *)dict;
 
