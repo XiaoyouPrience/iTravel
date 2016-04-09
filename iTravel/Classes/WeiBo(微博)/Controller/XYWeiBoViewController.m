@@ -37,13 +37,17 @@
 {
     [super viewDidLoad];
     
-    // 1. 设置导航栏
-    [self setupNavBar];
+    // 1.创建页面
+    [self buildUI];
+    
     
     // 2. 加载微博数据
     [self setupStatusData];
 }
 
+/**
+ *  加载微博数据
+ */
 - (void)setupStatusData
 {
     
@@ -56,20 +60,6 @@
     [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         DLog(@"%@",responseObject);
-//        // 1.字典转模型
-//        NSArray *statusArr = responseObject[@"statuses"];
-//        // 字典转模型并直接存入frame中
-//        NSMutableArray *arrayM = [NSMutableArray array];
-//        for (NSDictionary *dic in statusArr) {
-//            XYStatus *status = [XYStatus objectWithKeyValues:dic];
-//            
-//            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
-//            statusFrame.status = status;
-//            
-//            [arrayM addObject:statusFrame];
-//        }
-//        // 2.给自己的数组赋值
-//        self.statusFrames = arrayM;
         
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
         NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
@@ -92,6 +82,82 @@
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
     }];
+}
+
+
+- (void)buildUI
+{
+    // 1. 设置导航栏
+    [self setupNavBar];
+    
+    // 2.添加刷新控件
+    [self setupRefreshView];
+}
+
+- (void)setupRefreshView
+{
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refreshControlStateChange:) forControlEvents:UIControlEventValueChanged];
+    [self.tableView addSubview:refreshControl];
+}
+
+- (void)refreshControlStateChange:(UIRefreshControl *)refreshControl
+{
+    DLog(@"==refreshControlStateChange==");
+    
+    // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [XYAccountTool account].access_token;
+    params[@"count"] = @20;
+    
+    // 取出目前最新的微博ID来
+    if(self.statusFrames.count)
+    {
+        XYStatusFrame *statusF = self.statusFrames[0];
+        XYStatus *status = statusF.status;
+        NSString *since_id = status.idstr;
+        params[@"since_id"] = since_id;
+    }
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        DLog(@"%@",responseObject);
+        
+        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 2.创建frame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (XYStatus *status in statusArray) {
+            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
+            // 传递微博模型数据
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        
+        // 把新数据放到旧数据之前展示
+        // self.statusFrames -- 旧数据
+        // statusFrameArray -- 新数据
+        NSMutableArray *tempArr = [NSMutableArray array];
+        [tempArr addObjectsFromArray:statusFrameArray];
+        [tempArr addObjectsFromArray:self.statusFrames];
+        
+        // 赋值
+        self.statusFrames = tempArr;
+        
+        
+        // 3.加载完数据必须先进行一次数据刷新
+        [self.tableView reloadData];
+        
+        [refreshControl endRefreshing];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [refreshControl endRefreshing];
+    }];
+
 }
 
 // 设置NavBar
