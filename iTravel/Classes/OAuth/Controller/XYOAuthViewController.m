@@ -81,6 +81,8 @@
         
         [self requestForAccessToken:code];
         
+        // 2.3 取得accessToken之后，加载回调页面时不让加载
+        return NO;
     }
     
     return YES;

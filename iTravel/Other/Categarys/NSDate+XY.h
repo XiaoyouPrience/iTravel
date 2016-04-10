@@ -18,6 +18,10 @@
  */
 - (BOOL)isYesterday;
 /**
+ *  返回一个只有YMD的时间
+ */
+- (NSDate *)dateWithYMD;
+/**
  *  是否为今年
  */
 - (BOOL)isThisYear;

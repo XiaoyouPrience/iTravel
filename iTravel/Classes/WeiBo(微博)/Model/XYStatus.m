@@ -50,7 +50,9 @@
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     //fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
     fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
     NSDate *createdDate = [fmt dateFromString:_created_at];  // 英文
+    
 //    NSDate *createdDate = [fmt dateFromString:@"周一 4月 04 15:39:08 +0800 2016"];   中文
     
     

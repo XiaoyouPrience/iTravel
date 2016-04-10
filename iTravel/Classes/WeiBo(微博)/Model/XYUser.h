@@ -28,7 +28,7 @@
  */
 @property (nonatomic, assign) int mbrank;
 /**
- *  会员类型
+ *  会员类型 > 2 会员
  */
 @property (nonatomic, assign) int mbtype;
 
