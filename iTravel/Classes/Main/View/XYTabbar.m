@@ -50,11 +50,23 @@
         [plusButton setImage:[UIImage imageWithName:@"tabbar_compose_icon_add_highlighted"] forState:UIControlStateHighlighted];
         [self addSubview:plusButton];
         plusButton.frame = CGRectMake(0, 0, plusButton.currentBackgroundImage.size.width, plusButton.currentBackgroundImage.size.height);
+        [plusButton addTarget:self action:@selector(plusButtonPressed) forControlEvents:UIControlEventTouchUpInside];
         self.plusButton = plusButton;
         
     }
     return self;
 }
+/**
+ *  加号按钮店家
+ */
+- (void)plusButtonPressed
+{
+    // model出一个popView
+    if ([self.delegate respondsToSelector:@selector(tabBarDidClickPlusBtn:)]) {
+        [self.delegate tabBarDidClickPlusBtn:self];
+    }
+}
+
 
 /**
  *  添加Tabbar上的按钮
