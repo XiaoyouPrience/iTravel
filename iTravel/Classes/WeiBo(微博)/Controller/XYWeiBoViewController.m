@@ -20,6 +20,7 @@
 #import "XYStatusCell.h"
 #import "XYPhoto.h"
 #import "XYTitleButton.h"
+#import "MJRefresh.h"
 
 
 #define titleButtonTagUP -1
@@ -131,22 +132,117 @@
  */
 - (void)setupRefreshView
 {
-    // 1.添加系统刷新控件
-    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
-    [refreshControl addTarget:self action:@selector(refreshControlStateChange:) forControlEvents:UIControlEventValueChanged];
-    [self.tableView addSubview:refreshControl];
+//    // 1.添加系统刷新控件
+//    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+//    [refreshControl addTarget:self action:@selector(refreshControlStateChanged:) forControlEvents:UIControlEventValueChanged];
+//    [self.tableView addSubview:refreshControl];
+//    
+//    // 2.自动进入刷新状态（不会触动监听方法）
+//    [refreshControl beginRefreshing];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        [refreshControl endRefreshing];
+//    });
+//    
+//
+//    // 3.加载数据
+//    [self refreshControlStateChange:refreshControl];
     
-    // 2.自动进入刷新状态（不会触动监听方法）
-    [refreshControl beginRefreshing];
     
-    // 3.加载数据
-    [self refreshControlStateChange:refreshControl];
+    // 上拉刷新控件
+    __unsafe_unretained UITableView *tableView = self.tableView;
+    
+    [self.tableView.mj_header beginRefreshing];
+    // 进来直接自动进入刷新状态(这个是只有提示，但是没有进入刷新效果上)
+    [self refreshControlStateChange:tableView.mj_header];
+    
+    
+    // 下拉刷新
+    tableView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        // 加载数据
+        [self refreshControlStateChange:tableView.mj_header];
+        
+        [tableView.mj_header endRefreshing];
+    }];
+    
+    // 设置自动切换透明度(在导航栏下面自动隐藏)
+    tableView.mj_header.automaticallyChangeAlpha = YES;
+    
+    // 上拉刷新
+    tableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreData:tableView.mj_footer];
+    }];
+
 }
 
 /**
- *  手动刷新监听的方法
+ *  发送请求加载更多的微博数据 --- 下拉刷新更多微博数据
  */
-- (void)refreshControlStateChange:(UIRefreshControl *)refreshControl
+- (void)loadMoreData:(MJRefreshFooter *)footer
+{
+    // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [XYAccountTool account].access_token;
+    params[@"count"] = @20;
+    
+    // 取出目前最新的微博ID来
+    if(self.statusFrames.count)
+    {
+        XYStatusFrame *statusF = self.statusFrames.lastObject;
+        XYStatus *status = statusF.status;
+        long long max_id = status.idstr.longLongValue - 1; // 是最后一条数据之前的那一条微博数据
+        params[@"max_id"] = @(max_id);
+    }
+    
+    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        DLog(@"%@",responseObject);
+        
+        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        
+        // 2.创建frame模型对象
+        NSMutableArray *statusFrameArray = [NSMutableArray array];
+        for (XYStatus *status in statusArray) {
+            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
+            // 传递微博模型数据
+            statusFrame.status = status;
+            [statusFrameArray addObject:statusFrame];
+        }
+        
+        // 把新数据放到旧数据之后展示
+        // self.statusFrames -- 旧数据
+        // statusFrameArray -- 新数据
+//        NSMutableArray *tempArr = [NSMutableArray array];
+//        [tempArr addObjectsFromArray:statusFrameArray];
+//        [tempArr addObjectsFromArray:self.statusFrames];
+        
+        // 赋值
+        [self.statusFrames addObjectsFromArray:statusFrameArray];
+        
+        
+        // 3.加载完数据必须先进行一次数据刷新
+        [self.tableView reloadData];
+        
+        // 4.刷新空间停止刷新
+        [footer endRefreshing];
+        
+        // 5. 给用户一些友好的提示
+        [self showNewStatusCount:statusFrameArray.count];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+        [footer endRefreshing];
+    }];
+
+}
+
+/**
+ *  加载新的数据 --- 手动刷新监听的方法
+ */
+- (void)refreshControlStateChange:(MJRefreshHeader *)header
 {
     DLog(@"==refreshControlStateChange==");
     
@@ -197,14 +293,14 @@
         [self.tableView reloadData];
         
         // 4.刷新空间停止刷新
-        [refreshControl endRefreshing];
+        [header endRefreshing];
         
         // 5. 给用户一些友好的提示
         [self showNewStatusCount:statusFrameArray.count];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
-        [refreshControl endRefreshing];
+        [header endRefreshing];
     }];
 
 }
