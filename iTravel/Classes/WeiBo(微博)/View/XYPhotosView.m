@@ -12,10 +12,6 @@
 #import "MJPhoto.h"
 #import "MJPhotoBrowser.h"
 
-#define XYPhotoW 70
-#define XYPhotoH 70
-#define XYPhotoMargin 10
-
 @implementation XYPhotosView
 
 - (id)initWithFrame:(CGRect)frame

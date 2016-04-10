@@ -33,7 +33,8 @@
     [self.view addSubview:self.webView];
     
     // 加载授权页面
-    NSURL *url = [NSURL URLWithString:@"https://api.weibo.com/oauth2/authorize?client_id=2681167680&redirect_uri=http://www.baidu.com"];
+    NSString *loginUrl = [NSString stringWithFormat:@"https://api.weibo.com/oauth2/authorize?client_id=%@&redirect_uri=%@",AppKey,Redirect_Uri];
+    NSURL *url = [NSURL URLWithString:loginUrl];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [webView loadRequest:request];
 }
@@ -93,11 +94,11 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     // 1.封装请求参数
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"client_id"] = @"2681167680";
-    parame[@"client_secret"] = @"5072b1af9da41b457202eb8b7ebfa30f";
+    parame[@"client_id"] = AppKey;
+    parame[@"client_secret"] = AppSecreat;
     parame[@"grant_type"] = @"authorization_code";
     parame[@"code"] = code;
-    parame[@"redirect_uri"] = @"http://www.baidu.com";
+    parame[@"redirect_uri"] = Redirect_Uri;
     
     [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         

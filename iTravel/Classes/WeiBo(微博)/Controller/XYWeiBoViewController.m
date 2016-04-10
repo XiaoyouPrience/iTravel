@@ -230,7 +230,7 @@
         [footer endRefreshing];
         
         // 5. 给用户一些友好的提示
-        [self showNewStatusCount:statusFrameArray.count];
+        //[self showNewStatusCount:statusFrameArray.count];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         

@@ -8,27 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-/** 昵称的字体 */
-#define XYStatusNameFont [UIFont systemFontOfSize:15]
-/** 被转发微博作者昵称的字体 */
-#define XYRetweetStatusNameFont XYStatusNameFont
-
-/** 时间的字体 */
-#define XYStatusTimeFont [UIFont systemFontOfSize:12]
-/** 来源的字体 */
-#define XYStatusSourceFont XYStatusTimeFont
-
-/** 正文的字体 */
-#define XYStatusContentFont [UIFont systemFontOfSize:13]
-/** 被转发微博正文的字体 */
-#define XYRetweetStatusContentFont XYStatusContentFont
-
-/** 表格的边框宽度 */
-#define XYStatusTableBorder 5
-
-/** cell的边框宽度 */
-#define XYStatusCellBorder 10
-
 @class XYStatus;
 @interface XYStatusFrame : NSObject
 @property (nonatomic, strong) XYStatus *status;

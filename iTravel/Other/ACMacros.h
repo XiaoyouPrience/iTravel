@@ -16,7 +16,42 @@
 #define ACMacros_h
 
 
+#pragma mark - 项目中的一些宏
 
+#pragma mark - 1.账号相关 （微博）
+#define AppKey @"2681167680"
+#define AppSecreat @"5072b1af9da41b457202eb8b7ebfa30f"
+#define Redirect_Uri @"http://www.baidu.com"
+
+#pragma mark - 2.微博页面cell上面的属性
+/** 昵称的字体 */
+#define XYStatusNameFont [UIFont systemFontOfSize:15]
+/** 被转发微博作者昵称的字体 */
+#define XYRetweetStatusNameFont XYStatusNameFont
+
+/** 时间的字体 */
+#define XYStatusTimeFont [UIFont systemFontOfSize:12]
+/** 来源的字体 */
+#define XYStatusSourceFont XYStatusTimeFont
+
+/** 正文的字体 */
+#define XYStatusContentFont [UIFont systemFontOfSize:13]
+/** 被转发微博正文的字体 */
+#define XYRetweetStatusContentFont XYStatusContentFont
+
+/** 表格的边框宽度 */
+#define XYStatusTableBorder 5
+
+/** cell的边框宽度 */
+#define XYStatusCellBorder 10
+
+#pragma mark --- 相册内部设置
+#define XYPhotoW 70
+#define XYPhotoH 70
+#define XYPhotoMargin 10
+
+
+#pragma mark --- 一些常用宏的配置
 // 1.判断是否为iOS7以上
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 // 2.获得RGB颜色
