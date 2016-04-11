@@ -59,6 +59,9 @@
 // 3.获得随机颜色
 #define XYRandomColor XYColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
+// 4.通知中心
+#define kNotificationCenter [NSNotificationCenter defaultCenter]
+
 //** 屏幕参数 ***********************************************************************************
 #define ScreenW [UIScreen mainScreen].bounds.size.width
 #define ScreenH [UIScreen mainScreen].bounds.size.height

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001C8DD51CBC236B00119C27 /* XYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 001C8DD41CBC236B00119C27 /* XYTextView.m */; };
 		003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */; };
 		004A4CC51CBAB96100D4CB82 /* composer_close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBC1CBAB96100D4CB82 /* composer_close.wav */; };
 		004A4CC61CBAB96100D4CB82 /* composer_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBD1CBAB96100D4CB82 /* composer_open.wav */; };
@@ -32,6 +33,7 @@
 		004A4CED1CBABD5700D4CB82 /* tabbar_compose_review@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CDB1CBABD5700D4CB82 /* tabbar_compose_review@3x.png */; };
 		004A4CEE1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CDC1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@2x.png */; };
 		004A4CEF1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CDD1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@3x.png */; };
+		004A4CF61CBABFCE00D4CB82 /* XYComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 004A4CF51CBABFCE00D4CB82 /* XYComposeViewController.m */; };
 		006034B31CB048EA000067F2 /* XYStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 006034B21CB048EA000067F2 /* XYStatus.m */; };
 		006034B61CB049A9000067F2 /* XYUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 006034B51CB049A9000067F2 /* XYUser.m */; };
 		006034B91CB04A15000067F2 /* XYStatusFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 006034B81CB04A15000067F2 /* XYStatusFrame.m */; };
@@ -394,6 +396,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001C8DD31CBC236B00119C27 /* XYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTextView.h; sourceTree = "<group>"; };
+		001C8DD41CBC236B00119C27 /* XYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTextView.m; sourceTree = "<group>"; };
 		003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNewFeatureViewController.h; sourceTree = "<group>"; };
 		003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNewFeatureViewController.m; sourceTree = "<group>"; };
 		004A4CBC1CBAB96100D4CB82 /* composer_close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = composer_close.wav; sourceTree = "<group>"; };
@@ -423,6 +427,8 @@
 		004A4CDB1CBABD5700D4CB82 /* tabbar_compose_review@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tabbar_compose_review@3x.png"; sourceTree = "<group>"; };
 		004A4CDC1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_relationship_icon_addattention@2x.png"; sourceTree = "<group>"; };
 		004A4CDD1CBABD5700D4CB82 /* timeline_relationship_icon_addattention@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timeline_relationship_icon_addattention@3x.png"; sourceTree = "<group>"; };
+		004A4CF41CBABFCE00D4CB82 /* XYComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYComposeViewController.h; sourceTree = "<group>"; };
+		004A4CF51CBABFCE00D4CB82 /* XYComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYComposeViewController.m; sourceTree = "<group>"; };
 		006034B11CB048EA000067F2 /* XYStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYStatus.h; sourceTree = "<group>"; };
 		006034B21CB048EA000067F2 /* XYStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatus.m; sourceTree = "<group>"; };
 		006034B41CB049A9000067F2 /* XYUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUser.h; sourceTree = "<group>"; };
@@ -945,6 +951,42 @@
 			path = popImages;
 			sourceTree = "<group>";
 		};
+		004A4CF01CBABF9D00D4CB82 /* Compose（发微博） */ = {
+			isa = PBXGroup;
+			children = (
+				004A4CF11CBABF9D00D4CB82 /* Controller */,
+				004A4CF21CBABF9D00D4CB82 /* Model */,
+				004A4CF31CBABF9D00D4CB82 /* View */,
+			);
+			name = "Compose（发微博）";
+			path = "WeiBo(微博)/Compose（发微博）";
+			sourceTree = "<group>";
+		};
+		004A4CF11CBABF9D00D4CB82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				004A4CF41CBABFCE00D4CB82 /* XYComposeViewController.h */,
+				004A4CF51CBABFCE00D4CB82 /* XYComposeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		004A4CF21CBABF9D00D4CB82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		004A4CF31CBABF9D00D4CB82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				001C8DD31CBC236B00119C27 /* XYTextView.h */,
+				001C8DD41CBC236B00119C27 /* XYTextView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		006034BD1CB04B79000067F2 /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1437,6 +1479,7 @@
 				003A4B481CAAF852007DC4EC /* NewFeature(新特性) */,
 				00D09BED1C95BE4D00FAB38B /* Map(地图) */,
 				00716D3E1C9D2E040083131E /* WeiBo(微博) */,
+				004A4CF01CBABF9D00D4CB82 /* Compose（发微博） */,
 				00D09BE11C95BE4D00FAB38B /* Discover(发现) */,
 				00D09BF31C95BE4D00FAB38B /* Me(我) */,
 			);
@@ -2292,7 +2335,9 @@
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
 				00955FB51CADA70E009405F9 /* XYTool.m in Sources */,
+				004A4CF61CBABFCE00D4CB82 /* XYComposeViewController.m in Sources */,
 				006035341CB053CB000067F2 /* UIImage+MultiFormat.m in Sources */,
+				001C8DD51CBC236B00119C27 /* XYTextView.m in Sources */,
 				006035361CB053CB000067F2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				006034B91CB04A15000067F2 /* XYStatusFrame.m in Sources */,
@@ -2412,8 +2457,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2457,8 +2502,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -2484,8 +2529,8 @@
 			baseConfigurationReference = F24034946DC0659DD349C8D1 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iTravel/Other/iTravel.pch";
@@ -2503,8 +2548,8 @@
 			baseConfigurationReference = 05DB3594D9121AFED55CDB42 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 417076416@qq.com (APE8DUWMWE)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/iTravel/Other/iTravel.pch";
