@@ -12,9 +12,12 @@
 #import "XYAccount.h"
 #import "XYAccountTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "XYComposeToolbar.h"
 
-@interface XYComposeViewController()
+@interface XYComposeViewController()<UITextViewDelegate,XYComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) XYTextView *textView;
+@property (nonatomic,weak) XYComposeToolbar *composeToolbar;
+@property (nonatomic,weak) UIImageView *imageView;
 
 @end
 
@@ -31,6 +34,12 @@
     // 设置textView
     [self setupTextView];
     
+    // 添加toolbar
+    [self setupToolbar];
+    
+    // 添加imageView
+    [self setupImageView];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -38,6 +47,87 @@
     [super viewDidAppear:animated];
     
     [self.textView becomeFirstResponder];
+}
+
+
+/**
+ *  添加imageView
+ */
+- (void)setupImageView
+{
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(5, 80, 60, 60);
+    [self.textView addSubview:imageView];
+    self.imageView = imageView;
+}
+
+/**
+ *  添加toolbar
+ */
+- (void)setupToolbar
+{
+    XYComposeToolbar *toolbar = [[XYComposeToolbar alloc] init];
+    toolbar.backgroundColor = [UIColor redColor];
+    toolbar.delegate = self;
+    CGFloat toolbarH = 44;
+    CGFloat toolbarW = self.view.frame.size.width;
+    CGFloat toolbarX = 0;
+    CGFloat toolbarY = self.view.frame.size.height - toolbarH;
+    toolbar.frame = CGRectMake(toolbarX, toolbarY, toolbarW, toolbarH);
+    [self.view addSubview:toolbar];
+    self.composeToolbar = toolbar;
+}
+
+#pragma mark - toolbar的代理方法
+- (void)composeToolbar:(XYComposeToolbar *)toolbar didClickedButton:(XYComposeToolbarButtonType)buttonType
+{
+    switch (buttonType) {
+        case XYComposeToolbarButtonTypeCamera: // 相机
+            [self openCamera];
+            break;
+            
+        case XYComposeToolbarButtonTypePicture: // 相册
+            [self openPhotoLibrary];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+/**
+ *  打开相机
+ */
+- (void)openCamera
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+/**
+ *  打开相册
+ */
+- (void)openPhotoLibrary
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+}
+
+#pragma mark - 图片选择控制器的代理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // 1.销毁picker控制器
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    // 2.去的图片
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    
+    NSLog(@"%@", info);
 }
 
 /**
@@ -51,13 +141,57 @@
     textView.font = [UIFont systemFontOfSize:15];
     textView.placeholderColor = [UIColor redColor];
     textView.frame = self.view.bounds;
+    // 垂直方向上永远可以拖拽
+    textView.alwaysBounceVertical = YES;
+    textView.delegate = self;
     [self.view addSubview:textView];
     self.textView = textView;
     
     // 2.监听文字录入
     [kNotificationCenter addObserver:self selector:@selector(textDidChange) name:UITextViewTextDidChangeNotification object:textView];
     
+    
+    // 3.监听键盘的通知
+    [kNotificationCenter addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [kNotificationCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    
 }
+/**
+ *  键盘即将显示的时候调用
+ */
+- (void)keyboardWillShow:(NSNotification *)note
+{
+    // 1.取出键盘的frame
+    CGRect keyboardF = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    // 2.取出键盘弹出的时间
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    // 3.执行动画
+    [UIView animateWithDuration:duration animations:^{
+        self.composeToolbar.transform = CGAffineTransformMakeTranslation(0, -keyboardF.size.height);
+    }];
+}
+
+/**
+ *  键盘即将退出的时候调用
+ */
+- (void)keyboardWillHide:(NSNotification *)note
+{
+    // 1.取出键盘弹出的时间
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    // 2.执行动画
+    [UIView animateWithDuration:duration animations:^{
+        self.composeToolbar.transform = CGAffineTransformIdentity;
+    }];
+}
+#pragma mark - scrollView Delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
 
 /**
  *  监听文字录入
@@ -92,11 +226,16 @@
     self.title = @"发微博";
 
 }
-
+/**
+ *  取消发送微博
+ */
 - (void)cancel
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+/**
+ *  发送微博
+ */
 - (void)sendNewWeibo
 {
     if ([self.textView.text isEqualToString:@""]) {
