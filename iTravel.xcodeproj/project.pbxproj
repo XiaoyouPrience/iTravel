@@ -74,6 +74,7 @@
 		00955FBF1CADB693009405F9 /* MBProgressHUD+MJ.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FBB1CADB693009405F9 /* MBProgressHUD+MJ.m */; };
 		00955FC01CADB693009405F9 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 00955FBC1CADB693009405F9 /* MBProgressHUD.bundle */; };
 		00955FC11CADB693009405F9 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 00955FBE1CADB693009405F9 /* MBProgressHUD.m */; };
+		00A170141CBD74B300D46B2F /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A170131CBD74B300D46B2F /* NSString+Extension.m */; };
 		00D09B191C95B1A500FAB38B /* common_button_big_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A471C95B1A400FAB38B /* common_button_big_red.png */; };
 		00D09B1A1C95B1A500FAB38B /* common_button_big_red@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */; };
 		00D09B1B1C95B1A500FAB38B /* common_button_big_red_disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */; };
@@ -510,6 +511,8 @@
 		00955FBC1CADB693009405F9 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
 		00955FBD1CADB693009405F9 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		00955FBE1CADB693009405F9 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		00A170121CBD74B300D46B2F /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
+		00A170131CBD74B300D46B2F /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
 		00D09A471C95B1A400FAB38B /* common_button_big_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red.png; sourceTree = "<group>"; };
 		00D09A481C95B1A400FAB38B /* common_button_big_red@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "common_button_big_red@2x.png"; sourceTree = "<group>"; };
 		00D09A491C95B1A400FAB38B /* common_button_big_red_disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_button_big_red_disable.png; sourceTree = "<group>"; };
@@ -1647,6 +1650,8 @@
 		00D09C0F1C95CEFB00FAB38B /* Categarys */ = {
 			isa = PBXGroup;
 			children = (
+				00A170121CBD74B300D46B2F /* NSString+Extension.h */,
+				00A170131CBD74B300D46B2F /* NSString+Extension.m */,
 				00D09C101C95CF1000FAB38B /* UIImage+XY.h */,
 				00D09C111C95CF1000FAB38B /* UIImage+XY.m */,
 				00716D351C9C85CF0083131E /* UIBarButtonItem+XY.h */,
@@ -2322,6 +2327,7 @@
 				006034D71CB04B79000067F2 /* NSObject+MJCoding.m in Sources */,
 				00FD8C931CB2D60400313C9F /* MJPhotoLoadingView.m in Sources */,
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				00A170141CBD74B300D46B2F /* NSString+Extension.m in Sources */,
 				00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */,
 				006034D81CB04B79000067F2 /* NSObject+MJKeyValue.m in Sources */,
 				00955FC11CADB693009405F9 /* MBProgressHUD.m in Sources */,

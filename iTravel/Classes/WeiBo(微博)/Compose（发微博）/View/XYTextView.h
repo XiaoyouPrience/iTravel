@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface XYTextView : UITextView
-
+@property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic, strong) UIColor *placeholderColor;
 @end

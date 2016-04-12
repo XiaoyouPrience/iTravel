@@ -35,16 +35,21 @@
     }
     
     // 设置文字属性
+    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
+    //    disableTextAttrs[UITextAttributeTextColor] =  [UIColor lightGrayColor];
+    disableTextAttrs[NSForegroundColorAttributeName] =  [UIColor lightGrayColor];
+    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[UITextAttributeTextColor] = iOS7 ? [UIColor orangeColor] : [UIColor grayColor];
+    textAttrs[NSForegroundColorAttributeName] = iOS7 ? [UIColor orangeColor] : [UIColor grayColor];
     textAttrs[UITextAttributeTextShadowOffset] = [NSValue valueWithUIOffset:UIOffsetZero];
     textAttrs[UITextAttributeFont] = [UIFont systemFontOfSize:iOS7 ? 15 : 12];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
     [item setTitleTextAttributes:textAttrs forState:UIControlStateHighlighted];
     
-    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
-    disableTextAttrs[UITextAttributeTextColor] =  [UIColor blueColor];
-    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
+//    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
+////    disableTextAttrs[UITextAttributeTextColor] =  [UIColor lightGrayColor];
+//    disableTextAttrs[NSForegroundColorAttributeName] =  [UIColor lightGrayColor];
+//    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
     
 }
 /**

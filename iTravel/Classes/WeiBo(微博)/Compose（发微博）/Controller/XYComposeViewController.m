@@ -47,8 +47,10 @@
 {
     // 1.添加textView
     XYTextView *textView = [[XYTextView alloc] init];
+    textView.placeholder = @"分享新鲜事...";
     textView.font = [UIFont systemFontOfSize:15];
-    textView.frame = self.view.frame;
+    textView.placeholderColor = [UIColor redColor];
+    textView.frame = self.view.bounds;
     [self.view addSubview:textView];
     self.textView = textView;
     
@@ -86,6 +88,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleDone target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem= [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleDone target:self action:@selector(sendNewWeibo)];
 //    self.navigationItem.rightBarButtonItem.enabled = NO;
+    
     self.title = @"发微博";
 
 }
@@ -96,28 +99,37 @@
 }
 - (void)sendNewWeibo
 {
-    // 1.创建管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    // 2.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"status"] = self.textView.text;
-
-    // 3.发送请求
-    [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    if ([self.textView.text isEqualToString:@""]) {
+        [MBProgressHUD showError:@"未输入要发送的内容哦！"];
         
-        // 发送成功
-        [MBProgressHUD showSuccess:@"发送成功"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [MBProgressHUD hideHUD];
+        });
+    }else
+    {
+        // 1.创建管理者
+        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        // 发送失败
-        [MBProgressHUD showError:@"发送失败"];
-    }];
-
-    
-    // 4.关闭控制器
-    [self dismissViewControllerAnimated:YES completion:nil];
+        // 2.封装请求参数
+        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params[@"access_token"] = [XYAccountTool account].access_token;
+        params[@"status"] = self.textView.text;
+        
+        // 3.发送请求
+        [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            // 发送成功
+            [MBProgressHUD showSuccess:@"发送成功"];
+            
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            // 发送失败
+            [MBProgressHUD showError:@"发送失败"];
+        }];
+        
+        
+        // 4.关闭控制器
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 @end
