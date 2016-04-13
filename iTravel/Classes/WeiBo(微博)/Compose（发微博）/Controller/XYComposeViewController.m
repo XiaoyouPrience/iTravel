@@ -13,11 +13,13 @@
 #import "XYAccountTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "XYComposeToolbar.h"
+#import "XYComposePhotosView.h"
 
 @interface XYComposeViewController()<UITextViewDelegate,XYComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) XYTextView *textView;
 @property (nonatomic,weak) XYComposeToolbar *composeToolbar;
 @property (nonatomic,weak) UIImageView *imageView;
+@property (nonatomic,weak) XYComposePhotosView * photosView;
 
 @end
 
@@ -37,8 +39,10 @@
     // 添加toolbar
     [self setupToolbar];
     
-    // 添加imageView
-    [self setupImageView];
+//    // 添加imageView
+//    [self setupImageView];
+    // 添加photosView
+    [self setupPhotosView];
     
 }
 
@@ -47,6 +51,21 @@
     [super viewDidAppear:animated];
     
     [self.textView becomeFirstResponder];
+}
+
+
+/**
+ *  添加photosView
+ */
+- (void)setupPhotosView
+{
+    XYComposePhotosView * photosView = [[XYComposePhotosView alloc] init];
+    CGFloat photosW = self.view.frame.size.width;
+    CGFloat photosH = self.view.frame.size.height;
+    CGFloat photosY = 80;  // 暂时自己定的
+    photosView.frame = CGRectMake(0, photosY, photosW, photosH);
+    [self.textView addSubview:photosView];
+    self.photosView = photosView;
 }
 
 
@@ -125,7 +144,9 @@
     
     // 2.去的图片
     UIImage *image = info[UIImagePickerControllerOriginalImage];
-    self.imageView.image = image;
+//    self.imageView.image = image;
+    // 图片添加到自己的photosView上
+    [self.photosView addImage:image];
     
     NSLog(@"%@", info);
 }
@@ -255,7 +276,7 @@
     
     
     // 1.发微博 -- 判断类型
-    if (self.imageView.image) {// 发送有图片的微博
+    if (self.photosView.subviews.count) {// 发送有图片的微博
         [self sendWithImage];
     }else
     {   // 发送没有图片的微博
@@ -283,10 +304,18 @@
     
     // 3.发送请求
     [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        // 在发送请求之前调用这个block
-        // 必须要在这里说明要上传那些文件
-        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
-        [formData appendPartWithFileData:data name:@"pic" fileName:@"我的上传" mimeType:@"image/jpeg"];
+//        // 在发送请求之前调用这个block
+//        // 必须要在这里说明要上传那些文件
+//        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+//        [formData appendPartWithFileData:data name:@"pic" fileName:@"我的上传" mimeType:@"image/jpeg"];
+        
+        // 分享多张图片
+        NSArray *images = [self.photosView totalImages];
+
+        for (UIImage * image in images) {
+            NSData *data = UIImageJPEGRepresentation(image, 0.000005);
+            [formData appendPartWithFileData:data name:@"pic" fileName:@"我上传的图片们" mimeType:@"image/jpeg"];
+        }
         
     } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
