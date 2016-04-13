@@ -156,6 +156,15 @@
     [kNotificationCenter addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     
 }
+
+/**
+ *  监听文字录入
+ */
+- (void)textDidChange
+{
+    DLog(@"%@",self.textView.text);
+}
+
 /**
  *  键盘即将显示的时候调用
  */
@@ -186,20 +195,6 @@
         self.composeToolbar.transform = CGAffineTransformIdentity;
     }];
 }
-#pragma mark - scrollView Delegate
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
-{
-    [self.view endEditing:YES];
-}
-
-
-/**
- *  监听文字录入
- */
-- (void)textDidChange
-{
-    DLog(@"%@",self.textView.text);
-}
 
 /**
  *  移除通知观察者
@@ -208,6 +203,14 @@
 {
     [kNotificationCenter removeObserver:self];
 }
+
+
+#pragma mark - scrollView Delegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.view endEditing:YES];
+}
+
 
 
 /**
@@ -238,14 +241,68 @@
  */
 - (void)sendNewWeibo
 {
+    
+    // 0.判断输入内容是否为空
     if ([self.textView.text isEqualToString:@""]) {
         [MBProgressHUD showError:@"未输入要发送的内容哦！"];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [MBProgressHUD hideHUD];
         });
+        
+        return;
+    }
+    
+    
+    // 1.发微博 -- 判断类型
+    if (self.imageView.image) {// 发送有图片的微博
+        [self sendWithImage];
     }else
-    {
+    {   // 发送没有图片的微博
+        [self sendWithoutImage];
+    }
+    
+    // 2.关闭控制器
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    
+}
+/**
+ *  发送有图片的微博
+ */
+- (void)sendWithImage
+{
+    
+    // 1.创建管理者
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [XYAccountTool account].access_token;
+    params[@"status"] = self.textView.text;
+    
+    // 3.发送请求
+    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        // 在发送请求之前调用这个block
+        // 必须要在这里说明要上传那些文件
+        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"我的上传" mimeType:@"image/jpeg"];
+        
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        // 发送成功
+        [MBProgressHUD showSuccess:@"发送成功"];
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        // 发送失败
+        [MBProgressHUD showError:@"发送失败"];
+    }];
+}
+/**
+ *  发送没有图片的微博
+ */
+- (void)sendWithoutImage
+{
         // 1.创建管理者
         AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
         
@@ -264,11 +321,6 @@
             // 发送失败
             [MBProgressHUD showError:@"发送失败"];
         }];
-        
-        
-        // 4.关闭控制器
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
 }
 
 @end
