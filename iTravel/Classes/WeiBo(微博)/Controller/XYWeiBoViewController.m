@@ -9,7 +9,7 @@
 #import "XYWeiBoViewController.h"
 #import "UIBarButtonItem+XY.h"
 #import "XYTitleButton.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
 #import "XYAccountTool.h"
 #import "XYAccount.h"
 #import "MJExtension.h"
@@ -21,6 +21,7 @@
 #import "XYPhoto.h"
 #import "XYTitleButton.h"
 #import "MJRefresh.h"
+#import "XYHttpTool.h"
 
 
 #define titleButtonTagUP -1
@@ -54,18 +55,16 @@
 - (void)setupStatusData
 {
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
     params[@"count"] = @20;
-    
-    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        DLog(@"%@",responseObject);
+
+    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
+        DLog(@"%@",json);
         
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -81,10 +80,10 @@
         
         // 3.加载完数据必须先进行一次数据刷新
         [self.tableView reloadData];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         
     }];
+    
 }
 
 
@@ -103,16 +102,14 @@
 /**.获取用户信息*/
 - (void)setupUserData
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
     params[@"uid"] = @([XYAccountTool account].uid);
     
-    [manager GET:@"https://api.weibo.com/2/users/show.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    [XYHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
         // 1.字典转模型
-        XYUser *user = [XYUser objectWithKeyValues:responseObject];
+        XYUser *user = [XYUser objectWithKeyValues:json];
         
         // 2.设置标题文字
         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
@@ -121,11 +118,10 @@
         XYAccount *account = [XYAccountTool account];
         account.name = user.name;
         [XYAccountTool saveAccount:account];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    } failure:^(NSError *error) {
         
     }];
-
 }
 /**
  *  添加刷新控件
@@ -180,8 +176,10 @@
  */
 - (void)loadMoreData:(MJRefreshFooter *)footer
 {
+    
+    
+    
     // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
@@ -196,12 +194,12 @@
         params[@"max_id"] = @(max_id);
     }
     
-    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
         
-        DLog(@"%@",responseObject);
+        DLog(@"%@",json);
         
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -215,9 +213,9 @@
         // 把新数据放到旧数据之后展示
         // self.statusFrames -- 旧数据
         // statusFrameArray -- 新数据
-//        NSMutableArray *tempArr = [NSMutableArray array];
-//        [tempArr addObjectsFromArray:statusFrameArray];
-//        [tempArr addObjectsFromArray:self.statusFrames];
+        //        NSMutableArray *tempArr = [NSMutableArray array];
+        //        [tempArr addObjectsFromArray:statusFrameArray];
+        //        [tempArr addObjectsFromArray:self.statusFrames];
         
         // 赋值
         [self.statusFrames addObjectsFromArray:statusFrameArray];
@@ -231,12 +229,10 @@
         
         // 5. 给用户一些友好的提示
         //[self showNewStatusCount:statusFrameArray.count];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         
         [footer endRefreshing];
     }];
-
 }
 
 /**
@@ -247,7 +243,6 @@
     DLog(@"==refreshControlStateChange==");
     
     // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
@@ -262,12 +257,11 @@
         params[@"since_id"] = since_id;
     }
     
-    [manager GET:@"https://api.weibo.com/2/statuses/home_timeline.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-        DLog(@"%@",responseObject);
+    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
+        DLog(@"%@",json);
         
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:responseObject[@"statuses"]];
+        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -297,12 +291,12 @@
         
         // 5. 给用户一些友好的提示
         [self showNewStatusCount:statusFrameArray.count];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+
+    } failure:^(NSError *error) {
         
         [header endRefreshing];
     }];
-
+    
 }
 
 /**

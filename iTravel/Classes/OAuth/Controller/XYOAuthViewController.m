@@ -7,11 +7,12 @@
 //  授权页面 -- 加载网页
 
 #import "XYOAuthViewController.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
 #import "XYAccount.h"
 #import "XYTool.h"
 #import "XYAccountTool.h"
 #import "MBProgressHUD+MJ.h"
+#import "XYHttpTool.h"
 
 @interface XYOAuthViewController ()<UIWebViewDelegate>
 
@@ -91,17 +92,16 @@
 
 - (void)requestForAccessToken:(NSString *)code
 {
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    // 1.封装请求参数
-    NSMutableDictionary *parame = [NSMutableDictionary dictionary];
-    parame[@"client_id"] = AppKey;
-    parame[@"client_secret"] = AppSecreat;
-    parame[@"grant_type"] = @"authorization_code";
-    parame[@"code"] = code;
-    parame[@"redirect_uri"] = Redirect_Uri;
     
-    [manager POST:@"https://api.weibo.com/oauth2/access_token" parameters:parame progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    // 1.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"client_id"] = AppKey;
+    params[@"client_secret"] = AppSecreat;
+    params[@"grant_type"] = @"authorization_code";
+    params[@"code"] = code;
+    params[@"redirect_uri"] = Redirect_Uri;
+
+    [XYHttpTool postWithURL:@"https://api.weibo.com/oauth2/access_token" params:params success:^(id json) {
         // 隐藏提示
         [MBProgressHUD hideHUD];
         
@@ -113,22 +113,23 @@
          uid = 5535888309;
          }
          */
-        DLog(@"%@--%@",[responseObject class],responseObject);
+        DLog(@"%@--%@",[json class],json);
         
         // 存储accessToken信息
         // 2.字典转模型
-        XYAccount *account = [XYAccount modelWithDict:responseObject];
+        XYAccount *account = [XYAccount modelWithDict:json];
         
         // 存储账号对象
         [XYAccountTool saveAccount:account];
         // 3.选择控制器新特性\去首页
         [XYTool chooseRootController];
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         DLog(@"%@",error);
         // 隐藏提示
         [MBProgressHUD hideHUD];
     }];
+    
+
 }
 
 

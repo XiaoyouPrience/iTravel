@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		001C8DD51CBC236B00119C27 /* XYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 001C8DD41CBC236B00119C27 /* XYTextView.m */; };
+		003954A11CC0DCB400FE9CE7 /* XYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954A01CC0DCB400FE9CE7 /* XYHttpTool.m */; };
 		003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */; };
 		004A4CC51CBAB96100D4CB82 /* composer_close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBC1CBAB96100D4CB82 /* composer_close.wav */; };
 		004A4CC61CBAB96100D4CB82 /* composer_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBD1CBAB96100D4CB82 /* composer_open.wav */; };
@@ -440,6 +441,8 @@
 /* Begin PBXFileReference section */
 		001C8DD31CBC236B00119C27 /* XYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTextView.h; sourceTree = "<group>"; };
 		001C8DD41CBC236B00119C27 /* XYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTextView.m; sourceTree = "<group>"; };
+		0039549F1CC0DCB400FE9CE7 /* XYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHttpTool.h; sourceTree = "<group>"; };
+		003954A01CC0DCB400FE9CE7 /* XYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHttpTool.m; sourceTree = "<group>"; };
 		003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNewFeatureViewController.h; sourceTree = "<group>"; };
 		003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNewFeatureViewController.m; sourceTree = "<group>"; };
 		004A4CBC1CBAB96100D4CB82 /* composer_close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = composer_close.wav; sourceTree = "<group>"; };
@@ -962,6 +965,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0039549E1CC0DCB400FE9CE7 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				0039549F1CC0DCB400FE9CE7 /* XYHttpTool.h */,
+				003954A01CC0DCB400FE9CE7 /* XYHttpTool.m */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
 		003A4B481CAAF852007DC4EC /* NewFeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
@@ -1770,6 +1782,7 @@
 		00D09C041C95BE6000FAB38B /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				0039549E1CC0DCB400FE9CE7 /* Tool */,
 				00D09C0F1C95CEFB00FAB38B /* Categarys */,
 				00D09C051C95BE6000FAB38B /* AppDelegate.h */,
 				00D09C061C95BE6000FAB38B /* AppDelegate.m */,
@@ -2546,6 +2559,7 @@
 				006034B31CB048EA000067F2 /* XYStatus.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
 				00B426611CBEB1D80024E08D /* XYComposePhotosView.m in Sources */,
+				003954A11CC0DCB400FE9CE7 /* XYHttpTool.m in Sources */,
 				00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */,
 				006035371CB053CB000067F2 /* UIImageView+WebCache.m in Sources */,
 				00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */,

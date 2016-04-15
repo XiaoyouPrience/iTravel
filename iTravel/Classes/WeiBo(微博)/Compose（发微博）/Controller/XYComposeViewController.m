@@ -8,12 +8,13 @@
 
 #import "XYComposeViewController.h"
 #import "XYTextView.h"
-#import "AFNetworking.h"
+//#import "AFNetworking.h"
 #import "XYAccount.h"
 #import "XYAccountTool.h"
 #import "MBProgressHUD+MJ.h"
 #import "XYComposeToolbar.h"
 #import "XYComposePhotosView.h"
+#import "XYHttpTool.h"
 
 @interface XYComposeViewController()<UITextViewDelegate,XYComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) XYTextView *textView;
@@ -294,62 +295,85 @@
 - (void)sendWithImage
 {
     
-    // 1.创建管理者
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    // 2.封装请求参数
+    // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
     params[@"status"] = self.textView.text;
-    
-    // 3.发送请求
-    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-//        // 在发送请求之前调用这个block
-//        // 必须要在这里说明要上传那些文件
-//        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
-//        [formData appendPartWithFileData:data name:@"pic" fileName:@"我的上传" mimeType:@"image/jpeg"];
-        
-        // 分享多张图片
-        NSArray *images = [self.photosView totalImages];
+    // 2.封装文件参数
+    NSMutableArray * formDataArray = [NSMutableArray array];
+    NSArray *images = [self.photosView totalImages];
+    for (UIImage *image in images) {
+        XYFormData *formData = [[XYFormData alloc] init];
+        formData.data = UIImageJPEGRepresentation(image, 0.003);
+        formData.name = @"pic";
+        formData.filename = @"我上传的照片";
+        formData.mimeType = @"image/jpeg";
+        [formDataArray addObject:formData];
+    }
 
-        for (UIImage * image in images) {
-            NSData *data = UIImageJPEGRepresentation(image, 0.000005);
-            [formData appendPartWithFileData:data name:@"pic" fileName:@"我上传的图片们" mimeType:@"image/jpeg"];
-        }
-        
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
+    // 3.发送请求
+    [XYHttpTool postWithURL:@"https://upload.api.weibo.com/2/statuses/upload.json"  params:params formData:formDataArray success:^(id json) {
         // 发送成功
         [MBProgressHUD showSuccess:@"发送成功"];
         
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSError *error) {
         // 发送失败
         [MBProgressHUD showError:@"发送失败"];
     }];
+    
+//    // 1.创建管理者
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    
+//    // 2.封装请求参数
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = [XYAccountTool account].access_token;
+//    params[@"status"] = self.textView.text;
+//    
+//    // 3.发送请求
+//    [manager POST:@"https://upload.api.weibo.com/2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+////        // 在发送请求之前调用这个block
+////        // 必须要在这里说明要上传那些文件
+////        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+////        [formData appendPartWithFileData:data name:@"pic" fileName:@"我的上传" mimeType:@"image/jpeg"];
+//        
+//        // 分享多张图片
+//        NSArray *images = [self.photosView totalImages];
+//
+//        for (UIImage * image in images) {
+//            NSData *data = UIImageJPEGRepresentation(image, 0.000005);
+//            [formData appendPartWithFileData:data name:@"pic" fileName:@"我上传的图片们" mimeType:@"image/jpeg"];
+//        }
+//        
+//    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//        
+//        // 发送成功
+//        [MBProgressHUD showSuccess:@"发送成功"];
+//        
+//    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//        // 发送失败
+//        [MBProgressHUD showError:@"发送失败"];
+//    }];
 }
 /**
  *  发送没有图片的微博
  */
 - (void)sendWithoutImage
 {
-        // 1.创建管理者
-        AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-        
-        // 2.封装请求参数
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
-        params[@"access_token"] = [XYAccountTool account].access_token;
-        params[@"status"] = self.textView.text;
-        
-        // 3.发送请求
-        [manager POST:@"https://api.weibo.com/2/statuses/update.json" parameters:params progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            
-            // 发送成功
-            [MBProgressHUD showSuccess:@"发送成功"];
-            
-        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-            // 发送失败
-            [MBProgressHUD showError:@"发送失败"];
-        }];
+    
+    // 1.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"access_token"] = [XYAccountTool account].access_token;
+    params[@"status"] = self.textView.text;
+
+    // 2.发送请求
+    [XYHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json"params:params success:^(id json) {
+        // 发送成功
+        [MBProgressHUD showSuccess:@"发送成功"];
+
+    } failure:^(NSError *error) {
+        // 发送失败
+        [MBProgressHUD showError:@"发送失败"];
+    }];
 }
 
 @end
