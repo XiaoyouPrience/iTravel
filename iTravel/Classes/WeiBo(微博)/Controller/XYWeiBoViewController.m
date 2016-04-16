@@ -22,6 +22,8 @@
 #import "XYTitleButton.h"
 #import "MJRefresh.h"
 #import "XYHttpTool.h"
+#import "XYStatusTool.h"
+#import "XYHomeStatusesParam.h"
 
 
 #define titleButtonTagUP -1
@@ -54,7 +56,6 @@
  */
 - (void)setupStatusData
 {
-    
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
@@ -172,18 +173,17 @@
 }
 
 /**
- *  发送请求加载更多的微博数据 --- 下拉刷新更多微博数据
+ *  上拉加载更多的微博数据
  */
 - (void)loadMoreData:(MJRefreshFooter *)footer
 {
     
-    
-    
     // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"count"] = @20;
+    // 1.封装请求参数
+    XYHomeStatusesParam *param = [[XYHomeStatusesParam alloc] init];
+    param.access_token = [XYAccountTool account].access_token;
+    param.count = 20;
     
     // 取出目前最新的微博ID来
     if(self.statusFrames.count)
@@ -191,13 +191,11 @@
         XYStatusFrame *statusF = self.statusFrames.lastObject;
         XYStatus *status = statusF.status;
         long long max_id = status.idstr.longLongValue - 1; // 是最后一条数据之前的那一条微博数据
-        params[@"max_id"] = @(max_id);
+        param.max_id = max_id;
     }
     
-    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
-        
-        DLog(@"%@",json);
-        
+    // 2.发送请求
+    [XYStatusTool homeStatusesWithParam:param success:^(id json) {
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
         NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
@@ -210,13 +208,6 @@
             [statusFrameArray addObject:statusFrame];
         }
         
-        // 把新数据放到旧数据之后展示
-        // self.statusFrames -- 旧数据
-        // statusFrameArray -- 新数据
-        //        NSMutableArray *tempArr = [NSMutableArray array];
-        //        [tempArr addObjectsFromArray:statusFrameArray];
-        //        [tempArr addObjectsFromArray:self.statusFrames];
-        
         // 赋值
         [self.statusFrames addObjectsFromArray:statusFrameArray];
         
@@ -226,17 +217,18 @@
         
         // 4.刷新空间停止刷新
         [footer endRefreshing];
-        
-        // 5. 给用户一些友好的提示
-        //[self showNewStatusCount:statusFrameArray.count];
+
+
     } failure:^(NSError *error) {
         
         [footer endRefreshing];
+
     }];
+    
 }
 
 /**
- *  加载新的数据 --- 手动刷新监听的方法
+ *  下拉加载更新的数据 --- 手动刷新监听的方法
  */
 - (void)refreshControlStateChange:(MJRefreshHeader *)header
 {
@@ -244,9 +236,10 @@
     
     // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"count"] = @20;
+    // 1.封装请求参数
+    XYHomeStatusesParam *param = [[XYHomeStatusesParam alloc] init];
+    param.access_token = [XYAccountTool account].access_token;
+    param.count = 20;
     
     // 取出目前最新的微博ID来
     if(self.statusFrames.count)
@@ -254,12 +247,11 @@
         XYStatusFrame *statusF = self.statusFrames[0];
         XYStatus *status = statusF.status;
         NSString *since_id = status.idstr;
-        params[@"since_id"] = since_id;
+        param.since_id = [since_id longLongValue];
     }
     
-    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
-        DLog(@"%@",json);
-        
+    // 2.发送请求
+    [XYStatusTool homeStatusesWithParam:param success:^(id json) {
         // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
         NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
         
@@ -291,10 +283,10 @@
         
         // 5. 给用户一些友好的提示
         [self showNewStatusCount:statusFrameArray.count];
-
     } failure:^(NSError *error) {
         
         [header endRefreshing];
+        
     }];
     
 }
