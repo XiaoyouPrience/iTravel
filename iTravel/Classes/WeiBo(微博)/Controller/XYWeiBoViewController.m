@@ -23,7 +23,11 @@
 #import "MJRefresh.h"
 #import "XYHttpTool.h"
 #import "XYStatusTool.h"
-#import "XYHomeStatusesParam.h"
+//#import "XYHomeStatusesParam.h"
+//#import "XYHomeStatusesResult.h"
+#import "XYUserTool.h"
+//#import "XYUserInfoResult.h"
+//#import "XYUserInfoParam.h"
 
 
 #define titleButtonTagUP -1
@@ -47,7 +51,7 @@
     [self buildUI];
     
     
-    // 2. 加载微博数据
+    // 2. 加载微博数据 ---- 这个可以不用，因为上来直接开启了刷新功能
     [self setupStatusData];
 }
 
@@ -56,16 +60,13 @@
  */
 - (void)setupStatusData
 {
+    XYHomeStatusesParam *param = [[XYHomeStatusesParam alloc] init];
+    param.count = @10;
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"count"] = @20;
-
-    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
-        DLog(@"%@",json);
+    [XYStatusTool homeStatusesWithParam:param success:^(XYHomeStatusesResult *result) {
         
-        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+        // 1.取得返回的数组模型
+        NSArray *statusArray = result.statuses;
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -81,9 +82,39 @@
         
         // 3.加载完数据必须先进行一次数据刷新
         [self.tableView reloadData];
+        
     } failure:^(NSError *error) {
         
     }];
+    
+    
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = [XYAccountTool account].access_token;
+//    params[@"count"] = @20;
+//
+//    [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:params success:^(id json) {
+//        DLog(@"%@",json);
+//        
+//        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型)
+//        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+//        
+//        // 2.创建frame模型对象
+//        NSMutableArray *statusFrameArray = [NSMutableArray array];
+//        for (XYStatus *status in statusArray) {
+//            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
+//            // 传递微博模型数据
+//            statusFrame.status = status;
+//            [statusFrameArray addObject:statusFrame];
+//        }
+//        // 赋值
+//        self.statusFrames = statusFrameArray;
+//        
+//        
+//        // 3.加载完数据必须先进行一次数据刷新
+//        [self.tableView reloadData];
+//    } failure:^(NSError *error) {
+//        
+//    }];
     
 }
 
@@ -104,13 +135,14 @@
 - (void)setupUserData
 {
     
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"uid"] = @([XYAccountTool account].uid);
-    
-    [XYHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
-        // 1.字典转模型
-        XYUser *user = [XYUser objectWithKeyValues:json];
+    // 创建请求参数
+    XYUserInfoParam *param = [[XYUserInfoParam alloc]init];
+    param.uid = @([XYAccountTool account].uid);
+    // 发送请求
+    [XYUserTool userInfoWirhParam:param success:^(XYUserInfoResult *result) {
+        
+        // 这个是返回请求数据的结果，放的直接就是XYUser 模型数据
+        XYUser *user = result;
         
         // 2.设置标题文字
         [self.titleButton setTitle:user.name forState:UIControlStateNormal];
@@ -119,10 +151,33 @@
         XYAccount *account = [XYAccountTool account];
         account.name = user.name;
         [XYAccountTool saveAccount:account];
+        
 
     } failure:^(NSError *error) {
         
     }];
+
+    
+    
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = [XYAccountTool account].access_token;
+//    params[@"uid"] = @([XYAccountTool account].uid);
+//    
+//    [XYHttpTool getWithURL:@"https://api.weibo.com/2/users/show.json" params:params success:^(id json) {
+//        // 1.字典转模型
+//        XYUser *user = [XYUser objectWithKeyValues:json];
+//        
+//        // 2.设置标题文字
+//        [self.titleButton setTitle:user.name forState:UIControlStateNormal];
+//        
+//        // 3.保存用户名称
+//        XYAccount *account = [XYAccountTool account];
+//        account.name = user.name;
+//        [XYAccountTool saveAccount:account];
+//
+//    } failure:^(NSError *error) {
+//        
+//    }];
 }
 /**
  *  添加刷新控件
@@ -183,7 +238,7 @@
     // 1.封装请求参数
     XYHomeStatusesParam *param = [[XYHomeStatusesParam alloc] init];
     param.access_token = [XYAccountTool account].access_token;
-    param.count = 20;
+    param.count = @20;
     
     // 取出目前最新的微博ID来
     if(self.statusFrames.count)
@@ -191,13 +246,13 @@
         XYStatusFrame *statusF = self.statusFrames.lastObject;
         XYStatus *status = statusF.status;
         long long max_id = status.idstr.longLongValue - 1; // 是最后一条数据之前的那一条微博数据
-        param.max_id = max_id;
+        param.max_id = @(max_id);
     }
     
     // 2.发送请求
-    [XYStatusTool homeStatusesWithParam:param success:^(id json) {
-        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+    [XYStatusTool homeStatusesWithParam:param success:^(XYHomeStatusesResult *result) {
+        // 1.获得返回的微博数组
+        NSArray *statusArray = result.statuses;
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -218,12 +273,13 @@
         // 4.刷新空间停止刷新
         [footer endRefreshing];
 
-
+        
     } failure:^(NSError *error) {
         
         [footer endRefreshing];
-
+        
     }];
+    
     
 }
 
@@ -239,7 +295,7 @@
     // 1.封装请求参数
     XYHomeStatusesParam *param = [[XYHomeStatusesParam alloc] init];
     param.access_token = [XYAccountTool account].access_token;
-    param.count = 20;
+    param.count = @20;
     
     // 取出目前最新的微博ID来
     if(self.statusFrames.count)
@@ -247,13 +303,12 @@
         XYStatusFrame *statusF = self.statusFrames[0];
         XYStatus *status = statusF.status;
         NSString *since_id = status.idstr;
-        param.since_id = [since_id longLongValue];
+        param.since_id = @([since_id longLongValue]);
     }
     
     // 2.发送请求
-    [XYStatusTool homeStatusesWithParam:param success:^(id json) {
-        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
-        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+    [XYStatusTool homeStatusesWithParam:param success:^(XYHomeStatusesResult *result) {
+        NSArray *statusArray = result.statuses;
         
         // 2.创建frame模型对象
         NSMutableArray *statusFrameArray = [NSMutableArray array];
@@ -283,11 +338,55 @@
         
         // 5. 给用户一些友好的提示
         [self showNewStatusCount:statusFrameArray.count];
+
+        
     } failure:^(NSError *error) {
         
         [header endRefreshing];
         
     }];
+    
+    
+    
+    
+    
+//    [XYStatusTool homeStatusesWithParam:param success:^(id json) {
+//        // 1.将字典数组转为模型数组(里面放的就是XYStatus模型 --- 但是这次全是新的微博数据)
+//        NSArray *statusArray = [XYStatus objectArrayWithKeyValuesArray:json[@"statuses"]];
+//        
+//        // 2.创建frame模型对象
+//        NSMutableArray *statusFrameArray = [NSMutableArray array];
+//        for (XYStatus *status in statusArray) {
+//            XYStatusFrame *statusFrame = [[XYStatusFrame alloc] init];
+//            // 传递微博模型数据
+//            statusFrame.status = status;
+//            [statusFrameArray addObject:statusFrame];
+//        }
+//        
+//        // 把新数据放到旧数据之前展示
+//        // self.statusFrames -- 旧数据
+//        // statusFrameArray -- 新数据
+//        NSMutableArray *tempArr = [NSMutableArray array];
+//        [tempArr addObjectsFromArray:statusFrameArray];
+//        [tempArr addObjectsFromArray:self.statusFrames];
+//        
+//        // 赋值
+//        self.statusFrames = tempArr;
+//        
+//        
+//        // 3.加载完数据必须先进行一次数据刷新
+//        [self.tableView reloadData];
+//        
+//        // 4.刷新空间停止刷新
+//        [header endRefreshing];
+//        
+//        // 5. 给用户一些友好的提示
+//        [self showNewStatusCount:statusFrameArray.count];
+//    } failure:^(NSError *error) {
+//        
+//        [header endRefreshing];
+//        
+//    }];
     
 }
 

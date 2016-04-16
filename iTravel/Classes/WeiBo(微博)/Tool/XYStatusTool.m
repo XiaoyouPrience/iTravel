@@ -13,17 +13,38 @@
 
 @implementation XYStatusTool
 
-+ (void)homeStatusesWithParam:(XYHomeStatusesParam *)param success:(void (^)(id))success failure:(void (^)(NSError *))failure
++ (void)homeStatusesWithParam:(XYHomeStatusesParam *)param success:(void (^)(XYHomeStatusesResult *))success failure:(void (^)(NSError *))failure
 {
         [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(id json) {
             if (success) {
-                success(json);
+                
+                // 将返回的字典数据封装成 XYHomeStatusesResult 再进行返回
+                XYHomeStatusesResult *result = [XYHomeStatusesResult objectWithKeyValues:json];
+                
+                success(result);
             }
         } failure:^(NSError *error) {
             if (failure) {
                 failure(error);
             }
         }];
+}
+
+
++ (void)sendStatusWithParam:(XYSendStatusParam *)param success:(void (^)(XYSendStatusResult *))success failure:(void (^)(NSError *))failure
+{
+    [XYHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json" params:param.keyValues success:^(id json) {
+        
+        if (success) {
+            XYSendStatusResult *result = [XYSendStatusResult objectWithKeyValues:json];
+            success(result);
+        }
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
 }
 
 @end

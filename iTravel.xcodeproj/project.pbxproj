@@ -13,7 +13,14 @@
 		003954B31CC25A8900FE9CE7 /* XYComposePhotosView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954AD1CC25A8900FE9CE7 /* XYComposePhotosView.m */; };
 		003954B41CC25A8900FE9CE7 /* XYComposeToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954AF1CC25A8900FE9CE7 /* XYComposeToolbar.m */; };
 		003954B51CC25A8900FE9CE7 /* XYTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954B11CC25A8900FE9CE7 /* XYTextView.m */; };
-		003954B81CC25D4800FE9CE7 /* XYHomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954B71CC25D4800FE9CE7 /* XYHomeStatusesParam.m */; };
+		003954BC1CC2757A00FE9CE7 /* XYBaseParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954BB1CC2757A00FE9CE7 /* XYBaseParam.m */; };
+		003954C11CC276BB00FE9CE7 /* XYHomeStatusesParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954BF1CC276BB00FE9CE7 /* XYHomeStatusesParam.m */; };
+		003954C41CC276D700FE9CE7 /* XYHomeStatusesResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954C31CC276D700FE9CE7 /* XYHomeStatusesResult.m */; };
+		003954C71CC277A500FE9CE7 /* XYUserInfoParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954C61CC277A500FE9CE7 /* XYUserInfoParam.m */; };
+		003954CA1CC2780600FE9CE7 /* XYUserInfoResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954C91CC2780600FE9CE7 /* XYUserInfoResult.m */; };
+		003954CD1CC27AFE00FE9CE7 /* XYUserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954CC1CC27AFE00FE9CE7 /* XYUserTool.m */; };
+		003954D01CC29A0000FE9CE7 /* XYSendStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954CF1CC29A0000FE9CE7 /* XYSendStatusParam.m */; };
+		003954D31CC29A7100FE9CE7 /* XYSendStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954D21CC29A7100FE9CE7 /* XYSendStatusResult.m */; };
 		003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */; };
 		004A4CC51CBAB96100D4CB82 /* composer_close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBC1CBAB96100D4CB82 /* composer_close.wav */; };
 		004A4CC61CBAB96100D4CB82 /* composer_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBD1CBAB96100D4CB82 /* composer_open.wav */; };
@@ -453,8 +460,22 @@
 		003954AF1CC25A8900FE9CE7 /* XYComposeToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYComposeToolbar.m; sourceTree = "<group>"; };
 		003954B01CC25A8900FE9CE7 /* XYTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYTextView.h; sourceTree = "<group>"; };
 		003954B11CC25A8900FE9CE7 /* XYTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYTextView.m; sourceTree = "<group>"; };
-		003954B61CC25D4800FE9CE7 /* XYHomeStatusesParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHomeStatusesParam.h; sourceTree = "<group>"; };
-		003954B71CC25D4800FE9CE7 /* XYHomeStatusesParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHomeStatusesParam.m; sourceTree = "<group>"; };
+		003954BA1CC2757A00FE9CE7 /* XYBaseParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYBaseParam.h; sourceTree = "<group>"; };
+		003954BB1CC2757A00FE9CE7 /* XYBaseParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYBaseParam.m; sourceTree = "<group>"; };
+		003954BE1CC276BB00FE9CE7 /* XYHomeStatusesParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHomeStatusesParam.h; sourceTree = "<group>"; };
+		003954BF1CC276BB00FE9CE7 /* XYHomeStatusesParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHomeStatusesParam.m; sourceTree = "<group>"; };
+		003954C21CC276D700FE9CE7 /* XYHomeStatusesResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHomeStatusesResult.h; sourceTree = "<group>"; };
+		003954C31CC276D700FE9CE7 /* XYHomeStatusesResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHomeStatusesResult.m; sourceTree = "<group>"; };
+		003954C51CC277A500FE9CE7 /* XYUserInfoParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserInfoParam.h; sourceTree = "<group>"; };
+		003954C61CC277A500FE9CE7 /* XYUserInfoParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoParam.m; sourceTree = "<group>"; };
+		003954C81CC2780600FE9CE7 /* XYUserInfoResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserInfoResult.h; sourceTree = "<group>"; };
+		003954C91CC2780600FE9CE7 /* XYUserInfoResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserInfoResult.m; sourceTree = "<group>"; };
+		003954CB1CC27AFE00FE9CE7 /* XYUserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserTool.h; sourceTree = "<group>"; };
+		003954CC1CC27AFE00FE9CE7 /* XYUserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserTool.m; sourceTree = "<group>"; };
+		003954CE1CC29A0000FE9CE7 /* XYSendStatusParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSendStatusParam.h; sourceTree = "<group>"; };
+		003954CF1CC29A0000FE9CE7 /* XYSendStatusParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSendStatusParam.m; sourceTree = "<group>"; };
+		003954D11CC29A7100FE9CE7 /* XYSendStatusResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSendStatusResult.h; sourceTree = "<group>"; };
+		003954D21CC29A7100FE9CE7 /* XYSendStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSendStatusResult.m; sourceTree = "<group>"; };
 		003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNewFeatureViewController.h; sourceTree = "<group>"; };
 		003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNewFeatureViewController.m; sourceTree = "<group>"; };
 		004A4CBC1CBAB96100D4CB82 /* composer_close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = composer_close.wav; sourceTree = "<group>"; };
@@ -985,6 +1006,8 @@
 			children = (
 				003954A31CC25A2700FE9CE7 /* XYStatusTool.h */,
 				003954A41CC25A2700FE9CE7 /* XYStatusTool.m */,
+				003954CB1CC27AFE00FE9CE7 /* XYUserTool.h */,
+				003954CC1CC27AFE00FE9CE7 /* XYUserTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1011,6 +1034,10 @@
 		003954AA1CC25A8900FE9CE7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				003954CE1CC29A0000FE9CE7 /* XYSendStatusParam.h */,
+				003954CF1CC29A0000FE9CE7 /* XYSendStatusParam.m */,
+				003954D11CC29A7100FE9CE7 /* XYSendStatusResult.h */,
+				003954D21CC29A7100FE9CE7 /* XYSendStatusResult.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1026,6 +1053,37 @@
 				003954B11CC25A8900FE9CE7 /* XYTextView.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		003954B91CC2753C00FE9CE7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				003954BA1CC2757A00FE9CE7 /* XYBaseParam.h */,
+				003954BB1CC2757A00FE9CE7 /* XYBaseParam.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		003954BD1CC276BB00FE9CE7 /* HomeStatuses */ = {
+			isa = PBXGroup;
+			children = (
+				003954BE1CC276BB00FE9CE7 /* XYHomeStatusesParam.h */,
+				003954BF1CC276BB00FE9CE7 /* XYHomeStatusesParam.m */,
+				003954C21CC276D700FE9CE7 /* XYHomeStatusesResult.h */,
+				003954C31CC276D700FE9CE7 /* XYHomeStatusesResult.m */,
+			);
+			path = HomeStatuses;
+			sourceTree = "<group>";
+		};
+		003954C01CC276BB00FE9CE7 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				003954C51CC277A500FE9CE7 /* XYUserInfoParam.h */,
+				003954C61CC277A500FE9CE7 /* XYUserInfoParam.m */,
+				003954C81CC2780600FE9CE7 /* XYUserInfoResult.h */,
+				003954C91CC2780600FE9CE7 /* XYUserInfoResult.m */,
+			);
+			path = UserInfo;
 			sourceTree = "<group>";
 		};
 		003A4B481CAAF852007DC4EC /* NewFeature(新特性) */ = {
@@ -1195,6 +1253,8 @@
 		00716D421C9D2E040083131E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				003954BD1CC276BB00FE9CE7 /* HomeStatuses */,
+				003954C01CC276BB00FE9CE7 /* UserInfo */,
 				006034B11CB048EA000067F2 /* XYStatus.h */,
 				006034B21CB048EA000067F2 /* XYStatus.m */,
 				006034B41CB049A9000067F2 /* XYUser.h */,
@@ -1203,8 +1263,6 @@
 				006034B81CB04A15000067F2 /* XYStatusFrame.m */,
 				00FD8C791CB2BCF200313C9F /* XYPhoto.h */,
 				00FD8C7A1CB2BCF200313C9F /* XYPhoto.m */,
-				003954B61CC25D4800FE9CE7 /* XYHomeStatusesParam.h */,
-				003954B71CC25D4800FE9CE7 /* XYHomeStatusesParam.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1799,6 +1857,7 @@
 		00D09C041C95BE6000FAB38B /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				003954B91CC2753C00FE9CE7 /* Model */,
 				0039549E1CC0DCB400FE9CE7 /* Tool */,
 				00D09C0F1C95CEFB00FAB38B /* Categarys */,
 				00D09C051C95BE6000FAB38B /* AppDelegate.h */,
@@ -2533,6 +2592,7 @@
 				00FD8C931CB2D60400313C9F /* MJPhotoLoadingView.m in Sources */,
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
 				00A170141CBD74B300D46B2F /* NSString+Extension.m in Sources */,
+				003954D31CC29A7100FE9CE7 /* XYSendStatusResult.m in Sources */,
 				00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */,
 				006034D81CB04B79000067F2 /* NSObject+MJKeyValue.m in Sources */,
 				00955FC11CADB693009405F9 /* MBProgressHUD.m in Sources */,
@@ -2541,18 +2601,20 @@
 				006034B61CB049A9000067F2 /* XYUser.m in Sources */,
 				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
 				006035351CB053CB000067F2 /* UIImage+WebP.m in Sources */,
+				003954BC1CC2757A00FE9CE7 /* XYBaseParam.m in Sources */,
 				006034D41CB04B79000067F2 /* MJMethod.m in Sources */,
 				0060352B1CB053CB000067F2 /* SDImageCache.m in Sources */,
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
-				003954B81CC25D4800FE9CE7 /* XYHomeStatusesParam.m in Sources */,
 				00955FB51CADA70E009405F9 /* XYTool.m in Sources */,
 				006035341CB053CB000067F2 /* UIImage+MultiFormat.m in Sources */,
 				003954A51CC25A2700FE9CE7 /* XYStatusTool.m in Sources */,
 				003954B51CC25A8900FE9CE7 /* XYTextView.m in Sources */,
 				006035361CB053CB000067F2 /* UIImageView+HighlightedWebCache.m in Sources */,
+				003954C11CC276BB00FE9CE7 /* XYHomeStatusesParam.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				006034B91CB04A15000067F2 /* XYStatusFrame.m in Sources */,
+				003954C41CC276D700FE9CE7 /* XYHomeStatusesResult.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
 				006035331CB053CB000067F2 /* UIImage+GIF.m in Sources */,
 				0060352C1CB053CB000067F2 /* SDWebImageCompat.m in Sources */,
@@ -2563,6 +2625,7 @@
 				00FD8C951CB2D60400313C9F /* MJPhotoToolbar.m in Sources */,
 				006034BC1CB04AE8000067F2 /* XYStatusCell.m in Sources */,
 				0060352F1CB053CB000067F2 /* SDWebImageDownloaderOperation.m in Sources */,
+				003954C71CC277A500FE9CE7 /* XYUserInfoParam.m in Sources */,
 				00716D371C9C85CF0083131E /* UIBarButtonItem+XY.m in Sources */,
 				004A4CC91CBAB96100D4CB82 /* MenuLabel.m in Sources */,
 				003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */,
@@ -2570,6 +2633,7 @@
 				00716D471C9D2E040083131E /* XYTitleButton.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
+				003954CD1CC27AFE00FE9CE7 /* XYUserTool.m in Sources */,
 				00955FBF1CADB693009405F9 /* MBProgressHUD+MJ.m in Sources */,
 				00FD8C961CB2D60400313C9F /* MJPhotoView.m in Sources */,
 				00FD8C811CB2D43A00313C9F /* XYPhotoView.m in Sources */,
@@ -2578,6 +2642,7 @@
 				00FD8C7B1CB2BCF200313C9F /* XYPhoto.m in Sources */,
 				006034B31CB048EA000067F2 /* XYStatus.m in Sources */,
 				00D09C0B1C95BE6000FAB38B /* main.m in Sources */,
+				003954CA1CC2780600FE9CE7 /* XYUserInfoResult.m in Sources */,
 				003954B31CC25A8900FE9CE7 /* XYComposePhotosView.m in Sources */,
 				003954A11CC0DCB400FE9CE7 /* XYHttpTool.m in Sources */,
 				00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */,
@@ -2588,6 +2653,7 @@
 				00FD8C991CB2D62100313C9F /* SDWebImageManager+MJ.m in Sources */,
 				00FD8C781CB2B22400313C9F /* XYReweetStatusView.m in Sources */,
 				00FD8C921CB2D60400313C9F /* MJPhotoBrowser.m in Sources */,
+				003954D01CC29A0000FE9CE7 /* XYSendStatusParam.m in Sources */,
 				006035381CB053CB000067F2 /* UIView+WebCacheOperation.m in Sources */,
 				006034D11CB04B79000067F2 /* MJArgument.m in Sources */,
 				006035311CB053CB000067F2 /* SDWebImagePrefetcher.m in Sources */,

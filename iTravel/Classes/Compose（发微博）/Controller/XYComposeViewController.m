@@ -15,6 +15,7 @@
 #import "XYComposeToolbar.h"
 #import "XYComposePhotosView.h"
 #import "XYHttpTool.h"
+#import "XYStatusTool.h"
 
 @interface XYComposeViewController()<UITextViewDelegate,XYComposeToolbarDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 @property (nonatomic,weak) XYTextView *textView;
@@ -295,6 +296,9 @@
 - (void)sendWithImage
 {
     
+    XYSendStatusParam *param = [[XYSendStatusParam alloc] init];
+    param.status = self.textView.text;
+    
     // 1.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"access_token"] = [XYAccountTool account].access_token;
@@ -359,21 +363,34 @@
  */
 - (void)sendWithoutImage
 {
-    
     // 1.封装请求参数
-    NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"access_token"] = [XYAccountTool account].access_token;
-    params[@"status"] = self.textView.text;
-
+    XYSendStatusParam *param = [[XYSendStatusParam alloc] init];
+    param.status = self.textView.text;
+    
     // 2.发送请求
-    [XYHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json"params:params success:^(id json) {
+    [XYStatusTool sendStatusWithParam:param success:^(XYSendStatusResult *result) {
         // 发送成功
         [MBProgressHUD showSuccess:@"发送成功"];
-
     } failure:^(NSError *error) {
         // 发送失败
         [MBProgressHUD showError:@"发送失败"];
     }];
+    
+    
+//    // 1.封装请求参数
+//    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+//    params[@"access_token"] = [XYAccountTool account].access_token;
+//    params[@"status"] = self.textView.text;
+//
+//    // 2.发送请求
+//    [XYHttpTool postWithURL:@"https://api.weibo.com/2/statuses/update.json"params:params success:^(id json) {
+//        // 发送成功
+//        [MBProgressHUD showSuccess:@"发送成功"];
+//
+//    } failure:^(NSError *error) {
+//        // 发送失败
+//        [MBProgressHUD showError:@"发送失败"];
+//    }];
 }
 
 @end
