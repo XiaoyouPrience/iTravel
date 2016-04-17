@@ -73,7 +73,7 @@
  */
 - (void)checkUnreadMessage
 {
-    DLog(@"--------checkUnreadMessage--------");
+//    DLog(@"--------checkUnreadMessage--------");
     
     // 1.请求参数
     XYUserUnreadCountParam *param = [XYUserUnreadCountParam param];
@@ -87,10 +87,24 @@
         
         // 3.2.微博
         self.navVc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.status];
-        DLog(@"%d",result.status);
+//        DLog(@"--------checkUnreadMessage--------%d",result.status);
         
         // 3.3.我
         self.meVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.follower];
+        
+        // 4.设置应用的IconBadgeNumber(所有未读消息的总和)
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = result.messageCount + result.count;
+//        [UIApplication sharedApplication].applicationIconBadgeNumber = 10;
+
+        float version = [[[UIDevice currentDevice] systemVersion] floatValue];
+        
+        if (version >= 8.0) {
+            UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+            [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = result.messageCount + result.count;
+            DLog(@"--------checkUnreadMessage--------%d", result.count);
+        }
+        
     } failure:^(NSError *error) {
         
     }];
