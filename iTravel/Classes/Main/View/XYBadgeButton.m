@@ -28,8 +28,8 @@
     // 字符串赋值用copy
     _badgeValue = [badgeValue copy];
     
-    
-    if (self.badgeValue) {
+    // 监听自己的Value有值 且 数字不为0
+    if (self.badgeValue && [self.badgeValue intValue]!= 0) {
         
         // 有值的时候显示
         self.hidden = NO;

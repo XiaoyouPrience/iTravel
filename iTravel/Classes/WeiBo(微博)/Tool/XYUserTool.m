@@ -32,4 +32,24 @@
     }];
 }
 
++ (void)userUnreadMessageCountWithParam:(XYUserUnreadCountParam *)param success:(void (^)(XYUserUnreadCountResult *))success failure:(void (^)(NSError *))failure{
+    
+    // 发送请求之前需要把传入的请求参数模型转换为字典
+    [XYHttpTool getWithURL:@"https://rm.api.weibo.com/2/remind/unread_count.json" params:param.keyValues success:^(id json) {
+        
+        if (success) {
+            
+            // 因为要返回的数据是XYUserInfoResult * 所以要对返回数据进行封装
+            XYUserUnreadCountResult *result = [XYUserUnreadCountResult objectWithKeyValues:json];
+            
+            success(result);
+        }
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
+
 @end

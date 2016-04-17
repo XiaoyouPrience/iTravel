@@ -10,4 +10,6 @@
 
 @interface XYWeiBoViewController : UITableViewController
 
+- (void)refresh;
+
 @end

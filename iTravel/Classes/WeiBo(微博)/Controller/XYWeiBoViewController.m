@@ -284,11 +284,26 @@
 }
 
 /**
+ *  监听点击自己的时候的刷新
+ */
+- (void)refresh
+{
+    // 当自己BadgeValue不为0的时候
+    if (self.tabBarItem.badgeValue.intValue != 0) {
+        [self refreshControlStateChange:self.tableView.mj_header];
+    }
+    
+}
+
+/**
  *  下拉加载更新的数据 --- 手动刷新监听的方法
  */
 - (void)refreshControlStateChange:(MJRefreshHeader *)header
 {
     DLog(@"==refreshControlStateChange==");
+    
+    // 0.清空未读消息数
+    self.tabBarItem.badgeValue = nil;
     
     // 开始刷新数据，请求最新数据（数据ID必须大于之前的那些）
     

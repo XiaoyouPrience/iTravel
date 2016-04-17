@@ -14,6 +14,9 @@
 #import "UIImage+XY.h"
 #import "XYTabbar.h"
 #import "XYNavigationController.h"
+#import "XYUserTool.h"
+#import "XYAccount.h"
+#import "XYAccountTool.h"
 
 #import "HyPopMenuView.h" // 加号按钮弹出pop效果
 #import "XYComposeViewController.h"
@@ -23,6 +26,12 @@
 @interface XYTabBarViewController ()<XYTabbarDelegate>
 
 @property (nonatomic,weak) XYTabbar *costomTabbar;
+@property (nonatomic, strong)XYMapViewController *mapVC;
+@property (nonatomic, strong)XYWeiBoViewController *navVc;
+@property (nonatomic, strong)XYDiscoverViewController *disVC;
+@property (nonatomic, strong)XYMeViewController *meVC;
+@property (nonatomic, strong)NSTimer *timer;
+
 @end
 
 @implementation XYTabBarViewController
@@ -40,6 +49,10 @@
     // 初始化子控制器
     [self setupChildViewControllers];
     
+    // 3.定时检查更新
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(checkUnreadMessage) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,6 +66,35 @@
         }
     }
     
+}
+
+/**
+ *  定时检查更新
+ */
+- (void)checkUnreadMessage
+{
+    DLog(@"--------checkUnreadMessage--------");
+    
+    // 1.请求参数
+    XYUserUnreadCountParam *param = [XYUserUnreadCountParam param];
+    param.uid = @([XYAccountTool account].uid);
+    
+    // 2.发送请求
+    [XYUserTool userUnreadMessageCountWithParam:param success:^(XYUserUnreadCountResult *result) {
+        // 3.设置badgeValue
+//        // 3.1.地图
+//        self.mapVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.status];
+        
+        // 3.2.微博
+        self.navVc.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.status];
+        DLog(@"%d",result.status);
+        
+        // 3.3.我
+        self.meVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.follower];
+    } failure:^(NSError *error) {
+        
+    }];
+
 }
 
 
@@ -82,24 +124,27 @@
     XYMapViewController *mapVC = [[XYMapViewController alloc] init];
     
     // TabbarItem模型的数据必须先赋值，在后面调用的时候才会有值
-    mapVC.tabBarItem.badgeValue = @"weee";
+//    mapVC.tabBarItem.badgeValue = @"weee";
     mapVC.view.backgroundColor = [UIColor blackColor];
     [self setupChildViewControllers:mapVC title:@"地图" imageName:@"tabbar_home" seletedImageName:@"tabbar_home_selected"];
+    self.mapVC = mapVC;
     
     
     
     XYWeiBoViewController *navVc = [[XYWeiBoViewController alloc] init];
-    navVc.tabBarItem.badgeValue = @"weee";
+//    navVc.tabBarItem.badgeValue = @"weee";
     [self setupChildViewControllers:navVc title:@"微博" imageName:@"tabbar_message_center" seletedImageName:@"tabbar_message_center_selected"];
-    
+    self.navVc = navVc;
+
     
     XYDiscoverViewController *disVC = [[XYDiscoverViewController alloc] init];
-    disVC.tabBarItem.badgeValue = @"1";
+//    disVC.tabBarItem.badgeValue = @"1";
     [self setupChildViewControllers:disVC title:@"发现" imageName:@"tabbar_discover" seletedImageName:@"tabbar_discover_selected"];
-    
+    self.disVC = disVC;
     
     XYMeViewController *meVC = [[XYMeViewController alloc] init];
     [self setupChildViewControllers:meVC title:@"我" imageName:@"tabbar_profile" seletedImageName:@"tabbar_profile_selected"];
+    self.meVC = meVC;
 }
 
 /**
@@ -147,6 +192,11 @@
     
     // 抓取到要去的控制器，跳转
     self.selectedIndex = to;
+    
+    // 当用户点击 微博 的时候调用刷新
+    if (to == 1) {
+        [self.navVc refresh];
+    }
 }
 
 /**
