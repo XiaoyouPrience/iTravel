@@ -23,6 +23,13 @@
 		003954D31CC29A7100FE9CE7 /* XYSendStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954D21CC29A7100FE9CE7 /* XYSendStatusResult.m */; };
 		003954D71CC2ADA800FE9CE7 /* XYUserUnreadCountParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954D61CC2ADA800FE9CE7 /* XYUserUnreadCountParam.m */; };
 		003954DA1CC2ADD400FE9CE7 /* XYUserUnreadCountResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954D91CC2ADD400FE9CE7 /* XYUserUnreadCountResult.m */; };
+		003955171CC487D200FE9CE7 /* XYStatusCacheTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 003955161CC487D200FE9CE7 /* XYStatusCacheTool.m */; };
+		003955241CC488E200FE9CE7 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0039551A1CC488E200FE9CE7 /* FMDatabase.m */; };
+		003955251CC488E200FE9CE7 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0039551C1CC488E200FE9CE7 /* FMDatabaseAdditions.m */; };
+		003955261CC488E200FE9CE7 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0039551E1CC488E200FE9CE7 /* FMDatabasePool.m */; };
+		003955271CC488E200FE9CE7 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 003955201CC488E200FE9CE7 /* FMDatabaseQueue.m */; };
+		003955281CC488E200FE9CE7 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 003955231CC488E200FE9CE7 /* FMResultSet.m */; };
+		0039552A1CC488FD00FE9CE7 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 003955291CC488FD00FE9CE7 /* libsqlite3.tbd */; };
 		003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */; };
 		004A4CC51CBAB96100D4CB82 /* composer_close.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBC1CBAB96100D4CB82 /* composer_close.wav */; };
 		004A4CC61CBAB96100D4CB82 /* composer_open.wav in Resources */ = {isa = PBXBuildFile; fileRef = 004A4CBD1CBAB96100D4CB82 /* composer_open.wav */; };
@@ -482,6 +489,20 @@
 		003954D61CC2ADA800FE9CE7 /* XYUserUnreadCountParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserUnreadCountParam.m; sourceTree = "<group>"; };
 		003954D81CC2ADD400FE9CE7 /* XYUserUnreadCountResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYUserUnreadCountResult.h; sourceTree = "<group>"; };
 		003954D91CC2ADD400FE9CE7 /* XYUserUnreadCountResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYUserUnreadCountResult.m; sourceTree = "<group>"; };
+		003955151CC487D200FE9CE7 /* XYStatusCacheTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYStatusCacheTool.h; sourceTree = "<group>"; };
+		003955161CC487D200FE9CE7 /* XYStatusCacheTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYStatusCacheTool.m; sourceTree = "<group>"; };
+		003955191CC488E200FE9CE7 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0039551A1CC488E200FE9CE7 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0039551B1CC488E200FE9CE7 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0039551C1CC488E200FE9CE7 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0039551D1CC488E200FE9CE7 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		0039551E1CC488E200FE9CE7 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		0039551F1CC488E200FE9CE7 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		003955201CC488E200FE9CE7 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		003955211CC488E200FE9CE7 /* FMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDB.h; sourceTree = "<group>"; };
+		003955221CC488E200FE9CE7 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		003955231CC488E200FE9CE7 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		003955291CC488FD00FE9CE7 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		003A4B4C1CAAF8A8007DC4EC /* XYNewFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYNewFeatureViewController.h; sourceTree = "<group>"; };
 		003A4B4D1CAAF8A8007DC4EC /* XYNewFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYNewFeatureViewController.m; sourceTree = "<group>"; };
 		004A4CBC1CBAB96100D4CB82 /* composer_close.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = composer_close.wav; sourceTree = "<group>"; };
@@ -977,6 +998,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0039552A1CC488FD00FE9CE7 /* libsqlite3.tbd in Frameworks */,
 				7F77B39BAB42654D67305421 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,6 +1036,8 @@
 				003954A41CC25A2700FE9CE7 /* XYStatusTool.m */,
 				003954CB1CC27AFE00FE9CE7 /* XYUserTool.h */,
 				003954CC1CC27AFE00FE9CE7 /* XYUserTool.m */,
+				003955151CC487D200FE9CE7 /* XYStatusCacheTool.h */,
+				003955161CC487D200FE9CE7 /* XYStatusCacheTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1101,6 +1125,24 @@
 				003954D91CC2ADD400FE9CE7 /* XYUserUnreadCountResult.m */,
 			);
 			path = UserUnreadCount;
+			sourceTree = "<group>";
+		};
+		003955181CC488E200FE9CE7 /* fmdb */ = {
+			isa = PBXGroup;
+			children = (
+				003955191CC488E200FE9CE7 /* FMDatabase.h */,
+				0039551A1CC488E200FE9CE7 /* FMDatabase.m */,
+				0039551B1CC488E200FE9CE7 /* FMDatabaseAdditions.h */,
+				0039551C1CC488E200FE9CE7 /* FMDatabaseAdditions.m */,
+				0039551D1CC488E200FE9CE7 /* FMDatabasePool.h */,
+				0039551E1CC488E200FE9CE7 /* FMDatabasePool.m */,
+				0039551F1CC488E200FE9CE7 /* FMDatabaseQueue.h */,
+				003955201CC488E200FE9CE7 /* FMDatabaseQueue.m */,
+				003955211CC488E200FE9CE7 /* FMDB.h */,
+				003955221CC488E200FE9CE7 /* FMResultSet.h */,
+				003955231CC488E200FE9CE7 /* FMResultSet.m */,
+			);
+			path = fmdb;
 			sourceTree = "<group>";
 		};
 		003A4B481CAAF852007DC4EC /* NewFeature(新特性) */ = {
@@ -1344,6 +1386,7 @@
 		00955FB11CADA63B009405F9 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				003955181CC488E200FE9CE7 /* fmdb */,
 				00FD8C821CB2D60400313C9F /* MJPhotoBrowser */,
 				006035071CB053CB000067F2 /* SDWebImage */,
 				006034BD1CB04B79000067F2 /* MJExtension */,
@@ -2073,6 +2116,7 @@
 		802EDF3ACBAFB91C403F8873 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				003955291CC488FD00FE9CE7 /* libsqlite3.tbd */,
 				07AC426721CB7EDC4CE9CE9D /* libPods.a */,
 			);
 			name = Frameworks;
@@ -2618,6 +2662,7 @@
 				006035291CB053CB000067F2 /* MKAnnotationView+WebCache.m in Sources */,
 				006034B61CB049A9000067F2 /* XYUser.m in Sources */,
 				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
+				003955271CC488E200FE9CE7 /* FMDatabaseQueue.m in Sources */,
 				006035351CB053CB000067F2 /* UIImage+WebP.m in Sources */,
 				003954BC1CC2757A00FE9CE7 /* XYBaseParam.m in Sources */,
 				006034D41CB04B79000067F2 /* MJMethod.m in Sources */,
@@ -2632,6 +2677,7 @@
 				003954C11CC276BB00FE9CE7 /* XYHomeStatusesParam.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				006034B91CB04A15000067F2 /* XYStatusFrame.m in Sources */,
+				003955241CC488E200FE9CE7 /* FMDatabase.m in Sources */,
 				003954C41CC276D700FE9CE7 /* XYHomeStatusesResult.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
 				006035331CB053CB000067F2 /* UIImage+GIF.m in Sources */,
@@ -2648,6 +2694,7 @@
 				004A4CC91CBAB96100D4CB82 /* MenuLabel.m in Sources */,
 				003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */,
 				004A4CCA1CBAB96100D4CB82 /* UIColor+ImageGetColor.m in Sources */,
+				003955251CC488E200FE9CE7 /* FMDatabaseAdditions.m in Sources */,
 				00716D471C9D2E040083131E /* XYTitleButton.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
@@ -2666,6 +2713,7 @@
 				00955FB81CADA99E009405F9 /* XYAccountTool.m in Sources */,
 				003954DA1CC2ADD400FE9CE7 /* XYUserUnreadCountResult.m in Sources */,
 				006035371CB053CB000067F2 /* UIImageView+WebCache.m in Sources */,
+				003955261CC488E200FE9CE7 /* FMDatabasePool.m in Sources */,
 				00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */,
 				004A4CC81CBAB96100D4CB82 /* HyPopMenuView.m in Sources */,
 				00FD8B461CB22D9100313C9F /* NSDate+XY.m in Sources */,
@@ -2678,10 +2726,12 @@
 				006035311CB053CB000067F2 /* SDWebImagePrefetcher.m in Sources */,
 				006034D21CB04B79000067F2 /* MJIvar.m in Sources */,
 				0060352A1CB053CB000067F2 /* NSData+ImageContentType.m in Sources */,
+				003955171CC487D200FE9CE7 /* XYStatusCacheTool.m in Sources */,
 				003954D71CC2ADA800FE9CE7 /* XYUserUnreadCountParam.m in Sources */,
 				006034D51CB04B79000067F2 /* MJType.m in Sources */,
 				00F744911C98898C0063504A /* XYBadgeButton.m in Sources */,
 				00FD8C941CB2D60400313C9F /* MJPhotoProgressView.m in Sources */,
+				003955281CC488E200FE9CE7 /* FMResultSet.m in Sources */,
 				006034D31CB04B79000067F2 /* MJMember.m in Sources */,
 				006034D61CB04B79000067F2 /* MJTypeEncoding.m in Sources */,
 				006035321CB053CB000067F2 /* UIButton+WebCache.m in Sources */,
