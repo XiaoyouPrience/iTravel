@@ -139,7 +139,7 @@
     }
     
     // 5.时间 -- 需要每次都计算frame
-    self.timeLabel.text = status.created_at;
+    self.timeLabel.text = status.createdTime;
     //    self.timeLabel.frame = self.statusFrame.timeLabelF;
     CGFloat timeLabelX = self.statusFrame.nameLabelF.origin.x;
     CGFloat timeLabelY = CGRectGetMaxY(self.statusFrame.nameLabelF) + XYStatusCellBorder * 0.5;

@@ -24,6 +24,10 @@
  */
 @property (nonatomic, copy) NSString *created_at;
 /**
+ *  也是微博的创建时间，只是为了配合creat_at使用
+ */
+@property (nonatomic, copy) NSString *createdTime;
+/**
  *  微博的ID
  */
 @property (nonatomic, copy) NSString *idstr;

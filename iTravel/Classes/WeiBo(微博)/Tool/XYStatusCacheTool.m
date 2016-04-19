@@ -12,6 +12,7 @@
 #import "XYAccountTool.h"
 #import "XYAccount.h"
 #import "FMDB.h"
+#import "XYStatus.h" //导入模型头文件
 
 
 @implementation XYStatusCacheTool
@@ -29,39 +30,42 @@ static FMDatabaseQueue *_queue;
     
     // 2.创表
     [_queue inDatabase:^(FMDatabase *db) {
-        [db executeUpdate:@"create table if not exists t_status (id integer primary key autoincrement, access_token text, idstr text, dict blob);"];
+        [db executeUpdate:@"create table if not exists t_status (id integer primary key autoincrement, access_token text, idstr text, status blob);"];
     }];
 }
 
-+ (void)addStatuses:(NSArray *)dictArray
++ (void)addStatuses:(NSArray *)statusArray
 {
-    for (NSDictionary *dict in dictArray) {
-        [self addStatus:dict];
+    for (XYStatus *status in statusArray) {
+        [self addStatus:status];
     }
 }
 
-+ (void)addStatus:(NSDictionary *)dict
++ (void)addStatus:(XYStatus *)status
 {
     [_queue inDatabase:^(FMDatabase *db) {
         // 1.获得需要存储的数据
         NSString *accessToken = [XYAccountTool account].access_token;
-        NSString *idstr = dict[@"idstr"];
-        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
+        NSString *idstr = status.idstr;
+        NSData *data = [NSKeyedArchiver archivedDataWithRootObject:status];  // 这里的意思是Status必须实现Coding协议
         
         // 2.存储数据
-        [db executeUpdate:@"insert into t_status (access_token, idstr, dict) values(?, ? , ?)", accessToken, idstr, data];
+        BOOL isSuccess = [db executeUpdate:@"insert into t_status (access_token, idstr, status) values(?, ? , ?)", accessToken, idstr, data];
+        if (isSuccess) {
+            DLog(@"保存成功");
+        }
     }];
 }
 
 + (NSArray *)statuesWithParam:(XYHomeStatusesParam *)param
 {
     // 1.定义数组
-    __block NSMutableArray *dictArray = nil;
+    __block NSMutableArray *statusArray = nil;
     
     // 2.使用数据库
     [_queue inDatabase:^(FMDatabase *db) {
         // 创建数组
-        dictArray = [NSMutableArray array];
+        statusArray = [NSMutableArray array];
         
         // accessToken
         NSString *accessToken = [XYAccountTool account].access_token;
@@ -76,14 +80,14 @@ static FMDatabaseQueue *_queue;
         }
         
         while (rs.next) {
-            NSData *data = [rs dataForColumn:@"dict"];
-            NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-            [dictArray addObject:dict];
+            NSData *data = [rs dataForColumn:@"status"];
+            XYStatus *status = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            [statusArray addObject:status];
         }
     }];
     
     // 3.返回数据
-    return dictArray;
+    return statusArray;
 }
 
 

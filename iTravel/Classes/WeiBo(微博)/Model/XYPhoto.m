@@ -7,7 +7,10 @@
 //
 
 #import "XYPhoto.h"
+#import "MJExtension.h"
 
 @implementation XYPhoto
+
+MJCodingImplementation
 
 @end

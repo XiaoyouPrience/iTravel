@@ -21,15 +21,16 @@
 + (void)homeStatusesWithParam:(XYHomeStatusesParam *)param success:(void (^)(XYHomeStatusesResult *))success failure:(void (^)(NSError *))failure
 {
     // 1.先从缓存中加载
-    NSArray *dictArray = [XYStatusCacheTool statuesWithParam:param];
-    if (dictArray.count) {
+    NSArray *statusArray = [XYStatusCacheTool statuesWithParam:param];
+    if (statusArray.count) {
         
         // 传递成功回调block
         if (success) {
             XYHomeStatusesResult *result = [[XYHomeStatusesResult alloc] init];
             
             // 封装返回结果 -- 用缓存中找到的数据DictArray
-            result.statuses = [XYStatus objectArrayWithKeyValuesArray:dictArray];
+            result.statuses = statusArray;
+//            result.statuses = [XYStatus objectArrayWithKeyValuesArray:statusArray];
             
             success(result);
         }
@@ -37,14 +38,15 @@
     }else
     {// 2.缓存中没有数据才联网加载
         [XYHttpTool getWithURL:@"https://api.weibo.com/2/statuses/home_timeline.json" params:param.keyValues success:^(id json) {
+   
+#warning 这里必须先缓存再进行回调block。
+            // 将返回的字典数据封装成 XYHomeStatusesResult 再进行返回
+            XYHomeStatusesResult *result = [XYHomeStatusesResult objectWithKeyValues:json];
+            // 拉取新数据先做缓存，存到本地数据库
+            [XYStatusCacheTool addStatuses:result.statuses];
+            
             if (success) {
-                
-                // 拉取新数据先做缓存，存到本地数据库
-                [XYStatusCacheTool addStatuses:json[@"statuses"]];
-                
-                // 将返回的字典数据封装成 XYHomeStatusesResult 再进行返回
-                XYHomeStatusesResult *result = [XYHomeStatusesResult objectWithKeyValues:json];
-                
+                // 调用成功回到进行返回
                 success(result);
             }
         } failure:^(NSError *error) {

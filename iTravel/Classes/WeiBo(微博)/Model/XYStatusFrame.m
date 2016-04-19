@@ -53,8 +53,8 @@
     //@"Mon Apr 04 14:50:39 +0800 2016"
     CGFloat timeLabelX = nameLabelX;
     CGFloat timeLabelY = CGRectGetMaxY(_nameLabelF) + XYStatusCellBorder * 0.5;
-    CGSize timeLabelSize = [status.created_at sizeWithFont:XYStatusTimeFont];
-    DLog(@"%@",status.created_at);
+    CGSize timeLabelSize = [status.createdTime sizeWithFont:XYStatusTimeFont];
+    DLog(@"%@",status.createdTime);
     _timeLabelF = (CGRect){{timeLabelX, timeLabelY}, timeLabelSize};
     
     // 6.来源

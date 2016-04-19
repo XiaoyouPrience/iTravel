@@ -7,7 +7,11 @@
 //
 
 #import "XYUser.h"
+#import "MJExtension.h"
 
 @implementation XYUser
+
+// NSCoding 协议的实现
+MJCodingImplementation
 
 @end

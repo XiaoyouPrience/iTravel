@@ -11,6 +11,7 @@
 #import "MJExtension.h"
 #import "XYPhoto.h"
 
+
 @implementation XYStatus
 
 
@@ -42,7 +43,7 @@
 
 #pragma mark - 这段必须重写，时间是每次需要计算有不同的显示的。
 // 重写时间的Get方法 -- 这里重写以后一定要注意能正常成功返回
-- (NSString *)created_at
+- (NSString *)createdTime
 {
     // _created_at == Fri May 09 16:30:34 +0800 2014
     DLog(@"%@",_created_at);
@@ -82,18 +83,42 @@
 {
     // <a href="http://weibo.com/" rel="nofollow">微博 weibo.com</a>
     
-    DLog(@"%@",source);
-    if (source.length) {
-        unsigned long loc = [source rangeOfString:@">"].location + 1;
-        unsigned long length = [source rangeOfString:@"</"].location - loc;
-        source = [source substringWithRange:NSMakeRange(loc, length)];
-        
-        _source = [NSString stringWithFormat:@"来自%@", source];
-        NSLog(@"----setSource--%@", _source);
-    }else
-    {
-        _source = [NSString stringWithFormat:@"来自未知应用。"];
+    if (source.length > 2) {
+        unsigned long jianLoc = [source rangeOfString:@">"].location;
+        if (jianLoc == NSNotFound) {
+            _source = [source copy];
+        } else {
+            unsigned long loc = jianLoc + 1;
+            unsigned long length = [source rangeOfString:@"</"].location - loc;
+            source = [source substringWithRange:NSMakeRange(loc, length)];
+            
+            _source = [NSString stringWithFormat:@"来自%@", source];
+        }
+//        DLog(@"%@",source);
+//        if (source.length) {
+//            unsigned long loc = [source rangeOfString:@">"].location + 1;
+//            unsigned long length = [source rangeOfString:@"</"].location - loc;
+//            source = [source substringWithRange:NSMakeRange(loc, length)];
+//            
+//            _source = [NSString stringWithFormat:@"来自%@", source];
+//            NSLog(@"----setSource--%@", _source);
+//        }else
+//        {
+//            _source = [NSString stringWithFormat:@"来自未知应用。"];
+//        }
     }
+//    DLog(@"%@",source);
+//    if (source.length) {
+//        unsigned long loc = [source rangeOfString:@">"].location + 1;
+//        unsigned long length = [source rangeOfString:@"</"].location - loc;
+//        source = [source substringWithRange:NSMakeRange(loc, length)];
+//        
+//        _source = [NSString stringWithFormat:@"来自%@", source];
+//        NSLog(@"----setSource--%@", _source);
+//    }else
+//    {
+//        _source = [NSString stringWithFormat:@"来自未知应用。"];
+//    }
     
 }
 
@@ -101,5 +126,6 @@
 //{
 //    
 //}
+MJCodingImplementation
 
 @end
