@@ -41,9 +41,11 @@
 
 /** 表格的边框宽度 */
 #define XYStatusTableBorder 5
+#define XYSettingTableBorder XYStatusTableBorder
 
 /** cell的边框宽度 */
 #define XYStatusCellBorder 10
+#define XYSettingCellMargin 5
 
 #pragma mark --- 相册内部设置
 #define XYPhotoW 70
@@ -61,6 +63,10 @@
 
 // 4.通知中心
 #define kNotificationCenter [NSNotificationCenter defaultCenter]
+
+// 5.userDefault
+#define kUserDefaults [NSUserDefaults standardUserDefaults]
+#define kGlobalBg XYColor(232, 233, 232)
 
 //** 屏幕参数 ***********************************************************************************
 #define ScreenW [UIScreen mainScreen].bounds.size.width

@@ -7,6 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0030F7E11CCFD15E00FF3682 /* XYSettingCheckGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7DD1CCFD15E00FF3682 /* XYSettingCheckGroup.m */; };
+		0030F7E21CCFD15E00FF3682 /* XYSettingGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7DF1CCFD15E00FF3682 /* XYSettingGroup.m */; };
+		0030F7E51CCFD19200FF3682 /* XYSettingItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7E41CCFD19200FF3682 /* XYSettingItem.m */; };
+		0030F7E81CCFD24500FF3682 /* XYSettingArrowItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7E71CCFD24500FF3682 /* XYSettingArrowItem.m */; };
+		0030F7EB1CCFD3A200FF3682 /* XYSettingCheckItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7EA1CCFD3A200FF3682 /* XYSettingCheckItem.m */; };
+		0030F7EE1CCFD42700FF3682 /* XYSettingValueItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7ED1CCFD42700FF3682 /* XYSettingValueItem.m */; };
+		0030F7F11CCFD4CC00FF3682 /* XYSettingLabelItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7F01CCFD4CC00FF3682 /* XYSettingLabelItem.m */; };
+		0030F7F41CCFD61100FF3682 /* XYSettingSwitchItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7F31CCFD61100FF3682 /* XYSettingSwitchItem.m */; };
+		0030F7F71CCFD81F00FF3682 /* XYSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7F61CCFD81F00FF3682 /* XYSettingViewController.m */; };
+		0030F7FB1CCFD92400FF3682 /* XYSettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7FA1CCFD92400FF3682 /* XYSettingCell.m */; };
+		0030F7FE1CCFDA5300FF3682 /* XYBgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F7FD1CCFDA5300FF3682 /* XYBgCell.m */; };
+		0030F8011CCFDD3800FF3682 /* XYSystemSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8001CCFDD3800FF3682 /* XYSystemSettingViewController.m */; };
+		0030F8041CCFDDA500FF3682 /* XYThemeBgViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8031CCFDDA500FF3682 /* XYThemeBgViewController.m */; };
+		0030F8071CCFDDF700FF3682 /* XYCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8061CCFDDF700FF3682 /* XYCheckViewController.m */; };
+		0030F80A1CCFDEB600FF3682 /* XYFontViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8091CCFDEB600FF3682 /* XYFontViewController.m */; };
+		0030F80D1CCFDEF500FF3682 /* XYGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F80C1CCFDEF500FF3682 /* XYGeneralViewController.m */; };
+		0030F8101CCFDF5100FF3682 /* XYIconQualityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F80F1CCFDF5100FF3682 /* XYIconQualityViewController.m */; };
+		0030F8131CCFDFA500FF3682 /* XYLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8121CCFDFA500FF3682 /* XYLanguageViewController.m */; };
+		0030F8161CCFDFE900FF3682 /* XYReadModeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0030F8151CCFDFE900FF3682 /* XYReadModeViewController.m */; };
 		003954A11CC0DCB400FE9CE7 /* XYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954A01CC0DCB400FE9CE7 /* XYHttpTool.m */; };
 		003954A51CC25A2700FE9CE7 /* XYStatusTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954A41CC25A2700FE9CE7 /* XYStatusTool.m */; };
 		003954B21CC25A8900FE9CE7 /* XYComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 003954A91CC25A8900FE9CE7 /* XYComposeViewController.m */; };
@@ -457,6 +476,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0030F7DC1CCFD15E00FF3682 /* XYSettingCheckGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingCheckGroup.h; sourceTree = "<group>"; };
+		0030F7DD1CCFD15E00FF3682 /* XYSettingCheckGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingCheckGroup.m; sourceTree = "<group>"; };
+		0030F7DE1CCFD15E00FF3682 /* XYSettingGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingGroup.h; sourceTree = "<group>"; };
+		0030F7DF1CCFD15E00FF3682 /* XYSettingGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingGroup.m; sourceTree = "<group>"; };
+		0030F7E31CCFD19200FF3682 /* XYSettingItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingItem.h; sourceTree = "<group>"; };
+		0030F7E41CCFD19200FF3682 /* XYSettingItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingItem.m; sourceTree = "<group>"; };
+		0030F7E61CCFD24500FF3682 /* XYSettingArrowItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingArrowItem.h; sourceTree = "<group>"; };
+		0030F7E71CCFD24500FF3682 /* XYSettingArrowItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingArrowItem.m; sourceTree = "<group>"; };
+		0030F7E91CCFD3A200FF3682 /* XYSettingCheckItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingCheckItem.h; sourceTree = "<group>"; };
+		0030F7EA1CCFD3A200FF3682 /* XYSettingCheckItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingCheckItem.m; sourceTree = "<group>"; };
+		0030F7EC1CCFD42700FF3682 /* XYSettingValueItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingValueItem.h; sourceTree = "<group>"; };
+		0030F7ED1CCFD42700FF3682 /* XYSettingValueItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingValueItem.m; sourceTree = "<group>"; };
+		0030F7EF1CCFD4CC00FF3682 /* XYSettingLabelItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingLabelItem.h; sourceTree = "<group>"; };
+		0030F7F01CCFD4CC00FF3682 /* XYSettingLabelItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingLabelItem.m; sourceTree = "<group>"; };
+		0030F7F21CCFD61100FF3682 /* XYSettingSwitchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingSwitchItem.h; sourceTree = "<group>"; };
+		0030F7F31CCFD61100FF3682 /* XYSettingSwitchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingSwitchItem.m; sourceTree = "<group>"; };
+		0030F7F51CCFD81F00FF3682 /* XYSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingViewController.h; sourceTree = "<group>"; };
+		0030F7F61CCFD81F00FF3682 /* XYSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingViewController.m; sourceTree = "<group>"; };
+		0030F7F91CCFD92400FF3682 /* XYSettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSettingCell.h; sourceTree = "<group>"; };
+		0030F7FA1CCFD92400FF3682 /* XYSettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSettingCell.m; sourceTree = "<group>"; };
+		0030F7FC1CCFDA5300FF3682 /* XYBgCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYBgCell.h; sourceTree = "<group>"; };
+		0030F7FD1CCFDA5300FF3682 /* XYBgCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYBgCell.m; sourceTree = "<group>"; };
+		0030F7FF1CCFDD3800FF3682 /* XYSystemSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYSystemSettingViewController.h; sourceTree = "<group>"; };
+		0030F8001CCFDD3800FF3682 /* XYSystemSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYSystemSettingViewController.m; sourceTree = "<group>"; };
+		0030F8021CCFDDA500FF3682 /* XYThemeBgViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThemeBgViewController.h; sourceTree = "<group>"; };
+		0030F8031CCFDDA500FF3682 /* XYThemeBgViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThemeBgViewController.m; sourceTree = "<group>"; };
+		0030F8051CCFDDF700FF3682 /* XYCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYCheckViewController.h; sourceTree = "<group>"; };
+		0030F8061CCFDDF700FF3682 /* XYCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYCheckViewController.m; sourceTree = "<group>"; };
+		0030F8081CCFDEB600FF3682 /* XYFontViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYFontViewController.h; sourceTree = "<group>"; };
+		0030F8091CCFDEB600FF3682 /* XYFontViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYFontViewController.m; sourceTree = "<group>"; };
+		0030F80B1CCFDEF500FF3682 /* XYGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYGeneralViewController.h; sourceTree = "<group>"; };
+		0030F80C1CCFDEF500FF3682 /* XYGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYGeneralViewController.m; sourceTree = "<group>"; };
+		0030F80E1CCFDF5100FF3682 /* XYIconQualityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYIconQualityViewController.h; sourceTree = "<group>"; };
+		0030F80F1CCFDF5100FF3682 /* XYIconQualityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYIconQualityViewController.m; sourceTree = "<group>"; };
+		0030F8111CCFDFA500FF3682 /* XYLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYLanguageViewController.h; sourceTree = "<group>"; };
+		0030F8121CCFDFA500FF3682 /* XYLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYLanguageViewController.m; sourceTree = "<group>"; };
+		0030F8141CCFDFE900FF3682 /* XYReadModeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYReadModeViewController.h; sourceTree = "<group>"; };
+		0030F8151CCFDFE900FF3682 /* XYReadModeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYReadModeViewController.m; sourceTree = "<group>"; };
 		0039549F1CC0DCB400FE9CE7 /* XYHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYHttpTool.h; sourceTree = "<group>"; };
 		003954A01CC0DCB400FE9CE7 /* XYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYHttpTool.m; sourceTree = "<group>"; };
 		003954A31CC25A2700FE9CE7 /* XYStatusTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYStatusTool.h; sourceTree = "<group>"; };
@@ -1020,6 +1077,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0030F7DB1CCFD15E00FF3682 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				0030F7DC1CCFD15E00FF3682 /* XYSettingCheckGroup.h */,
+				0030F7DD1CCFD15E00FF3682 /* XYSettingCheckGroup.m */,
+				0030F7DE1CCFD15E00FF3682 /* XYSettingGroup.h */,
+				0030F7DF1CCFD15E00FF3682 /* XYSettingGroup.m */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		0030F7E01CCFD15E00FF3682 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				0030F7E31CCFD19200FF3682 /* XYSettingItem.h */,
+				0030F7E41CCFD19200FF3682 /* XYSettingItem.m */,
+				0030F7E61CCFD24500FF3682 /* XYSettingArrowItem.h */,
+				0030F7E71CCFD24500FF3682 /* XYSettingArrowItem.m */,
+				0030F7E91CCFD3A200FF3682 /* XYSettingCheckItem.h */,
+				0030F7EA1CCFD3A200FF3682 /* XYSettingCheckItem.m */,
+				0030F7EC1CCFD42700FF3682 /* XYSettingValueItem.h */,
+				0030F7EF1CCFD4CC00FF3682 /* XYSettingLabelItem.h */,
+				0030F7F01CCFD4CC00FF3682 /* XYSettingLabelItem.m */,
+				0030F7ED1CCFD42700FF3682 /* XYSettingValueItem.m */,
+				0030F7F21CCFD61100FF3682 /* XYSettingSwitchItem.h */,
+				0030F7F31CCFD61100FF3682 /* XYSettingSwitchItem.m */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		0030F7F81CCFD91800FF3682 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0030F7F91CCFD92400FF3682 /* XYSettingCell.h */,
+				0030F7FA1CCFD92400FF3682 /* XYSettingCell.m */,
+				0030F7FC1CCFDA5300FF3682 /* XYBgCell.h */,
+				0030F7FD1CCFDA5300FF3682 /* XYBgCell.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		0039549E1CC0DCB400FE9CE7 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -1818,11 +1916,13 @@
 		00D09BE81C95BE4D00FAB38B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				004A4CBB1CBAB96100D4CB82 /* HyPopMenuView */,
 				00D09BE91C95BE4D00FAB38B /* XYTabBarViewController.h */,
 				00D09BEA1C95BE4D00FAB38B /* XYTabBarViewController.m */,
 				00F744921C98E8130063504A /* XYNavigationController.h */,
 				00F744931C98E8130063504A /* XYNavigationController.m */,
-				004A4CBB1CBAB96100D4CB82 /* HyPopMenuView */,
+				0030F7F51CCFD81F00FF3682 /* XYSettingViewController.h */,
+				0030F7F61CCFD81F00FF3682 /* XYSettingViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1830,6 +1930,8 @@
 		00D09BEB1C95BE4D00FAB38B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0030F7DB1CCFD15E00FF3682 /* Group */,
+				0030F7E01CCFD15E00FF3682 /* Item */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1837,6 +1939,7 @@
 		00D09BEC1C95BE4D00FAB38B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0030F7F81CCFD91800FF3682 /* Cell */,
 				00D09C161C95DF1D00FAB38B /* XYTabbar.h */,
 				00D09C171C95DF1D00FAB38B /* XYTabbar.m */,
 				00F744831C95EC9C0063504A /* XYTabbarButton.h */,
@@ -1897,6 +2000,22 @@
 			children = (
 				00D09BF51C95BE4D00FAB38B /* XYMeViewController.h */,
 				00D09BF61C95BE4D00FAB38B /* XYMeViewController.m */,
+				0030F7FF1CCFDD3800FF3682 /* XYSystemSettingViewController.h */,
+				0030F8001CCFDD3800FF3682 /* XYSystemSettingViewController.m */,
+				0030F8021CCFDDA500FF3682 /* XYThemeBgViewController.h */,
+				0030F8031CCFDDA500FF3682 /* XYThemeBgViewController.m */,
+				0030F8051CCFDDF700FF3682 /* XYCheckViewController.h */,
+				0030F8061CCFDDF700FF3682 /* XYCheckViewController.m */,
+				0030F8081CCFDEB600FF3682 /* XYFontViewController.h */,
+				0030F8091CCFDEB600FF3682 /* XYFontViewController.m */,
+				0030F80B1CCFDEF500FF3682 /* XYGeneralViewController.h */,
+				0030F80C1CCFDEF500FF3682 /* XYGeneralViewController.m */,
+				0030F80E1CCFDF5100FF3682 /* XYIconQualityViewController.h */,
+				0030F80F1CCFDF5100FF3682 /* XYIconQualityViewController.m */,
+				0030F8111CCFDFA500FF3682 /* XYLanguageViewController.h */,
+				0030F8121CCFDFA500FF3682 /* XYLanguageViewController.m */,
+				0030F8141CCFDFE900FF3682 /* XYReadModeViewController.h */,
+				0030F8151CCFDFE900FF3682 /* XYReadModeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2646,6 +2765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00FD8C721CB29F7E00313C9F /* XYStatuaToolBar.m in Sources */,
+				0030F7FB1CCFD92400FF3682 /* XYSettingCell.m in Sources */,
 				00FD8C901CB2D60400313C9F /* MJPhoto.m in Sources */,
 				0060352D1CB053CB000067F2 /* SDWebImageDecoder.m in Sources */,
 				006035301CB053CB000067F2 /* SDWebImageManager.m in Sources */,
@@ -2653,30 +2773,38 @@
 				006034D71CB04B79000067F2 /* NSObject+MJCoding.m in Sources */,
 				00FD8C931CB2D60400313C9F /* MJPhotoLoadingView.m in Sources */,
 				00D09BFF1C95BE4D00FAB38B /* XYDiscoverViewController.m in Sources */,
+				0030F8041CCFDDA500FF3682 /* XYThemeBgViewController.m in Sources */,
 				00A170141CBD74B300D46B2F /* NSString+Extension.m in Sources */,
 				003954D31CC29A7100FE9CE7 /* XYSendStatusResult.m in Sources */,
 				00955FAD1CAD7471009405F9 /* XYOAuthViewController.m in Sources */,
 				006034D81CB04B79000067F2 /* NSObject+MJKeyValue.m in Sources */,
 				00955FC11CADB693009405F9 /* MBProgressHUD.m in Sources */,
+				0030F7F71CCFD81F00FF3682 /* XYSettingViewController.m in Sources */,
 				00955FB01CAD9246009405F9 /* XYAccount.m in Sources */,
 				006035291CB053CB000067F2 /* MKAnnotationView+WebCache.m in Sources */,
 				006034B61CB049A9000067F2 /* XYUser.m in Sources */,
 				00F744941C98E8130063504A /* XYNavigationController.m in Sources */,
 				003955271CC488E200FE9CE7 /* FMDatabaseQueue.m in Sources */,
+				0030F8101CCFDF5100FF3682 /* XYIconQualityViewController.m in Sources */,
 				006035351CB053CB000067F2 /* UIImage+WebP.m in Sources */,
 				003954BC1CC2757A00FE9CE7 /* XYBaseParam.m in Sources */,
 				006034D41CB04B79000067F2 /* MJMethod.m in Sources */,
+				0030F8131CCFDFA500FF3682 /* XYLanguageViewController.m in Sources */,
 				0060352B1CB053CB000067F2 /* SDImageCache.m in Sources */,
 				00F744851C95EC9C0063504A /* XYTabbarButton.m in Sources */,
 				00D09C021C95BE4D00FAB38B /* XYMeViewController.m in Sources */,
+				0030F80A1CCFDEB600FF3682 /* XYFontViewController.m in Sources */,
 				00955FB51CADA70E009405F9 /* XYTool.m in Sources */,
 				006035341CB053CB000067F2 /* UIImage+MultiFormat.m in Sources */,
+				0030F7E51CCFD19200FF3682 /* XYSettingItem.m in Sources */,
 				003954A51CC25A2700FE9CE7 /* XYStatusTool.m in Sources */,
 				003954B51CC25A8900FE9CE7 /* XYTextView.m in Sources */,
 				006035361CB053CB000067F2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				003954C11CC276BB00FE9CE7 /* XYHomeStatusesParam.m in Sources */,
 				00D09C0C1C95BE6000FAB38B /* ViewController.m in Sources */,
 				006034B91CB04A15000067F2 /* XYStatusFrame.m in Sources */,
+				0030F7F11CCFD4CC00FF3682 /* XYSettingLabelItem.m in Sources */,
+				0030F80D1CCFDEF500FF3682 /* XYGeneralViewController.m in Sources */,
 				003955241CC488E200FE9CE7 /* FMDatabase.m in Sources */,
 				003954C41CC276D700FE9CE7 /* XYHomeStatusesResult.m in Sources */,
 				00D09C121C95CF1000FAB38B /* UIImage+XY.m in Sources */,
@@ -2685,20 +2813,28 @@
 				00D09C181C95DF1D00FAB38B /* XYTabbar.m in Sources */,
 				00FD8C7E1CB2CF7A00313C9F /* XYPhotosView.m in Sources */,
 				006034D91CB04B79000067F2 /* NSObject+MJMember.m in Sources */,
+				0030F7E11CCFD15E00FF3682 /* XYSettingCheckGroup.m in Sources */,
+				0030F8011CCFDD3800FF3682 /* XYSystemSettingViewController.m in Sources */,
+				0030F7EE1CCFD42700FF3682 /* XYSettingValueItem.m in Sources */,
+				0030F7F41CCFD61100FF3682 /* XYSettingSwitchItem.m in Sources */,
 				00D09C0A1C95BE6000FAB38B /* AppDelegate.m in Sources */,
 				00FD8C951CB2D60400313C9F /* MJPhotoToolbar.m in Sources */,
 				006034BC1CB04AE8000067F2 /* XYStatusCell.m in Sources */,
 				0060352F1CB053CB000067F2 /* SDWebImageDownloaderOperation.m in Sources */,
 				003954C71CC277A500FE9CE7 /* XYUserInfoParam.m in Sources */,
+				0030F7EB1CCFD3A200FF3682 /* XYSettingCheckItem.m in Sources */,
 				00716D371C9C85CF0083131E /* UIBarButtonItem+XY.m in Sources */,
 				004A4CC91CBAB96100D4CB82 /* MenuLabel.m in Sources */,
 				003A4B4E1CAAF8A8007DC4EC /* XYNewFeatureViewController.m in Sources */,
 				004A4CCA1CBAB96100D4CB82 /* UIColor+ImageGetColor.m in Sources */,
 				003955251CC488E200FE9CE7 /* FMDatabaseAdditions.m in Sources */,
+				0030F7E21CCFD15E00FF3682 /* XYSettingGroup.m in Sources */,
 				00716D471C9D2E040083131E /* XYTitleButton.m in Sources */,
 				00D09C011C95BE4D00FAB38B /* XYMapViewController.m in Sources */,
 				00716D461C9D2E040083131E /* XYWeiBoViewController.m in Sources */,
+				0030F7E81CCFD24500FF3682 /* XYSettingArrowItem.m in Sources */,
 				003954CD1CC27AFE00FE9CE7 /* XYUserTool.m in Sources */,
+				0030F7FE1CCFDA5300FF3682 /* XYBgCell.m in Sources */,
 				00955FBF1CADB693009405F9 /* MBProgressHUD+MJ.m in Sources */,
 				00FD8C961CB2D60400313C9F /* MJPhotoView.m in Sources */,
 				00FD8C811CB2D43A00313C9F /* XYPhotoView.m in Sources */,
@@ -2716,8 +2852,10 @@
 				003955261CC488E200FE9CE7 /* FMDatabasePool.m in Sources */,
 				00716D3A1C9C90B40083131E /* XYSearchBar.m in Sources */,
 				004A4CC81CBAB96100D4CB82 /* HyPopMenuView.m in Sources */,
+				0030F8161CCFDFE900FF3682 /* XYReadModeViewController.m in Sources */,
 				00FD8B461CB22D9100313C9F /* NSDate+XY.m in Sources */,
 				00FD8C991CB2D62100313C9F /* SDWebImageManager+MJ.m in Sources */,
+				0030F8071CCFDDF700FF3682 /* XYCheckViewController.m in Sources */,
 				00FD8C781CB2B22400313C9F /* XYReweetStatusView.m in Sources */,
 				00FD8C921CB2D60400313C9F /* MJPhotoBrowser.m in Sources */,
 				003954D01CC29A0000FE9CE7 /* XYSendStatusParam.m in Sources */,

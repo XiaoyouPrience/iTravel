@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XYSettingViewController.h"
 
-@interface XYMeViewController : UITableViewController
+@interface XYMeViewController : XYSettingViewController
 
 @end
